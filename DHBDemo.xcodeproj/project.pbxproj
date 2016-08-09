@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BF1114471D596EA100C60804 /* DHBSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1114461D596EA100C60804 /* DHBSDK.m */; };
-		BF11144A1D596EC100C60804 /* DHBSDKConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1114491D596EC100C60804 /* DHBSDKConfiguration.m */; };
 		BF526B8E1D537E3B00E11FD1 /* INTULocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B8A1D537E3B00E11FD1 /* INTULocationManager.m */; };
 		BF526B8F1D537E3B00E11FD1 /* INTULocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B8C1D537E3B00E11FD1 /* INTULocationRequest.m */; };
 		BF526B921D537E5F00E11FD1 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B911D537E5F00E11FD1 /* City.m */; };
@@ -111,8 +110,6 @@
 /* Begin PBXFileReference section */
 		BF1114451D596EA100C60804 /* DHBSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDK.h; sourceTree = "<group>"; };
 		BF1114461D596EA100C60804 /* DHBSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDK.m; sourceTree = "<group>"; };
-		BF1114481D596EC100C60804 /* DHBSDKConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKConfiguration.h; sourceTree = "<group>"; };
-		BF1114491D596EC100C60804 /* DHBSDKConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKConfiguration.m; sourceTree = "<group>"; };
 		BF526B891D537E3B00E11FD1 /* INTULocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationManager.h; sourceTree = "<group>"; };
 		BF526B8A1D537E3B00E11FD1 /* INTULocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTULocationManager.m; sourceTree = "<group>"; };
 		BF526B8B1D537E3B00E11FD1 /* INTULocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationRequest.h; sourceTree = "<group>"; };
@@ -676,8 +673,6 @@
 		BFA147121D532F23008DE524 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				BF1114481D596EC100C60804 /* DHBSDKConfiguration.h */,
-				BF1114491D596EC100C60804 /* DHBSDKConfiguration.m */,
 				BFA147131D532F35008DE524 /* CommonTmp.h */,
 				BF526BEE1D546EEC00E11FD1 /* Commondef.h */,
 				BF1114451D596EA100C60804 /* DHBSDK.h */,
@@ -812,7 +807,6 @@
 				BFA146B61D532719008DE524 /* AFURLSessionManager.m in Sources */,
 				BFA146EB1D532CB0008DE524 /* DHBHotCategoryView.m in Sources */,
 				BFA146B31D532719008DE524 /* AFURLConnectionOperation.m in Sources */,
-				BF11144A1D596EC100C60804 /* DHBSDKConfiguration.m in Sources */,
 				BFA146E21D532BBE008DE524 /* NSDictionary+DHBSignature.m in Sources */,
 				BF526B921D537E5F00E11FD1 /* City.m in Sources */,
 				BFA146F41D532CF2008DE524 /* ServicesItem.m in Sources */,

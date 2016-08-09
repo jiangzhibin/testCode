@@ -29,7 +29,7 @@ static NSInteger CACHE_INTERVAL_DAY = 10;
   
   CLLocationCoordinate2D  coordinate = [CurrentLocation currentCoordinate];
   NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                              [DHBSDKConfiguration shareInstance].cityId, kCITY_ID ,
+                              [YuloreApiManager sharedYuloreApiManager].cityId, kCITY_ID ,
                               //aCategoryItem.categoryID, CAT_ID,
                               @"20", kNUMBER,
                               @"0", kSTART ,

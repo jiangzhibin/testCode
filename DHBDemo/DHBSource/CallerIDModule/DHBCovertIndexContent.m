@@ -57,7 +57,7 @@
 }
 
 - (void)loadHotCategoryNumbersComplete:(void(^)(NSDictionary *hotTeleNumberList))completeBlock {
-    [[CategoryFetcer sharedCategoryFetcer] categoriesWithCityID:[DHBSDKConfiguration shareInstance].cityId loadFromSandboxCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
+    [[CategoryFetcer sharedCategoryFetcer] categoriesWithCityID:[YuloreApiManager sharedYuloreApiManager].cityId loadFromSandboxCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
         NSMutableArray *categoryItems = [NSMutableArray new];
         [categoryItems addObjectsFromArray:allHotCategories];
         [categoryItems addObjectsFromArray:allLocalServices];

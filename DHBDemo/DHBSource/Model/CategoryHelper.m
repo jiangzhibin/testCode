@@ -71,7 +71,7 @@ SINGLETON_GCD(CategoryHelper);
 
 
 - (NSDictionary *)dictionaryDataFromFile {
-  NSData *arrayData  = [NSData dataWithContentsOfFile:[NSString pathForCategoryDataFileWithCityID:[DHBSDKConfiguration shareInstance].cityId]];
+  NSData *arrayData  = [NSData dataWithContentsOfFile:[NSString pathForCategoryDataFileWithCityID:[YuloreApiManager sharedYuloreApiManager].cityId]];
   if ([arrayData length] < 1024) {
     arrayData  = [NSData dataWithContentsOfFile:[NSString pathForOriginalCategoryDataFile]];
   }
@@ -83,7 +83,7 @@ SINGLETON_GCD(CategoryHelper);
   return results;
 }
 - (NSArray *)arrayDataFromFile:(NSString *)key {
-  NSData *arrayData  = [NSData dataWithContentsOfFile:[NSString pathForCategoryDataFileWithCityID:[DHBSDKConfiguration shareInstance].cityId]];
+  NSData *arrayData  = [NSData dataWithContentsOfFile:[NSString pathForCategoryDataFileWithCityID:[YuloreApiManager sharedYuloreApiManager].cityId]];
   if ([arrayData length] < 1024) {
     arrayData  = [NSData dataWithContentsOfFile:[NSString pathForOriginalCategoryDataFile]];
   }
@@ -197,7 +197,7 @@ SINGLETON_GCD(CategoryHelper);
   Reachability *reach = [Reachability reachabilityWithHostName:kHost];
   if ([reach isReachable]) {
     
-      NSString *cityID = [DHBSDKConfiguration shareInstance].cityId;
+      NSString *cityID = [YuloreApiManager sharedYuloreApiManager].cityId;
     if (cityID == nil) {
       // memoryBlock([self dictionaryDataFromFile]);
     }

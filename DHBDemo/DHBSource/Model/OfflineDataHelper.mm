@@ -228,7 +228,7 @@ using namespace std;
 }
 
 + (NSString *)dataFilePath:(DataFileType)type {
-  NSString *cityid = [DHBSDKConfiguration shareInstance].cityId;
+  NSString *cityid = [YuloreApiManager sharedYuloreApiManager].cityId;
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
   NSString *documentDirectory = [paths objectAtIndex:0];
   NSString *dbPath = nil;
@@ -409,7 +409,7 @@ using namespace std;
 
 + (NSMutableArray *)headerArray {
   
-  NSString *currentSelectedCityID = [DHBSDKConfiguration shareInstance].cityId;
+  NSString *currentSelectedCityID = [YuloreApiManager sharedYuloreApiManager].cityId;
   NSString *filePath = [[self cacheDir] stringByAppendingFormat:@"/d%@_id.json",currentSelectedCityID];
   NSString *pinyinIndexJsonFilePath =filePath;
   
@@ -435,7 +435,7 @@ using namespace std;
 
 + (NSMutableArray *)pinyinIndexFileOffsetArray {
   NSMutableArray *offsetArray = [[NSMutableArray alloc] init];
-  NSInteger headerOffset = [self headerPinyinIndexFileOffset:[DHBSDKConfiguration shareInstance].cityId];
+  NSInteger headerOffset = [self headerPinyinIndexFileOffset:[YuloreApiManager sharedYuloreApiManager].cityId];
   
   NSMutableArray *headerArray = [self headerArray];
   NSInteger count = [headerArray count];
@@ -719,7 +719,7 @@ using namespace std;
   NSMutableArray *pinyinIndexArray = [NSMutableArray array];
   
   NSData *decompressedData = [NSData data];
-  NSString *currentSelectedCityID = [DHBSDKConfiguration shareInstance].cityId;
+  NSString *currentSelectedCityID = [YuloreApiManager sharedYuloreApiManager].cityId;
   //fclose(fp);
   NSMutableArray *offsetArray = [self pinyinIndexFileOffsetArray];
   NSMutableArray *gzipLengthArray = [self pinyinGzipFileLengthArray];

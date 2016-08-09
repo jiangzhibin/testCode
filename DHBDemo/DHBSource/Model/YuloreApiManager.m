@@ -1,9 +1,9 @@
 //
-//  YuloreApiManager.m
-//  DianHuaBangSDK
+//  YuloreApiManager.h
+//  DHBDemo
 //
-//  Created by Zhang Heyin on 14-4-22.
-//  Copyright (c) 2014年 com.yulore. All rights reserved.
+//  Created by 蒋兵兵 on 16/8/8.
+//  Copyright © 2016年 蒋兵兵. All rights reserved.
 //
 
 #import "YuloreApiManager.h"
