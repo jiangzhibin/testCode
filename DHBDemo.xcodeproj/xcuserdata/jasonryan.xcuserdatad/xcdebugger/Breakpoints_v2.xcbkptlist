@@ -40,13 +40,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/Vender/minizip/YuloreZipArchive.m"
-            timestampString = "492081486.783646"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492420778.82796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "-UnzipFileTo:overWrite:"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "-cache:withCityID:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

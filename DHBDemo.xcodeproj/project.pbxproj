@@ -75,7 +75,6 @@
 		BFA146E21D532BBE008DE524 /* NSDictionary+DHBSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146E11D532BBE008DE524 /* NSDictionary+DHBSignature.m */; };
 		BFA146E51D532BD9008DE524 /* ResolveDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146E41D532BD9008DE524 /* ResolveDataFile.m */; };
 		BFA146E81D532C16008DE524 /* YP_ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146E71D532C16008DE524 /* YP_ASIDataDecompressor.m */; };
-		BFA146EB1D532CB0008DE524 /* DHBHotCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146EA1D532CB0008DE524 /* DHBHotCategoryView.m */; };
 		BFA146EE1D532CCE008DE524 /* CategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146ED1D532CCE008DE524 /* CategoryItem.m */; };
 		BFA146F41D532CF2008DE524 /* ServicesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146F31D532CF2008DE524 /* ServicesItem.m */; };
 		BFA146F71D532D0A008DE524 /* NearbyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146F61D532D0A008DE524 /* NearbyItem.m */; };
@@ -239,8 +238,6 @@
 		BFA146E41D532BD9008DE524 /* ResolveDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResolveDataFile.m; sourceTree = "<group>"; };
 		BFA146E61D532C16008DE524 /* YP_ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YP_ASIDataDecompressor.h; sourceTree = "<group>"; };
 		BFA146E71D532C16008DE524 /* YP_ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YP_ASIDataDecompressor.m; sourceTree = "<group>"; };
-		BFA146E91D532CB0008DE524 /* DHBHotCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBHotCategoryView.h; sourceTree = "<group>"; };
-		BFA146EA1D532CB0008DE524 /* DHBHotCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBHotCategoryView.m; sourceTree = "<group>"; };
 		BFA146EC1D532CCE008DE524 /* CategoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryItem.h; sourceTree = "<group>"; };
 		BFA146ED1D532CCE008DE524 /* CategoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryItem.m; sourceTree = "<group>"; };
 		BFA146F21D532CF2008DE524 /* ServicesItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesItem.h; sourceTree = "<group>"; };
@@ -508,8 +505,6 @@
 				BFA1464B1D5323DE008DE524 /* DHBDataFetcher.m */,
 				BFA1464C1D5323DE008DE524 /* DHBDownloadFetcher.h */,
 				BFA1464D1D5323DE008DE524 /* DHBDownloadFetcher.m */,
-				BFA146E91D532CB0008DE524 /* DHBHotCategoryView.h */,
-				BFA146EA1D532CB0008DE524 /* DHBHotCategoryView.m */,
 				BFA146EC1D532CCE008DE524 /* CategoryItem.h */,
 				BFA146ED1D532CCE008DE524 /* CategoryItem.m */,
 				BFA1464E1D5323DE008DE524 /* DHBUpdateItem.h */,
@@ -805,7 +800,6 @@
 				BFA146E51D532BD9008DE524 /* ResolveDataFile.m in Sources */,
 				BF526C051D54762D00E11FD1 /* ioapi.c in Sources */,
 				BFA146B61D532719008DE524 /* AFURLSessionManager.m in Sources */,
-				BFA146EB1D532CB0008DE524 /* DHBHotCategoryView.m in Sources */,
 				BFA146B31D532719008DE524 /* AFURLConnectionOperation.m in Sources */,
 				BFA146E21D532BBE008DE524 /* NSDictionary+DHBSignature.m in Sources */,
 				BF526B921D537E5F00E11FD1 /* City.m in Sources */,

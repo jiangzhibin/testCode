@@ -36,6 +36,7 @@
 - (IBAction)downloadAction:(id)sender {
     [YuloreApiManager sharedYuloreApiManager].apiKey = APIKEY_Download;
     [YuloreApiManager sharedYuloreApiManager].signature = APISIG2;
+    [YuloreApiManager sharedYuloreApiManager].cityId = @"2";
     
     DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
     //DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
