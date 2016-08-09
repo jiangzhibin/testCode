@@ -387,7 +387,7 @@
   int partIndex = 0; //000 010 010 这种的 782的
   
   long partPostionStart = 0;
-    long tempPhoneNumber=0;
+  long long tempPhoneNumber=0;
   while (i  <= range.length  ) {
     i++;
     partByteLen++;
@@ -467,7 +467,7 @@
     }
 }
 
--(NSString *) buildPhoneNumberWithKey:(NSString*)key numberOffset:(long)offset phoneNumberLength:(long)length {
+-(NSString *) buildPhoneNumberWithKey:(NSString*)key numberOffset:(long long)offset phoneNumberLength:(long)length {
     @autoreleasepool {
         NSString * phoneNumberOffset=[[NSString alloc] initWithFormat:@"%ld",offset];
         //        NSLog(@"PAD: %ld %@ %@ %ld",length-[phoneNumberOffset length]-[key length],key,phoneNumberOffset,length);

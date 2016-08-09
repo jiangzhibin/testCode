@@ -12,6 +12,7 @@
 #import "DHBDataFetcher.h"
 #import "DHBCovertIndexContent.h"
 #import "YuloreApiManager.h"
+#import "YuloreAPI.h"
 @interface ViewController ()
 
 @end
@@ -38,36 +39,44 @@
     [YuloreApiManager sharedYuloreApiManager].signature = APISIG2;
     [YuloreApiManager sharedYuloreApiManager].cityId = @"2";
     
-    DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
-    //DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
     
-    [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
-        DHBUpdateItem *updateItem = [deltaPackageList firstObject];
-        if (updateItem == nil) {
-            return ;
-        }
-        [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:downloadType updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
-            NSLog(@"下载进度:%f totalBytes:%lld",progress,totalBytes);
-        } completionHandler:^(BOOL retry, NSError *error) {
-            NSLog(@"下载完成操作完成,error:%@",error);
-            if (error) {
-                NSLog(@"下载失败");
+    
+    [YuloreApiManager registerApp:APIKEY_Download signature:APISIG2 completionBlock:^(NSError *error) {
+        DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
+        //DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
+        
+        [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
+            DHBUpdateItem *updateItem = [deltaPackageList firstObject];
+            if (updateItem == nil) {
                 return ;
             }
-            
-            
-            [[DHBCovertIndexContent sharedInstance] needReload];
-            
-            dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.dataloader", 0);
-            dispatch_async(q, ^{
-                [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
-                    NSLog(@"\n\n\nreadDataFromFile:\n%f",progress);
-                } completionHandler:^(NSError *error) {
-                    ;
-                }];
-            });
+            [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:downloadType updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
+                NSLog(@"下载进度:%f totalBytes:%lld",progress,totalBytes);
+            } completionHandler:^(BOOL retry, NSError *error) {
+                NSLog(@"下载完成操作完成,error:%@",error);
+                if (error) {
+                    NSLog(@"下载失败");
+                    return ;
+                }
+                
+                
+                [[DHBCovertIndexContent sharedInstance] needReload];
+                
+                dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.dataloader", 0);
+                dispatch_async(q, ^{
+                    [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
+                        NSLog(@"\n\n\nreadDataFromFile:\n%f",progress);
+                    } completionHandler:^(NSError *error) {
+                        ;
+                    }];
+                });
+            }];
         }];
     }];
+    
+    
+    
+    
 }
 
 

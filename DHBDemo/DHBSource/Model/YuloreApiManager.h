@@ -30,4 +30,8 @@ typedef NS_ENUM(NSInteger,DownloadNetworkType) {
 
 + (instancetype)sharedYuloreApiManager;
 
++ (BOOL) registerApp:(NSString *)apikey
+           signature:(NSString *)signature
+     completionBlock:(void (^)(NSError *error) )completionBlock;
+
 @end

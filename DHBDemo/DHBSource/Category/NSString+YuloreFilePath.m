@@ -30,13 +30,6 @@
   return [self pathForDirectory:NSLibraryDirectory domainMask:NSUserDomainMask];
 }
 
-+ (NSString *)pathForFavoriteHelperCachesDirectory {
-  return [[self pathForLibraryDirectory] stringByAppendingString:@"/Caches/Favorite/"];
-}
-+ (NSString *)pathForResolveCachesDirectory {
-  return [[self pathForLibraryDirectory] stringByAppendingString:@"/Caches/Resolve/"];
-}
-
 + (NSString *)pathForUserPathHelperCachesDirectory {
   return [[self pathForLibraryDirectory] stringByAppendingString:@"/Caches/UserPath/"];
 }
