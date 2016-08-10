@@ -62,10 +62,12 @@
         [categoryItems addObjectsFromArray:allLocalServices];
         completeBlock([self getHotTelNumberListWithCategoryItems:categoryItems]);
     } updateFromServerCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
+        /*
         NSMutableArray *categoryItems = [NSMutableArray new];
         [categoryItems addObjectsFromArray:allHotCategories];
         [categoryItems addObjectsFromArray:allLocalServices];
         completeBlock([self getHotTelNumberListWithCategoryItems:categoryItems]);
+         */
     }];
 
 }

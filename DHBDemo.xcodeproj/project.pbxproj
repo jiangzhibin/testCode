@@ -30,6 +30,8 @@
 		BF526C071D54762D00E11FD1 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BF526BFF1D54762D00E11FD1 /* unzip.c */; };
 		BF526C081D54762D00E11FD1 /* YuloreZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526C021D54762D00E11FD1 /* YuloreZipArchive.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF526C091D54762D00E11FD1 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = BF526C031D54762D00E11FD1 /* zip.c */; };
+		BF5307E51D5AC7AA000901F9 /* 0_mtyF_full.zip in Resources */ = {isa = PBXBuildFile; fileRef = BF5307E31D5AC7AA000901F9 /* 0_mtyF_full.zip */; };
+		BF5307E61D5AC7AA000901F9 /* service_icon.zip in Resources */ = {isa = PBXBuildFile; fileRef = BF5307E41D5AC7AA000901F9 /* service_icon.zip */; };
 		BFA1461F1D53222D008DE524 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1461E1D53222D008DE524 /* main.m */; };
 		BFA146221D53222D008DE524 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146211D53222D008DE524 /* AppDelegate.m */; };
 		BFA146251D53222D008DE524 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146241D53222D008DE524 /* ViewController.m */; };
@@ -105,13 +107,6 @@
 		BFA147501D533897008DE524 /* CityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1474F1D533897008DE524 /* CityHelper.m */; };
 		BFA147531D5338AA008DE524 /* CurrentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147521D5338AA008DE524 /* CurrentLocation.m */; };
 		BFFB50411D59CB8C00C3C1AA /* YuloreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFB50401D59CB8C00C3C1AA /* YuloreAPI.m */; };
-		BFFB504C1D59DEB200C3C1AA /* c0.json in Resources */ = {isa = PBXBuildFile; fileRef = BFFB50451D59DEB200C3C1AA /* c0.json */; };
-		BFFB504D1D59DEB200C3C1AA /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = BFFB50461D59DEB200C3C1AA /* city.json */; };
-		BFFB504E1D59DEB200C3C1AA /* d0.dat in Resources */ = {isa = PBXBuildFile; fileRef = BFFB50471D59DEB200C3C1AA /* d0.dat */; };
-		BFFB504F1D59DEB200C3C1AA /* d0_ic.dat in Resources */ = {isa = PBXBuildFile; fileRef = BFFB50481D59DEB200C3C1AA /* d0_ic.dat */; };
-		BFFB50501D59DEB200C3C1AA /* d0_id.dat in Resources */ = {isa = PBXBuildFile; fileRef = BFFB50491D59DEB200C3C1AA /* d0_id.dat */; };
-		BFFB50511D59DEB200C3C1AA /* d0_it.dat in Resources */ = {isa = PBXBuildFile; fileRef = BFFB504A1D59DEB200C3C1AA /* d0_it.dat */; };
-		BFFB50521D59DEB200C3C1AA /* service_icon.zip in Resources */ = {isa = PBXBuildFile; fileRef = BFFB504B1D59DEB200C3C1AA /* service_icon.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +153,8 @@
 		BF526C021D54762D00E11FD1 /* YuloreZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuloreZipArchive.m; sourceTree = "<group>"; };
 		BF526C031D54762D00E11FD1 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
 		BF526C041D54762D00E11FD1 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		BF5307E31D5AC7AA000901F9 /* 0_mtyF_full.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 0_mtyF_full.zip; sourceTree = "<group>"; };
+		BF5307E41D5AC7AA000901F9 /* service_icon.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = service_icon.zip; sourceTree = "<group>"; };
 		BFA1461A1D53222D008DE524 /* DHBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DHBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA1461E1D53222D008DE524 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BFA146201D53222D008DE524 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -310,13 +307,6 @@
 		BFA147521D5338AA008DE524 /* CurrentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLocation.m; sourceTree = "<group>"; };
 		BFFB503F1D59CB8C00C3C1AA /* YuloreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreAPI.h; sourceTree = "<group>"; };
 		BFFB50401D59CB8C00C3C1AA /* YuloreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuloreAPI.m; sourceTree = "<group>"; };
-		BFFB50451D59DEB200C3C1AA /* c0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = c0.json; sourceTree = "<group>"; };
-		BFFB50461D59DEB200C3C1AA /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
-		BFFB50471D59DEB200C3C1AA /* d0.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = d0.dat; sourceTree = "<group>"; };
-		BFFB50481D59DEB200C3C1AA /* d0_ic.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = d0_ic.dat; sourceTree = "<group>"; };
-		BFFB50491D59DEB200C3C1AA /* d0_id.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = d0_id.dat; sourceTree = "<group>"; };
-		BFFB504A1D59DEB200C3C1AA /* d0_it.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = d0_it.dat; sourceTree = "<group>"; };
-		BFFB504B1D59DEB200C3C1AA /* service_icon.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = service_icon.zip; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +385,15 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
+		BF5307E21D5AC7AA000901F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF5307E31D5AC7AA000901F9 /* 0_mtyF_full.zip */,
+				BF5307E41D5AC7AA000901F9 /* service_icon.zip */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BFA146111D53222D008DE524 = {
 			isa = PBXGroup;
 			children = (
@@ -432,7 +431,6 @@
 		BFA1461D1D53222D008DE524 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BFFB50441D59DEB200C3C1AA /* 0_6WWp_full */,
 				BFA1461E1D53222D008DE524 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -441,6 +439,7 @@
 		BFA146341D53224E008DE524 /* DHBSource */ = {
 			isa = PBXGroup;
 			children = (
+				BF5307E21D5AC7AA000901F9 /* Resources */,
 				BF526BA11D5381FC00E11FD1 /* ResolveModule */,
 				BFA1474D1D53388B008DE524 /* CitySelection */,
 				BFA147121D532F23008DE524 /* Public */,
@@ -736,20 +735,6 @@
 			path = CitySelection;
 			sourceTree = "<group>";
 		};
-		BFFB50441D59DEB200C3C1AA /* 0_6WWp_full */ = {
-			isa = PBXGroup;
-			children = (
-				BFFB50451D59DEB200C3C1AA /* c0.json */,
-				BFFB50461D59DEB200C3C1AA /* city.json */,
-				BFFB50471D59DEB200C3C1AA /* d0.dat */,
-				BFFB50481D59DEB200C3C1AA /* d0_ic.dat */,
-				BFFB50491D59DEB200C3C1AA /* d0_id.dat */,
-				BFFB504A1D59DEB200C3C1AA /* d0_it.dat */,
-				BFFB504B1D59DEB200C3C1AA /* service_icon.zip */,
-			);
-			path = 0_6WWp_full;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -809,16 +794,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFFB504C1D59DEB200C3C1AA /* c0.json in Resources */,
-				BFFB504E1D59DEB200C3C1AA /* d0.dat in Resources */,
 				BF526B9B1D53808000E11FD1 /* LICENCE.txt in Resources */,
-				BFFB504F1D59DEB200C3C1AA /* d0_ic.dat in Resources */,
+				BF5307E61D5AC7AA000901F9 /* service_icon.zip in Resources */,
 				BFA1462D1D53222D008DE524 /* LaunchScreen.storyboard in Resources */,
-				BFFB50511D59DEB200C3C1AA /* d0_it.dat in Resources */,
-				BFFB50521D59DEB200C3C1AA /* service_icon.zip in Resources */,
 				BFA1462A1D53222D008DE524 /* Assets.xcassets in Resources */,
-				BFFB50501D59DEB200C3C1AA /* d0_id.dat in Resources */,
-				BFFB504D1D59DEB200C3C1AA /* city.json in Resources */,
+				BF5307E51D5AC7AA000901F9 /* 0_mtyF_full.zip in Resources */,
 				BFA146B71D532719008DE524 /* LICENSE in Resources */,
 				BFA146281D53222D008DE524 /* Main.storyboard in Resources */,
 			);

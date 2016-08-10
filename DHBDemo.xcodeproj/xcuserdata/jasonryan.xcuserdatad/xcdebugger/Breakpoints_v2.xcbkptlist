@@ -73,7 +73,7 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
-                  timestampString = "492429243.824539"
+                  timestampString = "492511155.848272"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "146"
@@ -88,7 +88,7 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
-                  timestampString = "492429243.826108"
+                  timestampString = "492511155.849887"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "147"
@@ -104,13 +104,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DHBDemo/ViewController.m"
-            timestampString = "492427806.275347"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
+            timestampString = "492488852.675339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-downloadAction:"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "-saveDataToBridgeFile:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -120,44 +120,284 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/Model/YuloreApiManager.m"
-            timestampString = "492427866.283968"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
+            timestampString = "492488923.29252"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "+copyInitDataCompletionBlock:"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "-saveDataToBridgeFile:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
+            timestampString = "492491243.290757"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-loadHotCategoryNumbersComplete:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
+            timestampString = "492491244.424489"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-loadHotCategoryNumbersComplete:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
+            timestampString = "492491292.888789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-getHotTelNumberListWithCategoryItems:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492508321.835105"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-categoryLoadFromSandboxCompletionHandler:withCityID:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492492617.569199"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-buildJsonDataWithResult:categoryCompletionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492502245.370975"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "-categoriesWithCityID:completionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492502261.212566"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "-categoriesWithCityID:loadFromSandboxCompletionHandler:updateFromServerCompletionHandler:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__48+[YuloreApiManager copyInitDataCompletionBlock:]_block_invoke_2"
+                  symbolName = "-[CategoryFetcer categoriesWithCityID:loadFromSandboxCompletionHandler:updateFromServerCompletionHandler:]"
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreApiManager.m"
-                  timestampString = "492429243.83104"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/CategoryFetcer.m"
+                  timestampString = "492511155.885668"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__106-[CategoryFetcer categoriesWithCityID:loadFromSandboxCompletionHandler:updateFromServerCompletionHandler:]_block_invoke.104"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/CategoryFetcer.m"
+                  timestampString = "492511155.887614"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492502335.301352"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "-categoriesWithCityID:completionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+            timestampString = "492502831.254458"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-categoriesWithCityID:completionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+            timestampString = "492502832.838923"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-categoriesWithCityID:completionHandler:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__58-[YuloreAPIClient categoriesWithCityID:completionHandler:]_block_invoke.112"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+                  timestampString = "492511155.897765"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__58-[YuloreAPIClient categoriesWithCityID:completionHandler:]_block_invoke_2.113"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+                  timestampString = "492511155.900175"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492502979.066107"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "-categoriesWithCityID:completionHandler:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__57-[CategoryFetcer categoriesWithCityID:completionHandler:]_block_invoke_4"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/CategoryFetcer.m"
+                  timestampString = "492511155.904072"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "261"
+                  endingLineNumber = "261"
                   offsetFromSymbolStart = "68">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__48+[YuloreApiManager copyInitDataCompletionBlock:]_block_invoke_3"
+                  symbolName = "__57-[CategoryFetcer categoriesWithCityID:completionHandler:]_block_invoke_5"
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreApiManager.m"
-                  timestampString = "492429243.832262"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/CategoryFetcer.m"
+                  timestampString = "492511155.905796"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "32">
+                  startingLineNumber = "261"
+                  endingLineNumber = "261"
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -168,13 +408,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/Model/StartLoadingService.m"
-            timestampString = "492427953.034149"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492502948.654207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "+copyInitDataCompletionBlock:"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "-categoriesWithCityID:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,28 +425,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/Model/StartLoadingService.m"
-            timestampString = "492427968.042429"
+            timestampString = "492502993.090311"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "+copyAndUpzipZipFileWithNameArray:targetFolder:completionBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/Model/YuloreApiManager.m"
-            timestampString = "492429050.363594"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "+registerApp:signature:completionBlock:"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "+cacheIconImageFromInternet:nearbyArray:withPrefix:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,77 +441,93 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/Model/StartLoadingService.m"
-            timestampString = "492429058.558296"
+            timestampString = "492503016.920664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "+copyInitDataCompletionBlock:"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "+cacheIconImageFromInternet:nearbyArray:withPrefix:completionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/CategoryHelper.m"
+            timestampString = "492507165.396581"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "-updateCategoryDataFromServerWithBlock:internetBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/CategoryFetcer.m"
+            timestampString = "492508625.165726"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "-categoriesWithCityID:completionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+            timestampString = "492509976.809747"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-categoriesWithCityID:completionHandler:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__51+[StartLoadingService copyInitDataCompletionBlock:]_block_invoke"
+                  symbolName = "-[YuloreAPIClient categoriesWithCityID:completionHandler:]"
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/StartLoadingService.m"
-                  timestampString = "492429243.841755"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+                  timestampString = "492511155.925237"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "112">
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "556">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__51+[StartLoadingService copyInitDataCompletionBlock:]_block_invoke_2"
+                  symbolName = "__58-[YuloreAPIClient categoriesWithCityID:completionHandler:]_block_invoke"
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/StartLoadingService.m"
-                  timestampString = "492429243.843011"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+                  timestampString = "492511155.926456"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "32">
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "84">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/Model/StartLoadingService.m"
-            timestampString = "492429274.875173"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "+copyAndUpzipZipFileWithNameArray:targetFolder:completionBlock:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/Model/StartLoadingService.m"
-            timestampString = "492429256.46099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "+copyAndUpzipZipFileWithNameArray:targetFolder:completionBlock:"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
