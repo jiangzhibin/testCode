@@ -14,7 +14,6 @@
 #import "CategoryHelper.h"
 #import "ServicesItem.h"
 #import "NearbyItem.h"
-#import "City.h"
 
 static NSString * const kLastVersion = @"DHBSDKLastVersion";
 
@@ -91,10 +90,8 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
      dispatch_queue_t q = dispatch_queue_create("queue", 0);
      dispatch_async(q, ^{
        
-       City *aCity = [[City alloc] init];
-       aCity.cityName = @"all";
-       aCity.cityID = @"0";
-       [OfflineDataHelper decompressDatFile:aCity];
+       // cityId：0 代表all
+       [OfflineDataHelper decompressDatFileWithCityId:@"0"];
        
        dispatch_async(dispatch_get_main_queue(), ^{
          DLog(@"copyAndUpzipZipFileWithNameArray");

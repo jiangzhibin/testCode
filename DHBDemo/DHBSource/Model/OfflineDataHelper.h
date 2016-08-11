@@ -29,7 +29,8 @@ typedef enum DATAFILETYPE {
 + (NSArray *)pinyinIndexWithKeyWords:(NSString *)keyWords;
 //+ (NSMutableArray *)pinyinIndexFileOffsetArray;
 //+ (NSMutableArray *)allItem;
-+ (BOOL)decompressDatFile:(City *)aCity;
+//+ (BOOL)decompressDatFile:(City *)aCity;
++ (BOOL)decompressDatFileWithCityId:(NSString *)cityId;
 + (NSData *)dataOfFilePath:(DataFileType)type;
 + (NSString *)dataFilePath:(DataFileType)type;
 //+ (BOOL)deleteSelected:(City *)aCity ;

@@ -8,7 +8,6 @@
 #import "YP_ASIDataDecompressor.h"
 #import "OfflineDataHelper.h"
 //#import "FMDatabase.h"
-#import "City.h"
 #include <string>
 #import "CommonTmp.h"
 using namespace std;
@@ -32,7 +31,7 @@ using namespace std;
 
 
 
-
+/*
 + (void)pinyinWithOffset:(NSUInteger) offset readLength:(long)readLength
                     city:(City *)aCity{
   
@@ -87,7 +86,9 @@ using namespace std;
   
 }
 
+*/
 
+/*
 + (BOOL)decompressPinyinDataWithOffset:(NSArray *)offsetArray
                               withCity:(City *)aCity{
   NSString *filePath = [[self cacheDir] stringByAppendingFormat:@"/d%@_id.dat", aCity.cityID];
@@ -122,10 +123,11 @@ using namespace std;
   return YES;
   
 }
+ */
 
 
 
-+ (BOOL)decompress:(DataFileType)type city:(City *)aCity {
++ (BOOL)decompress:(DataFileType)type cityId:(NSString *)cityId {
   
   NSString *orignalDatFilePath = nil;
   NSString *decompressJsonFilePath = nil;
@@ -133,15 +135,14 @@ using namespace std;
   switch (type) {
     case DataPinyin: {
       cutsize = 3;
-      orignalDatFilePath = [[self cacheDir] stringByAppendingFormat:@"d%@_id.dat", aCity.cityID];
-      decompressJsonFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_id.json", aCity.cityID];
+      orignalDatFilePath = [[self cacheDir] stringByAppendingFormat:@"d%@_id.dat",cityId];
+      decompressJsonFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_id.json", cityId];
     }
       break;
     case DataCategory: {
       cutsize = 6;
-      orignalDatFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_ic.dat", aCity.cityID];
-      decompressJsonFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_ic.json", aCity.cityID];
-      
+      orignalDatFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_ic.dat", cityId];
+      decompressJsonFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_ic.json",cityId];
     }
       break;
     default:
@@ -186,14 +187,10 @@ using namespace std;
   return result;
 }
 
-+ (BOOL)decompressDatFile:(City *)aCity  {
-  DLog(@"1");
-  BOOL pinyinDatFileResult = [self decompress:DataPinyin city:aCity];
-  DLog(@"2， %d", pinyinDatFileResult);
-  BOOL categoryDatFileResult = [self decompress:DataCategory city:aCity];
-  DLog(@"3， %d", categoryDatFileResult);
-  
-  
+
++ (BOOL)decompressDatFileWithCityId:(NSString *)cityId{
+  BOOL pinyinDatFileResult = [self decompress:DataPinyin cityId:cityId];
+  BOOL categoryDatFileResult = [self decompress:DataCategory cityId:cityId];
   return (pinyinDatFileResult && categoryDatFileResult);
 }
 

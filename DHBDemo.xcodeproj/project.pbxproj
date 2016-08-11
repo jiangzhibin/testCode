@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BF1114471D596EA100C60804 /* DHBSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1114461D596EA100C60804 /* DHBSDK.m */; };
-		BF526B921D537E5F00E11FD1 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B911D537E5F00E11FD1 /* City.m */; };
 		BF526B951D537EC900E11FD1 /* YuloreApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B941D537EC900E11FD1 /* YuloreApiManager.m */; };
 		BF526B9B1D53808000E11FD1 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = BF526B971D53808000E11FD1 /* LICENCE.txt */; };
 		BF526B9C1D53808000E11FD1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B991D53808000E11FD1 /* Reachability.m */; };
@@ -102,14 +101,11 @@
 		BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFA147431D5330ED008DE524 /* OfflineDataHelper.mm */; };
 		BFA147481D5332A9008DE524 /* GlobalCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147461D5332A9008DE524 /* GlobalCommon.m */; };
 		BFA1474C1D533866008DE524 /* CategoryFetcer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1474B1D533866008DE524 /* CategoryFetcer.m */; };
-		BFA147501D533897008DE524 /* CityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1474F1D533897008DE524 /* CityHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF1114451D596EA100C60804 /* DHBSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDK.h; sourceTree = "<group>"; };
 		BF1114461D596EA100C60804 /* DHBSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDK.m; sourceTree = "<group>"; };
-		BF526B901D537E5F00E11FD1 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
-		BF526B911D537E5F00E11FD1 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		BF526B931D537EC900E11FD1 /* YuloreApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreApiManager.h; sourceTree = "<group>"; };
 		BF526B941D537EC900E11FD1 /* YuloreApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuloreApiManager.m; sourceTree = "<group>"; };
 		BF526B971D53808000E11FD1 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
@@ -292,8 +288,6 @@
 		BFA147491D53380F008DE524 /* YuloreAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreAddition.h; sourceTree = "<group>"; };
 		BFA1474A1D533866008DE524 /* CategoryFetcer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryFetcer.h; sourceTree = "<group>"; };
 		BFA1474B1D533866008DE524 /* CategoryFetcer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryFetcer.m; sourceTree = "<group>"; };
-		BFA1474E1D533897008DE524 /* CityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityHelper.h; sourceTree = "<group>"; };
-		BFA1474F1D533897008DE524 /* CityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -621,8 +615,6 @@
 				BF526B9F1D53811600E11FD1 /* StartLoadingService.m */,
 				BF526B931D537EC900E11FD1 /* YuloreApiManager.h */,
 				BF526B941D537EC900E11FD1 /* YuloreApiManager.m */,
-				BF526B901D537E5F00E11FD1 /* City.h */,
-				BF526B911D537E5F00E11FD1 /* City.m */,
 				BFA1474A1D533866008DE524 /* CategoryFetcer.h */,
 				BFA1474B1D533866008DE524 /* CategoryFetcer.m */,
 				BFA147421D5330ED008DE524 /* OfflineDataHelper.h */,
@@ -699,8 +691,6 @@
 		BFA1474D1D53388B008DE524 /* CitySelection */ = {
 			isa = PBXGroup;
 			children = (
-				BFA1474E1D533897008DE524 /* CityHelper.h */,
-				BFA1474F1D533897008DE524 /* CityHelper.m */,
 			);
 			path = CitySelection;
 			sourceTree = "<group>";
@@ -791,7 +781,6 @@
 				BFA146B61D532719008DE524 /* AFURLSessionManager.m in Sources */,
 				BFA146B31D532719008DE524 /* AFURLConnectionOperation.m in Sources */,
 				BFA146E21D532BBE008DE524 /* NSDictionary+DHBSignature.m in Sources */,
-				BF526B921D537E5F00E11FD1 /* City.m in Sources */,
 				BFA146F41D532CF2008DE524 /* ServicesItem.m in Sources */,
 				BFA147031D532E33008DE524 /* ListFetcer.m in Sources */,
 				BFA146521D5323DE008DE524 /* DHBDownloadFetcher.m in Sources */,
@@ -839,7 +828,6 @@
 				BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */,
 				BFA146FD1D532D33008DE524 /* UserPathHelper.m in Sources */,
 				BF526B9D1D53808000E11FD1 /* README.md in Sources */,
-				BFA147501D533897008DE524 /* CityHelper.m in Sources */,
 				BFA146251D53222D008DE524 /* ViewController.m in Sources */,
 				BFA146221D53222D008DE524 /* AppDelegate.m in Sources */,
 				BFA1473B1D53308B008DE524 /* TAPageControl.m in Sources */,

@@ -9,7 +9,6 @@
 #import "YuloreApiManager.h"
 #import "NSString+YuloreFilePath.h"
 #import "StartLoadingService.h"
-#import "CityHelper.h"
 #import "Commondef.h"
 
 /// ApiKey & Signature
