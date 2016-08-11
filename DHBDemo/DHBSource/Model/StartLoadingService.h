@@ -26,5 +26,5 @@
 + (void) cacheServiceIconImageFromInternet2:(NSArray *)serviceArray
                                 nearbyArray:(NSArray *)nearByArray
                           completionHandler:(void (^)(NSError *error))completionHandler;
-+ (void) startLocation;
+//+ (void) startLocation;
 @end

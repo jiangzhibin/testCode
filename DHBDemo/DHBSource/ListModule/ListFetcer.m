@@ -17,7 +17,6 @@
 #import "CategoryFetcer.h"
 #include <string.h>
 
-#import "CurrentLocation.h"
 #import "APIDotDianHuaDotCNClient.h"
 #import "CustomItem.h"
 
@@ -27,7 +26,7 @@ static NSInteger CACHE_INTERVAL_DAY = 10;
 + (void)executeFectcerWithCategoryItem:(CategoryItem *)aCategoryItem block:(void (^)(NSMutableArray *, NSError *))block {
   Reachability * reach = [Reachability reachabilityWithHostName:kHost];
   
-  CLLocationCoordinate2D  coordinate = [CurrentLocation currentCoordinate];
+  CLLocationCoordinate2D  coordinate = [YuloreApiManager sharedYuloreApiManager].coordinate;
   NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                               [YuloreApiManager sharedYuloreApiManager].cityId, kCITY_ID ,
                               //aCategoryItem.categoryID, CAT_ID,

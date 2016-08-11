@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BF1114471D596EA100C60804 /* DHBSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1114461D596EA100C60804 /* DHBSDK.m */; };
-		BF526B8E1D537E3B00E11FD1 /* INTULocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B8A1D537E3B00E11FD1 /* INTULocationManager.m */; };
-		BF526B8F1D537E3B00E11FD1 /* INTULocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B8C1D537E3B00E11FD1 /* INTULocationRequest.m */; };
 		BF526B921D537E5F00E11FD1 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B911D537E5F00E11FD1 /* City.m */; };
 		BF526B951D537EC900E11FD1 /* YuloreApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B941D537EC900E11FD1 /* YuloreApiManager.m */; };
 		BF526B9B1D53808000E11FD1 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = BF526B971D53808000E11FD1 /* LICENCE.txt */; };
@@ -105,18 +103,11 @@
 		BFA147481D5332A9008DE524 /* GlobalCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147461D5332A9008DE524 /* GlobalCommon.m */; };
 		BFA1474C1D533866008DE524 /* CategoryFetcer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1474B1D533866008DE524 /* CategoryFetcer.m */; };
 		BFA147501D533897008DE524 /* CityHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1474F1D533897008DE524 /* CityHelper.m */; };
-		BFA147531D5338AA008DE524 /* CurrentLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147521D5338AA008DE524 /* CurrentLocation.m */; };
-		BFFB50411D59CB8C00C3C1AA /* YuloreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFB50401D59CB8C00C3C1AA /* YuloreAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF1114451D596EA100C60804 /* DHBSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDK.h; sourceTree = "<group>"; };
 		BF1114461D596EA100C60804 /* DHBSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDK.m; sourceTree = "<group>"; };
-		BF526B891D537E3B00E11FD1 /* INTULocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationManager.h; sourceTree = "<group>"; };
-		BF526B8A1D537E3B00E11FD1 /* INTULocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTULocationManager.m; sourceTree = "<group>"; };
-		BF526B8B1D537E3B00E11FD1 /* INTULocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationRequest.h; sourceTree = "<group>"; };
-		BF526B8C1D537E3B00E11FD1 /* INTULocationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INTULocationRequest.m; sourceTree = "<group>"; };
-		BF526B8D1D537E3B00E11FD1 /* INTULocationRequestDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INTULocationRequestDefines.h; sourceTree = "<group>"; };
 		BF526B901D537E5F00E11FD1 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		BF526B911D537E5F00E11FD1 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		BF526B931D537EC900E11FD1 /* YuloreApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreApiManager.h; sourceTree = "<group>"; };
@@ -303,10 +294,6 @@
 		BFA1474B1D533866008DE524 /* CategoryFetcer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryFetcer.m; sourceTree = "<group>"; };
 		BFA1474E1D533897008DE524 /* CityHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityHelper.h; sourceTree = "<group>"; };
 		BFA1474F1D533897008DE524 /* CityHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityHelper.m; sourceTree = "<group>"; };
-		BFA147511D5338AA008DE524 /* CurrentLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentLocation.h; sourceTree = "<group>"; };
-		BFA147521D5338AA008DE524 /* CurrentLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentLocation.m; sourceTree = "<group>"; };
-		BFFB503F1D59CB8C00C3C1AA /* YuloreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreAPI.h; sourceTree = "<group>"; };
-		BFFB50401D59CB8C00C3C1AA /* YuloreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuloreAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,18 +311,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF526B881D537E3B00E11FD1 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				BF526B891D537E3B00E11FD1 /* INTULocationManager.h */,
-				BF526B8A1D537E3B00E11FD1 /* INTULocationManager.m */,
-				BF526B8B1D537E3B00E11FD1 /* INTULocationRequest.h */,
-				BF526B8C1D537E3B00E11FD1 /* INTULocationRequest.m */,
-				BF526B8D1D537E3B00E11FD1 /* INTULocationRequestDefines.h */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		BF526B961D53808000E11FD1 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,7 +449,6 @@
 			children = (
 				BF526BF91D54762D00E11FD1 /* minizip */,
 				BF526B961D53808000E11FD1 /* Reachability */,
-				BF526B881D537E3B00E11FD1 /* Source */,
 				BFA147251D53308B008DE524 /* SDCycleScrollView */,
 				BFA146841D532719008DE524 /* AFNetworking */,
 				BFA146571D532488008DE524 /* OpenUDID */,
@@ -637,8 +611,6 @@
 		BFA147041D532E56008DE524 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BFFB503F1D59CB8C00C3C1AA /* YuloreAPI.h */,
-				BFFB50401D59CB8C00C3C1AA /* YuloreAPI.m */,
 				BF526BF01D5471A900E11FD1 /* TuanGouItem.h */,
 				BF526BF11D5471A900E11FD1 /* TuanGouItem.m */,
 				BF526BA81D53834700E11FD1 /* YuloreAPIClient.h */,
@@ -651,8 +623,6 @@
 				BF526B941D537EC900E11FD1 /* YuloreApiManager.m */,
 				BF526B901D537E5F00E11FD1 /* City.h */,
 				BF526B911D537E5F00E11FD1 /* City.m */,
-				BFA147511D5338AA008DE524 /* CurrentLocation.h */,
-				BFA147521D5338AA008DE524 /* CurrentLocation.m */,
 				BFA1474A1D533866008DE524 /* CategoryFetcer.h */,
 				BFA1474B1D533866008DE524 /* CategoryFetcer.m */,
 				BFA147421D5330ED008DE524 /* OfflineDataHelper.h */,
@@ -812,12 +782,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF526C071D54762D00E11FD1 /* unzip.c in Sources */,
-				BF526B8F1D537E3B00E11FD1 /* INTULocationRequest.m in Sources */,
 				BFA146BE1D532719008DE524 /* UIProgressView+AFNetworking.m in Sources */,
 				BF526C081D54762D00E11FD1 /* YuloreZipArchive.m in Sources */,
 				BF526BA41D53820600E11FD1 /* ResolveItemNew.m in Sources */,
 				BFA146BD1D532719008DE524 /* UIImageView+AFNetworking.m in Sources */,
-				BFA147531D5338AA008DE524 /* CurrentLocation.m in Sources */,
 				BFA146E51D532BD9008DE524 /* ResolveDataFile.m in Sources */,
 				BF526C051D54762D00E11FD1 /* ioapi.c in Sources */,
 				BFA146B61D532719008DE524 /* AFURLSessionManager.m in Sources */,
@@ -834,7 +802,6 @@
 				BFA146E81D532C16008DE524 /* YP_ASIDataDecompressor.m in Sources */,
 				BFA146BA1D532719008DE524 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				BFA1470E1D532EC0008DE524 /* APIDotDianHuaDotCNClient.m in Sources */,
-				BF526B8E1D537E3B00E11FD1 /* INTULocationManager.m in Sources */,
 				BFA146621D5324DE008DE524 /* FileHash.m in Sources */,
 				BF526C061D54762D00E11FD1 /* mztools.c in Sources */,
 				BFA146F71D532D0A008DE524 /* NearbyItem.m in Sources */,
@@ -882,7 +849,6 @@
 				BFA1465C1D532488008DE524 /* README.md in Sources */,
 				BFA1465B1D532488008DE524 /* OpenUDID.m in Sources */,
 				BFA1466C1D532554008DE524 /* DHBbspatchOC.m in Sources */,
-				BFFB50411D59CB8C00C3C1AA /* YuloreAPI.m in Sources */,
 				BFA1473A1D53308B008DE524 /* TADotView.m in Sources */,
 				BF526BED1D54637400E11FD1 /* UIImageView+Yulore.m in Sources */,
 				BFA147411D5330B0008DE524 /* NSDictionary+Offset.m in Sources */,

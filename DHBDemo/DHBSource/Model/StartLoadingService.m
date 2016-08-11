@@ -12,25 +12,27 @@
 #import "APIDotDianHuaDotCNClient.h"
 #import "OfflineDataHelper.h"
 #import "CategoryHelper.h"
-#import "CurrentLocation.h"
 #import "ServicesItem.h"
 #import "NearbyItem.h"
 #import "City.h"
+
+static NSString * const kLastVersion = @"DHBSDKLastVersion";
 
 @implementation StartLoadingService
 
 
 
 + (void)updateLastVersion {
-  NSString *ver = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)@"CFBundleShortVersionString"];
-  [[NSUserDefaults standardUserDefaults] setObject:ver forKey:@"LastVersion"];
+    NSString *ver = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)@"CFBundleShortVersionString"];
+    [[NSUserDefaults standardUserDefaults] setObject:ver forKey:kLastVersion];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (BOOL)fetcherLastVersion {
   BOOL needToUpdate = YES;
   NSString *ver = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)@"CFBundleShortVersionString"];
   
-  NSString *lastVersion = [[NSUserDefaults standardUserDefaults] valueForKey:@"LastVersion"];
+  NSString *lastVersion = [[NSUserDefaults standardUserDefaults] valueForKey:kLastVersion];
   
   if (lastVersion) {
     
@@ -47,6 +49,7 @@
   return needToUpdate;
 }
 
+/*
 + (void)startLocation {
   [[CurrentLocation sharedInstance] startingForLocation:^(CLLocation *currentLocation, City *currentCity, NSError *error) {
     
@@ -60,7 +63,7 @@
     [pref synchronize];
   }];
 }
-
+*/
 
 
 /**
