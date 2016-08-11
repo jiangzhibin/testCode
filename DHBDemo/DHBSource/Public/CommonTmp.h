@@ -15,7 +15,6 @@
 #import "GlobalCommon.h"
 #import "GlobalMacros.h"
 #import "GlobalSettings.h"
-#import "YuloreAddition.h"
 #import "AFNetworking.h"
 #import "Reachability.h"
 #import "OpenUDID.h"

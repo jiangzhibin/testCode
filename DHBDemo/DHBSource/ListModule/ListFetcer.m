@@ -11,7 +11,6 @@
 #import "ShopItem.h"
 #import "ServicesItem.h"
 #import "CategoryItem.h"
-#import "SignatureHelper.h"
 #import "NSDictionary+Offset.h"
 #import "OfflineDataHelper.h"
 #import "CategoryFetcer.h"
@@ -22,95 +21,6 @@
 
 static NSInteger CACHE_INTERVAL_DAY = 10;
 @implementation ListFetcer
-
-+ (void)executeFectcerWithCategoryItem:(CategoryItem *)aCategoryItem block:(void (^)(NSMutableArray *, NSError *))block {
-  Reachability * reach = [Reachability reachabilityWithHostName:kHost];
-  
-  CLLocationCoordinate2D  coordinate = [YuloreApiManager sharedYuloreApiManager].coordinate;
-  NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                              [YuloreApiManager sharedYuloreApiManager].cityId, kCITY_ID ,
-                              //aCategoryItem.categoryID, CAT_ID,
-                              @"20", kNUMBER,
-                              @"0", kSTART ,
-                              [OpenUDID value], kUID,
-                              @"0", kSIGNATURE, nil];
-  
-  if (![aCategoryItem.categoryID isEqualToString:@"9999"]) {
-    
-    [dic setValue:aCategoryItem.categoryID forKey:kCAT_ID];
-  } else {
-    // [dic setValue:@"" forKey:CAT_ID];
-    [dic setValue:@"0" forKey:kCITY_ID];
-  }
-  if ((aCategoryItem.location ||
-       ([aCategoryItem.categoryID isEqualToString:@"9999"]))   &&
-      coordinate.latitude != 0 &&
-      coordinate.longitude != 0) {
-    [dic setValue:[NSString stringWithFormat:@"%f",coordinate.latitude] forKey:kLAT];
-    [dic setValue:[NSString stringWithFormat:@"%f",coordinate.longitude]  forKey:kLNG];
-//    [dic setValue:@"2" forKey:kOLDER];
-    [dic setValue:@"0" forKey:kSIGNATURE];
-  }
-  
-  
-  
-  
-  /**
-   *  加载缓存中的list
-   */
-  
-  BOOL isLoadFromCacheJsonData = NO;
-  [self loadCacheDataWithParam:dic
-                    fileExists:&isLoadFromCacheJsonData
-                         block:^(NSMutableArray *shopItems__, NSError *error) {
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-      block(shopItems__, error);
-    });
-  }];
-
-  
-  
-  if ([reach isReachable]) {
-    dispatch_queue_t q = dispatch_queue_create("com.yulore.yellowpage.online.selectcategory", 0);
-    dispatch_async(q, ^{
-      [ListFetcer executeFectcerWithInformation3:dic block:^(NSMutableArray *shopItems_, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-          block(shopItems_, error);
-        });
-      }];
-    });
-    
-  }
-  else {
-    /**
-     *  如果已经有了缓存数据
-     */
-    if (isLoadFromCacheJsonData) {
-      return;
-    }
-    
-    
-    if ([ListFetcer isJsonHasCategory:aCategoryItem] && [OfflineDataHelper hasCategoryData]) {
-      
-      
-      dispatch_queue_t q = dispatch_queue_create("com.yulore.yellowpage.offline.selectcategory", 0);
-      dispatch_async(q, ^{
-        NSMutableArray *listArray = [ListFetcer executeFectcerFromCategoryJson:aCategoryItem];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-          block(listArray, nil);
-        });
-      });
-    }
-    else {
-      NSError *error = [[NSError alloc] initWithDomain:@"离线数据中不包含此分类数据" code:6002 userInfo:nil];
-      block(nil, error);
-    }
-  }
-}
-
-
 
 + (BOOL)isJsonHasCategory:(CategoryItem *)categoryItem {
   NSData *categoryJsonData = [OfflineDataHelper dataOfFilePath:DataCategory];
@@ -244,40 +154,6 @@ static NSInteger CACHE_INTERVAL_DAY = 10;
   return result;
 }
 
-
-
-+ (NSMutableArray *)executeFectcerWithInformation2:(NSString *)information {
-  NSArray *result = [OfflineDataHelper pinyinIndexWithKeyWords:information];
-
-  NSString *filePath = [NSString pathForOfflineDataDirectoryWithFileName:@"d0.dat"];
-  
-  FILE *fp = fopen([filePath UTF8String],"r");
-  if (fp == NULL) {
-    return nil;
-  }
-
-  int i = 0;
-  
-  NSMutableArray *shopItems = [[NSMutableArray alloc] init];
-  for (NSDictionary *adic in result) {
-    //DLog(@"%@", adic);
-    
-    NSDictionary *shopItemDic = [NSDictionary dictionaryWithOffset:[[adic objectForKey:dataoffset] intValue]
-                                                          filePath:filePath];
-    if (shopItemDic) {
-      
-      ShopItem *aShopItems = [ShopItem shopItemWithDictionary:shopItemDic];
-      [shopItems addObject:aShopItems];
-      i++;
-      if (i > 50) {
-        break;
-      }
-    }
-    
-  }
-  
-  return shopItems;
-}
 
 + (void)processWithJSON:(id)JSON
                   block:(void (^)( NSMutableArray *shopItems__, NSError *error) )block {
@@ -516,64 +392,6 @@ static NSInteger CACHE_INTERVAL_DAY = 10;
   
   
 
-}
-
-+ (void)executeFectcerWithInformation3:(NSMutableDictionary *)information
-                                 block:(void (^)( NSMutableArray *shopItems__, NSError *error) )block {
-  
-  NSString *sig2 = [SignatureHelper signatureWithDictionary:information];
-  [information setValue:sig2 forKey:kSIGNATURE];
-  [information setValue:[YuloreApiManager sharedYuloreApiManager].apiKey forKey:@"apikey"];
-  
-  
-
-  
-  [self shopItemsWithParam:information block:^(NSMutableArray *shopItems__, NSError *error) {
-    block([NSMutableArray arrayWithArray:shopItems__], error);
-  }];
-  
-  
-}
-
-+ (NSDictionary *)serverDictionaryInformation:(NSMutableDictionary *)information {
-  NSString *sig2 = [SignatureHelper signatureWithDictionary:information];
-  [information setValue:sig2 forKey:kSIGNATURE];
-  //20140317
-  [information setValue:[YuloreApiManager sharedYuloreApiManager].apiKey forKey:@"apikey"];
-  NSString *baseURL = [NSString stringWithFormat:@"%@/list/",kHost];
-  NSArray *allKey = [information allKeys];
-  NSString *condition = [[NSString alloc] init];
-  for (NSString *aKey in allKey) {
-    condition = [condition stringByAppendingFormat:@"&%@", [NSString stringWithFormat:@"%@=%@", aKey, [information valueForKey:aKey]]];
-  }
-  baseURL = [baseURL stringByAppendingFormat:@"?%@", condition];
-  baseURL = [baseURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-  
-  NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:baseURL] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
-  NSError *error = nil;
-  NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
-  if (error) DLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
-  
-  return results;
-  
-}
-
-
-
-+ (NSMutableArray *)executeFectcerWithInformation:(NSMutableDictionary *)information {
-  
-  
-  NSMutableArray *listArray = [[self serverDictionaryInformation:information] valueForKey:@"itms"];
-  
-  NSMutableArray *shopItems = [[NSMutableArray alloc] init];
-  // DLog(@"%@", listArray);
-  
-  for (NSDictionary *aItem in listArray) {
-    ShopItem *aShopItems = [ShopItem shopItemWithDictionary:aItem];
-    [shopItems addObject:aShopItems];
-  }
-  
-  return shopItems;
 }
 
 

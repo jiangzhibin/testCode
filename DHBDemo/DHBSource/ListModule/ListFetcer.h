@@ -10,15 +10,8 @@
 @class CategoryItem;
 
 @interface ListFetcer : NSObject
-+ (void)executeFectcerWithCategoryItem:(CategoryItem *)categoryItem
-                                 block:(void (^)( NSMutableArray *shopItems__, NSError *error) )block;
-
 
 + (BOOL)isJsonHasCategory:(CategoryItem *)categoryItem ;
 
-+ (void)executeFectcerWithInformation3:(NSMutableDictionary *)information
-                                 block:(void (^)( NSMutableArray *shopItems__, NSError *error) )block;
-+ (NSMutableArray *)executeFectcerWithInformation2:(NSString *)information;
 + (NSMutableArray *)executeFectcerFromCategoryJson:(CategoryItem *)categoryItem;
-+ (NSMutableArray *)executeFectcerWithInformation:(NSMutableDictionary *)information;
 @end

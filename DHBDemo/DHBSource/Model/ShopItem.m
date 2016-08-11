@@ -7,7 +7,6 @@
 //
 
 #import "ShopItem.h"
-#import "APIDotDianHuaDotCNClient.h"
 #import "TeleNumber.h"
 #import "CustomItem.h"
 #import "ResolveItemNew.h"

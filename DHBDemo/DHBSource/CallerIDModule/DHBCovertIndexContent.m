@@ -77,9 +77,6 @@
     for (CategoryItem * aCategoryItem in categoryItems) {
         //NSLog(@"Category Item: %@",aCategoryItem);
         NSMutableArray *shopItems__ =[ListFetcer executeFectcerFromCategoryJson:aCategoryItem];
-        //[ListFetcer executeFectcerWithCategoryItem:aCategoryItem block:^(NSMutableArray *shopItems__, NSError *error) {
-        DLog(@"test list item");
-        
         if (shopItems__) {
             NSLog(@"Shop Item ****");
             for (id aShopItem in shopItems__) {
@@ -112,7 +109,6 @@
         else {
             
         }
-        //}];
     }
     return hotTeleNumberList;
 }

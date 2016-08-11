@@ -9,9 +9,7 @@
 #import "StartLoadingService.h"
 #import "CategoryItem.h"
 
-#import "APIDotDianHuaDotCNClient.h"
 #import "OfflineDataHelper.h"
-#import "CategoryHelper.h"
 #import "ServicesItem.h"
 #import "NearbyItem.h"
 
@@ -330,11 +328,6 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
   
 }
 
-
-
-+ (void) cacheCategoyDataFromInternet {
-  [CategoryHelper sharedCategoryHelper];
-}
 + (void) cacheServiceIconImageFromInternet:(NSArray *)serviceArray {
   Reachability *reach = [Reachability reachabilityWithHostName:kHost];
   if ([reach isReachable]) {
