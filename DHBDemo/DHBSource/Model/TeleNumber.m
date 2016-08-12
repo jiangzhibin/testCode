@@ -70,4 +70,9 @@
   [coder encodeObject:_teleNumber forKey:@"TEL_NUMBER"];
 
 }
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"TeleNumber: teleDescription:%@ | teleType:%@ | teleNumber:%@",self.teleDescription,self.teleType,self.teleNumber];
+}
+
 @end

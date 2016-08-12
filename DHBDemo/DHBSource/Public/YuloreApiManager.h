@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "ResolveFecherNew.h"
 
 /// 允许执行下载操作的网络类型
 typedef NS_ENUM(NSInteger,DownloadNetworkType) {
@@ -46,16 +47,32 @@ typedef NS_ENUM(NSInteger,DownloadNetworkType) {
  *  @param apikey    所需apikey
  *  @param signature 所需signature
  *  @param host      电话邦host https://apis-ios.dianhua.cn/
- *  @param city      用户所在城市id,默认传@"0",待用户设置城市后，需通过[YuloreApiManager sharedYuloreApiManager].cityId 重新设置
+ *  @param cityId      用户所在城市id,默认传@"0",待用户设置城市后，需通过[YuloreApiManager sharedYuloreApiManager].cityId 重新设置
  *
  *  @return 是否设置成功
  */
 + (BOOL) registerApp:(NSString *)apikey
            signature:(NSString *)signature
                 host:(NSString *)host
-                city:(NSString *)city
+              cityId:(NSString *)cityId
      completionBlock:(void (^)(NSError *error) )completionBlock;
 
+
+/**
+ 查询号码信息
+
+ @param teleNumber        号码
+ @param completionHandler 查询结果回调
+ */
++ (void)searchTeleNumber:(NSString *)teleNumber
+           completionHandler:(void (^)( ResolveItemNew *resolveItem, NSError *error) )completionHandler;
+
+
+/**
+ 注册状态
+
+ @return YES:当前已经注册  NO:尚未注册
+ */
 + (BOOL)registered;
 
 @end

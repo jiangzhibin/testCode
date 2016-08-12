@@ -9,16 +9,12 @@
 #import "Commondef.h"
 #import "YuloreAPIClient.h"
 
-static NSString *baseURLString = kDIANHUACNURL;
-
-
-
 @implementation YuloreAPIClient
 + (YuloreAPIClient *)sharedClient {
   static YuloreAPIClient *_sharedClient = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    NSURL *baseURL = [NSURL URLWithString:baseURLString];
+    NSURL *baseURL = [NSURL URLWithString:[YuloreApiManager sharedYuloreApiManager].host];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     //  [config setHTTPAdditionalHeaders:@{ @"User-Agent" : @"TuneStore iOS 1.0"}];
@@ -96,13 +92,7 @@ static NSString *baseURLString = kDIANHUACNURL;
       DLog(@"%@", error);
     });
   }];
-  
-//  
-//  [self getPath:@"list/" parameters:parameters success:^(YuloreAFHTTPRequestOperation *operation, id responseObject) {
-//
-//  } failure:^(YuloreAFHTTPRequestOperation *operation, NSError *error) {
-//
-//  }];
+
 }
 
 
@@ -118,13 +108,7 @@ static NSString *baseURLString = kDIANHUACNURL;
                          @"ver" : ver,
                          @"uid" : uid,
                          @"apikey" : apiKey};
-//  
-//  [self getPath:@"category/" parameters:parameters success:^(YuloreAFHTTPRequestOperation *operation, id responseObject) {
-//
-//  } failure:^(YuloreAFHTTPRequestOperation *operation, NSError *error) {
-//
-//  }];
-  
+
   [self GET:@"category/" parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
     NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
     if (httpResponse.statusCode == 200 && [responseObject[@"status"] integerValue] == 0) {
@@ -185,14 +169,7 @@ static NSString *baseURLString = kDIANHUACNURL;
     });
   }];
 
-//  
-// [self getPath:@"resolvetel/" parameters:parameters success:^(YuloreAFHTTPRequestOperation *operation, id responseObject) {
-//
-//    
-//  } failure:^(YuloreAFHTTPRequestOperation *operation, NSError *error) {
-//
-//  }];
-  
+    
 }
 
 

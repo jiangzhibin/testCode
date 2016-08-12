@@ -141,6 +141,8 @@ static  NSString *kSLOGAN_CONTENT = @"slogan";
     }
 
     _webURL = [dictionary valueForKey:kWEBURL];
+      
+      _userTaggedType = DHBMarkNumberTypeUnMark;
     
   }
 
@@ -191,6 +193,10 @@ static  NSString *kSLOGAN_CONTENT = @"slogan";
       _flagDate = [aDecoder decodeObjectForKey:kFLAGDATE];
     }
     
+      if ([aDecoder containsValueForKey:kUSERTAGGED]) {
+          _userTaggedType = [aDecoder decodeIntForKey:kUSERTAGGED];
+      }
+
     if ([aDecoder containsValueForKey:kRSHOPID]) {
       _shopID = [aDecoder decodeObjectForKey:kRSHOPID];
     }
@@ -233,6 +239,7 @@ static  NSString *kSLOGAN_CONTENT = @"slogan";
   [coder encodeObject:_flagNumber forKey:kFLAGNUM];
   [coder encodeObject:_flagType forKey:kFLAGTYPE];
   [coder encodeObject:_flagDate forKey:kFLAGDATE];
+    [coder encodeInteger:_userTaggedType forKey:kUSERTAGGED];
     [coder encodeObject:_shopID forKey:kRSHOPID];
   
       [coder encodeObject:_teleNumbers forKey:kTELENUMBERS];
@@ -242,6 +249,38 @@ static  NSString *kSLOGAN_CONTENT = @"slogan";
   [coder encodeObject:_sloganImageURL forKey:kSLOGAN_IMG];
     [coder encodeObject:_sloganContent forKey:kSLOGAN_CONTENT];
   
+}
+
+/*
+ @property (nonatomic, copy) NSString *location;
+ @property (nonatomic, copy) NSString *rank;
+ @property (nonatomic, copy) NSString *rDescription;
+ @property (nonatomic, copy) NSString *name;
+ @property (nonatomic, copy) NSString *imageLink;
+ @property (nonatomic, copy) NSString *rID;
+ @property (nonatomic, copy) NSString *rType;
+ @property (nonatomic, copy) NSString *teleNumber;
+ @property (nonatomic, copy) NSString *logoImageLink;
+ @property (nonatomic, copy) NSString *highrisk;
+ 
+ @property (nonatomic, copy) NSString *flagNumber;
+ @property (nonatomic, copy) NSString *flagType;
+ @property (nonatomic, copy) NSString *flagDate;
+ 
+ @property (nonatomic, copy) NSString *displayTitle;
+ @property (nonatomic, copy) NSString *flagInfo;
+ @property (nonatomic, copy) NSString *shopID;
+ @property (nonatomic, copy) NSMutableArray *teleNumbers;
+ @property (nonatomic, copy) NSString *webURL;
+ 
+ @property (nonatomic, copy) NSString *sloganImageURL;
+ @property (nonatomic, copy) NSString *sloganContent;
+ 
+ @property (nonatomic, copy) NSString *userFlagContent;
+ @property (nonatomic, assign) DHBMarkNumberType userTaggedType;
+ */
+- (NSString *)description {
+    return [NSString stringWithFormat:@"ResolveItemNew:\nlocation:%@ | rank:%@ | rDescription:%@| name:%@ | imageLink:%@ | rId:%@ | rType:%@ | teleNumber:%@ | logoImageLink:%@ | highrisk:%@ | flagNumber:%@ | flagType:%@ | flagDate:%@ | displayTitle:%@ | flagInfo:%@ | shopID:%@ | teleNumbers:%@ | webURL:%@ | sloganImageURL:%@ | sloganContent:%@ | userFlagContent:%@ | userTaggedType:%zd",self.location,self.rank,self.rDescription,self.name,self.imageLink,self.rID,self.rType,self.teleNumber,self.logoImageLink,self.highrisk,self.flagNumber,self.flagType,self.flagDate,self.displayTitle,self.flagInfo,self.shopID,self.teleNumbers,self.webURL,self.sloganImageURL,self.sloganContent,self.userFlagContent,self.userTaggedType];
 }
 
 @end

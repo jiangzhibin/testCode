@@ -331,7 +331,7 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
 }
 
 + (void) cacheServiceIconImageFromInternet:(NSArray *)serviceArray {
-  Reachability *reach = [Reachability reachabilityWithHostName:kDIANHUACNURL];
+  Reachability *reach = [Reachability reachabilityWithHostName:[YuloreApiManager sharedYuloreApiManager].host];
   if ([reach isReachable]) {
     if ([serviceArray count]) {
       

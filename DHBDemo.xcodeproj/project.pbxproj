@@ -91,6 +91,8 @@
 		BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFA147431D5330ED008DE524 /* OfflineDataHelper.mm */; };
 		BFA1474C1D533866008DE524 /* CategoryFetcer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1474B1D533866008DE524 /* CategoryFetcer.m */; };
 		BFDBFB8F1D5D6A0800F4E527 /* YuloreApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB8E1D5D6A0800F4E527 /* YuloreApiManager.m */; };
+		BFDBFB921D5D74C900F4E527 /* ResolveFecherNew.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB911D5D74C900F4E527 /* ResolveFecherNew.m */; };
+		BFDBFB951D5D74FC00F4E527 /* SignatureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB941D5D74FC00F4E527 /* SignatureHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,7 +102,7 @@
 		BF526B9A1D53808000E11FD1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BF526B9E1D53811600E11FD1 /* StartLoadingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartLoadingService.h; sourceTree = "<group>"; };
 		BF526B9F1D53811600E11FD1 /* StartLoadingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartLoadingService.m; sourceTree = "<group>"; };
-		BF526BA21D53820600E11FD1 /* ResolveItemNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResolveItemNew.h; sourceTree = "<group>"; };
+		BF526BA21D53820600E11FD1 /* ResolveItemNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResolveItemNew.h; path = ../ResolveModule/ResolveItemNew.h; sourceTree = "<group>"; };
 		BF526BA31D53820600E11FD1 /* ResolveItemNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResolveItemNew.m; sourceTree = "<group>"; };
 		BF526BA81D53834700E11FD1 /* YuloreAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreAPIClient.h; sourceTree = "<group>"; };
 		BF526BA91D53834700E11FD1 /* YuloreAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuloreAPIClient.m; sourceTree = "<group>"; };
@@ -255,6 +257,10 @@
 		BFA1474B1D533866008DE524 /* CategoryFetcer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryFetcer.m; sourceTree = "<group>"; };
 		BFDBFB8D1D5D6A0800F4E527 /* YuloreApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreApiManager.h; sourceTree = "<group>"; };
 		BFDBFB8E1D5D6A0800F4E527 /* YuloreApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuloreApiManager.m; sourceTree = "<group>"; };
+		BFDBFB901D5D74C900F4E527 /* ResolveFecherNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResolveFecherNew.h; sourceTree = "<group>"; };
+		BFDBFB911D5D74C900F4E527 /* ResolveFecherNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResolveFecherNew.m; sourceTree = "<group>"; };
+		BFDBFB931D5D74FC00F4E527 /* SignatureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureHelper.h; sourceTree = "<group>"; };
+		BFDBFB941D5D74FC00F4E527 /* SignatureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,7 +292,10 @@
 		BF526BA11D5381FC00E11FD1 /* ResolveModule */ = {
 			isa = PBXGroup;
 			children = (
-				BF526BA21D53820600E11FD1 /* ResolveItemNew.h */,
+				BFDBFB931D5D74FC00F4E527 /* SignatureHelper.h */,
+				BFDBFB941D5D74FC00F4E527 /* SignatureHelper.m */,
+				BFDBFB901D5D74C900F4E527 /* ResolveFecherNew.h */,
+				BFDBFB911D5D74C900F4E527 /* ResolveFecherNew.m */,
 				BF526BA31D53820600E11FD1 /* ResolveItemNew.m */,
 			);
 			path = ResolveModule;
@@ -576,6 +585,7 @@
 		BFA147121D532F23008DE524 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				BF526BA21D53820600E11FD1 /* ResolveItemNew.h */,
 				BFDBFB8D1D5D6A0800F4E527 /* YuloreApiManager.h */,
 				BFDBFB8E1D5D6A0800F4E527 /* YuloreApiManager.m */,
 				BFA147131D532F35008DE524 /* CommonTmp.h */,
@@ -713,6 +723,7 @@
 				BFA146621D5324DE008DE524 /* FileHash.m in Sources */,
 				BF526C061D54762D00E11FD1 /* mztools.c in Sources */,
 				BFA146F71D532D0A008DE524 /* NearbyItem.m in Sources */,
+				BFDBFB951D5D74FC00F4E527 /* SignatureHelper.m in Sources */,
 				BFA146FA1D532D1C008DE524 /* PromotionItem.m in Sources */,
 				BFA147071D532E5D008DE524 /* ShopItem.m in Sources */,
 				BFA146C01D532719008DE524 /* UIWebView+AFNetworking.m in Sources */,
@@ -721,6 +732,7 @@
 				BFA146511D5323DE008DE524 /* DHBDataFetcher.m in Sources */,
 				BFA147371D53308B008DE524 /* NSData+SDDataCache.m in Sources */,
 				BF526BA01D53811600E11FD1 /* StartLoadingService.m in Sources */,
+				BFDBFB921D5D74C900F4E527 /* ResolveFecherNew.m in Sources */,
 				BFA146B91D532719008DE524 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BFA1474C1D533866008DE524 /* CategoryFetcer.m in Sources */,
 				BF526BAA1D53834700E11FD1 /* YuloreAPIClient.m in Sources */,

@@ -35,20 +35,19 @@
 
 - (IBAction)downloadAction:(id)sender {
 
-    [YuloreApiManager registerApp:APIKEY_Download
-                        signature:APISIG2
-                             host:@""
-                             city:@"2"
-                  completionBlock:^(NSError *error) {
-        DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
-        //DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
+    [YuloreApiManager registerApp:APIKEY2 signature:APISIG2 host:@"https://apis-ios.dianhua.cn/" cityId:@"0" completionBlock:^(NSError *error) {
+        [YuloreApiManager searchTeleNumber:@"+8613146021850" completionHandler:^(ResolveItemNew *resolveItem, NSError *error) {
+            NSLog(@"%@",resolveItem);
+            NSLog(@"error:%@",error);
+        }];
+        return ;
         
         [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
             DHBUpdateItem *updateItem = [deltaPackageList firstObject];
             if (updateItem == nil) {
                 return ;
             }
-            [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:downloadType updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
+            [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:DHBDownloadPackageTypeFull updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
                 NSLog(@"下载进度:%f totalBytes:%lld",progress,totalBytes);
             } completionHandler:^(BOOL retry, NSError *error) {
                 NSLog(@"下载完成操作完成,error:%@",error);

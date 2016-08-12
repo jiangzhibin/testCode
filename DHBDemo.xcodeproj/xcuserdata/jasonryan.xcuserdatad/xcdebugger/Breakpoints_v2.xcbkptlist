@@ -185,26 +185,26 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/CategoryFetcer.m"
-                  timestampString = "492591637.361538"
+                  timestampString = "492674380.577019"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "173"
-                  endingLineNumber = "173"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
                   offsetFromSymbolStart = "292">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__106-[CategoryFetcer categoriesWithCityID:loadFromSandboxCompletionHandler:updateFromServerCompletionHandler:]_block_invoke.104"
+                  symbolName = "__106-[CategoryFetcer categoriesWithCityID:loadFromSandboxCompletionHandler:updateFromServerCompletionHandler:]_block_invoke.105"
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/CategoryFetcer.m"
-                  timestampString = "492591637.362752"
+                  timestampString = "492674380.578231"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "173"
-                  endingLineNumber = "173"
+                  startingLineNumber = "181"
+                  endingLineNumber = "181"
                   offsetFromSymbolStart = "24">
                </Location>
             </Locations>
@@ -233,11 +233,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/Model/YuloreAPIClient.m"
-            timestampString = "492661105.249659"
+            timestampString = "492674785.00862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "-categoriesWithCityID:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -249,11 +249,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/Model/YuloreAPIClient.m"
-            timestampString = "492661105.249659"
+            timestampString = "492674785.00862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "-categoriesWithCityID:completionHandler:"
             landmarkType = "7">
             <Locations>
@@ -265,11 +265,11 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
-                  timestampString = "492591637.370528"
+                  timestampString = "492674380.585202"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
                   offsetFromSymbolStart = "100">
                </Location>
                <Location
@@ -280,11 +280,11 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
-                  timestampString = "492591637.372343"
+                  timestampString = "492674380.586461"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
                   offsetFromSymbolStart = "20">
                </Location>
             </Locations>
@@ -313,11 +313,11 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/CategoryFetcer.m"
-                  timestampString = "492591637.375998"
+                  timestampString = "492674380.589024"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
                   offsetFromSymbolStart = "68">
                </Location>
                <Location
@@ -328,11 +328,11 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/CategoryFetcer.m"
-                  timestampString = "492591637.377236"
+                  timestampString = "492674380.590233"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -425,11 +425,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/Model/YuloreAPIClient.m"
-            timestampString = "492661105.249659"
+            timestampString = "492674785.00862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-categoriesWithCityID:completionHandler:"
             landmarkType = "7">
             <Locations>
@@ -441,11 +441,11 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
-                  timestampString = "492591637.390535"
+                  timestampString = "492674380.602386"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
                   offsetFromSymbolStart = "556">
                </Location>
                <Location
@@ -456,12 +456,108 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
-                  timestampString = "492591637.391843"
+                  timestampString = "492674380.603604"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
                   offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+            timestampString = "492674785.00862"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-resolveTelenumberWithParameters:completionHandler:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[YuloreAPIClient resolveTelenumberWithParameters:completionHandler:]"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+                  timestampString = "492674380.606139"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "160"
+                  endingLineNumber = "160"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__69-[YuloreAPIClient resolveTelenumberWithParameters:completionHandler:]_block_invoke"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/Model/YuloreAPIClient.m"
+                  timestampString = "492674380.607354"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBHTTPSessionManager.m"
+            timestampString = "492675018.598169"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-dataWithParameters:URLString:completionHandler:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__72-[DHBHTTPSessionManager dataWithParameters:URLString:completionHandler:]_block_invoke.33"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBHTTPSessionManager.m"
+                  timestampString = "492674380.612244"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__72-[DHBHTTPSessionManager dataWithParameters:URLString:completionHandler:]_block_invoke_2.34"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBHTTPSessionManager.m"
+                  timestampString = "492674380.613489"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>

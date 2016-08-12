@@ -198,6 +198,7 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
     return YES;
 }
 
+
 + (BOOL) registerApp:(NSString *)apikey
            signature:(NSString *)signature
                 host:(NSString *)host
@@ -222,5 +223,21 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
     }
     return YES;
 }
+
+#pragma mark - Public APIS
+/**
+ 查询号码信息
+ 
+ @param teleNumber        号码
+ @param completionHandler 查询结果回调
+ */
++ (void)searchTeleNumber:(NSString *)teleNumber
+       completionHandler:(void (^)(ResolveItemNew *resolveItem, NSError *error))completionHandler {
+        [[ResolveFecherNew sharedResolveFecherNew] resolveFectcherWithTelephoneNumber:teleNumber completionHandler:^(ResolveItemNew *resolveItem, NSError *error) {
+            completionHandler(resolveItem,error);
+        }];
+}
+
+
 
 @end
