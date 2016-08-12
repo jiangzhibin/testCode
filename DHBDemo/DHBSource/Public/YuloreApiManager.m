@@ -10,6 +10,7 @@
 #import "NSString+YuloreFilePath.h"
 #import "StartLoadingService.h"
 #import "Commondef.h"
+#import "MarkTeleHelper.h"
 
 /// ApiKey & Signature
 static NSString * const kApiKeyString               = @"DHBSDKApiKeyString";
@@ -231,13 +232,26 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
  @param teleNumber        号码
  @param completionHandler 查询结果回调
  */
-+ (void)searchTeleNumber:(NSString *)teleNumber
++ (void)searchTeleNumber:(nonnull NSString *)teleNumber
        completionHandler:(void (^)(ResolveItemNew *resolveItem, NSError *error))completionHandler {
         [[ResolveFecherNew sharedResolveFecherNew] resolveFectcherWithTelephoneNumber:teleNumber completionHandler:^(ResolveItemNew *resolveItem, NSError *error) {
-            completionHandler(resolveItem,error);
+            if (completionHandler) {
+                completionHandler(resolveItem,error);
+            }
         }];
 }
 
-
+/**
+ 在线标记号码
+ 
+ @param aNumber             电话号码
+ @param flagInfomation      被标记的信息
+ @param completeBlock       标记完成的回调
+ */
++ (void)markTeleNumberOnlineWithNumber:(NSString *)aNumber
+                        flagInfomation:(NSString *)flagInfomation
+                     completionHandler:(void (^)( BOOL successed, NSError *error))completeBlock {
+    [MarkTeleHelper markTeleNumberOnlineWithNumber:aNumber flagInfomation:flagInfomation completionHandler:completeBlock];
+}
 
 @end

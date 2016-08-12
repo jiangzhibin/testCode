@@ -81,7 +81,9 @@
 - (void)resolveFectcherWithTelephoneNumber:(NSString *)telephoneNumber completionHandler:(void (^)( ResolveItemNew *resolveItem, NSError *error) )completionHandler {
     NSError *error = nil;
     if (![ResolveFecherNew canResolveNumber:telephoneNumber error:&error]) {
-        completionHandler(nil, error);
+        if (completionHandler) {
+            completionHandler(nil, error);
+        }
     }
     else {
         self.telephoneNumber = telephoneNumber;
@@ -90,12 +92,21 @@
             if (resolveItem ) {
                 
                 if ( [resolveItem.location length] > 0 || [resolveItem.flagInfo length] > 0 || [resolveItem.teleNumber length] > 0) {
-                    completionHandler(resolveItem, error);
+                    if (completionHandler) {
+                        completionHandler(resolveItem, error);
+                    }
                 }
                 else {
                     
                     NSError *error = [[NSError alloc] initWithDomain:@"resolve null" code:10003 userInfo:nil];
-                    completionHandler(nil, error);
+                    if (completionHandler) {
+                        completionHandler(nil, error);
+                    }
+                }
+            }
+            else {
+                if (completionHandler) {
+                    completionHandler(resolveItem,error);
                 }
             }
         }];

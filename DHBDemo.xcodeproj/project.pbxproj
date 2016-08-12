@@ -93,6 +93,7 @@
 		BFDBFB8F1D5D6A0800F4E527 /* YuloreApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB8E1D5D6A0800F4E527 /* YuloreApiManager.m */; };
 		BFDBFB921D5D74C900F4E527 /* ResolveFecherNew.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB911D5D74C900F4E527 /* ResolveFecherNew.m */; };
 		BFDBFB951D5D74FC00F4E527 /* SignatureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB941D5D74FC00F4E527 /* SignatureHelper.m */; };
+		BFDBFB981D5DAD6D00F4E527 /* MarkTeleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB971D5DAD6D00F4E527 /* MarkTeleHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -261,6 +262,8 @@
 		BFDBFB911D5D74C900F4E527 /* ResolveFecherNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResolveFecherNew.m; sourceTree = "<group>"; };
 		BFDBFB931D5D74FC00F4E527 /* SignatureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureHelper.h; sourceTree = "<group>"; };
 		BFDBFB941D5D74FC00F4E527 /* SignatureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureHelper.m; sourceTree = "<group>"; };
+		BFDBFB961D5DAD6D00F4E527 /* MarkTeleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkTeleHelper.h; sourceTree = "<group>"; };
+		BFDBFB971D5DAD6D00F4E527 /* MarkTeleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkTeleHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +300,8 @@
 				BFDBFB901D5D74C900F4E527 /* ResolveFecherNew.h */,
 				BFDBFB911D5D74C900F4E527 /* ResolveFecherNew.m */,
 				BF526BA31D53820600E11FD1 /* ResolveItemNew.m */,
+				BFDBFB961D5DAD6D00F4E527 /* MarkTeleHelper.h */,
+				BFDBFB971D5DAD6D00F4E527 /* MarkTeleHelper.m */,
 			);
 			path = ResolveModule;
 			sourceTree = "<group>";
@@ -709,6 +714,7 @@
 				BFA146E51D532BD9008DE524 /* ResolveDataFile.m in Sources */,
 				BF526C051D54762D00E11FD1 /* ioapi.c in Sources */,
 				BFA146B61D532719008DE524 /* AFURLSessionManager.m in Sources */,
+				BFDBFB981D5DAD6D00F4E527 /* MarkTeleHelper.m in Sources */,
 				BFA146B31D532719008DE524 /* AFURLConnectionOperation.m in Sources */,
 				BFA146E21D532BBE008DE524 /* NSDictionary+DHBSignature.m in Sources */,
 				BFA146F41D532CF2008DE524 /* ServicesItem.m in Sources */,

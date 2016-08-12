@@ -151,21 +151,22 @@
       dispatch_async(dispatch_get_main_queue(), ^{
         ResolveItemNew *item = [[ResolveItemNew alloc] initWithDictionary:responseObject];
         item.flagDate = [self formatDateString];
-        completionHandler(item, nil);
-        //        DLog(@"%@\n%@",operation.response.URL,  responseObject);
+          if (completionHandler) {
+              completionHandler(item, nil);
+          }
       });
     } else {
       dispatch_async(dispatch_get_main_queue(), ^{
-        //  completion(nil, nil);
-        DLog(@"%@", responseObject);
+          if (completionHandler) {
+              completionHandler(nil,nil);
+          }
       });
-      DLog(@"Received: %@", responseObject);
-      DLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
     }
   } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
     dispatch_async(dispatch_get_main_queue(), ^{
-      //   completion(nil, error);
-      DLog(@"%@", error);
+        if (completionHandler) {
+            completionHandler(nil, error);
+        }
     });
   }];
 

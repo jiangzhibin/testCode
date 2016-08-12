@@ -80,6 +80,10 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
   if (apiKey.length > 0) {
     filename = [NSString stringWithFormat:@"0_%@_full.zip", [apiKey substringToIndex:4]];
   } else {
+      if (completionBlock) {
+          NSError *error = [NSError errorWithDomain:@"apikey为空" code:-1 userInfo:nil];
+          completionBlock(error);
+      }
     return;
   }
   
@@ -141,7 +145,10 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
   NSString *zipFileFolderPath = nil;
   
   if ([nameArray count] <= 0) {
-    return;
+      NSError *error = [NSError errorWithDomain:@"" code:-1 userInfo:nil];
+      if (completionBlock) {
+          completionBlock(error);
+      };
   }
   
   zipFileFolderPath = [targetFolder stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@", nameArray[0]]];
@@ -153,11 +160,12 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
   //    completionBlock(nil);
   //    return;
   //  }else {
-  int countFiles = 0;
+  __block int countFiles = 0;
   
   if ([self createFolder:targetFolder]) {
     for (NSString *fileName in nameArray) {
       countFiles++;
+        NSLog(@"fileName:%@ \n\nnameArray:%@",fileName,nameArray);
       NSString *resourceFolderPath =[[NSBundle mainBundle] pathForResource:fileName ofType:nil];
       NSData *mainBundleFile = [NSData dataWithContentsOfFile:resourceFolderPath];
       if ( [[NSFileManager defaultManager] createFileAtPath:zipFileFolderPath
@@ -166,9 +174,10 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
         //todo解压缩
         YuloreZipArchive *zip = [[YuloreZipArchive alloc] init];
         //   zip.progressBlock = progressBlock;
+          NSLog(@"countFiles:%zd",countFiles);
         zip.progressBlock = ^ (int percentage, int filesProcessed, int numFiles) {
           
-          DLog(@"total %d, filesProcessed %d of %d", percentage, filesProcessed, numFiles);
+          DLog(@"countFiles:%zd  total %d, filesProcessed %d of %d", countFiles,percentage, filesProcessed, numFiles);
           
           if (countFiles == nameArray.count && percentage == 100) {
             DLog(@"unzip finish!!!!!!");
@@ -178,23 +187,26 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
         BOOL result = NO;
         
         if ([zip UnzipOpenFile:zipFileFolderPath]) {
-          
-          result = [zip UnzipFileTo:targetFolder overWrite:YES];//解压文件
-          if (!result) {
-            //解压失败
-            DLog(@"unzip fail................");
-          }else {
+            result = [zip UnzipFileTo:targetFolder overWrite:YES];//解压文件
+            if (!result) {
+                //解压失败
+                DLog(@"unzip fail................");
+            }else {
             //解压成功
-            DLog(@"unzip success.............");
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            [fileManager removeItemAtPath:zipFileFolderPath error:nil];
-          }
+                DLog(@"unzip success.............");
+                NSFileManager *fileManager = [NSFileManager defaultManager];
+                [fileManager removeItemAtPath:zipFileFolderPath error:nil];
+            }
           // YuloreZipArchiveProgressUpdateBlock progressBlock
           //DLog(@"total %d, filesProcessed %d of %d", percentage, filesProcessed, numFiles);
+        }
+        else {
+            DLog(@"\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n压缩包:%@无法打开或不存在\n!!!!!!!!!!!!!!!!!!!!!!!",fileName);
         }
         [zip UnzipCloseFile];//关闭
         
       }
+        
     }
     //}
   }

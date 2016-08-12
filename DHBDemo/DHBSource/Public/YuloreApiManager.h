@@ -57,6 +57,13 @@ typedef NS_ENUM(NSInteger,DownloadNetworkType) {
               cityId:(NSString *)cityId
      completionBlock:(void (^)(NSError *error) )completionBlock;
 
+/**
+ 注册状态
+ 
+ @return YES:当前已经注册  NO:尚未注册
+ */
++ (BOOL)registered;
+
 
 /**
  查询号码信息
@@ -67,12 +74,15 @@ typedef NS_ENUM(NSInteger,DownloadNetworkType) {
 + (void)searchTeleNumber:(NSString *)teleNumber
            completionHandler:(void (^)( ResolveItemNew *resolveItem, NSError *error) )completionHandler;
 
-
 /**
- 注册状态
-
- @return YES:当前已经注册  NO:尚未注册
+ 在线标记号码
+ 
+ @param aNumber             电话号码
+ @param flagInfomation      被标记的信息
+ @param completeBlock       标记完成的回调
  */
-+ (BOOL)registered;
++ (void)markTeleNumberOnlineWithNumber:(NSString *)aNumber
+                        flagInfomation:(NSString *)flagInfomation
+                     completionHandler:(void (^)( BOOL successed, NSError *error))completeBlock;
 
 @end
