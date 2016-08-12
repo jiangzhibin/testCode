@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 Yulore. All rights reserved.
 //
 #import "CommonTmp.h"
+#import "Commondef.h"
 #import "CategoryFetcer.h"
 #import "YuloreAPIClient.h"
 #import "CategoryItem.h"
@@ -20,7 +21,14 @@
 #define PROMOTION_KEY @"promotions"
 @implementation CategoryFetcer
 
-SINGLETON_GCD(CategoryFetcer);
++ (instancetype)sharedCategoryFetcer {
+    static CategoryFetcer *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [CategoryFetcer new];
+    });
+    return instance;
+}
 
 - (void)buildJsonDataWithResult:(NSDictionary *)result
       categoryCompletionHandler:(CategoryAllCompletionHandler)categoryCompletionHandler  {

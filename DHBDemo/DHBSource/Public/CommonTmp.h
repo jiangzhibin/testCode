@@ -11,10 +11,7 @@
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "GlobalSettings.h"
-#import "GlobalCommon.h"
-#import "GlobalMacros.h"
-#import "GlobalSettings.h"
+
 #import "AFNetworking.h"
 #import "Reachability.h"
 #import "OpenUDID.h"

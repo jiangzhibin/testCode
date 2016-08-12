@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 Yulore. All rights reserved.
 //
 #import "CommonTmp.h"
+#import "Commondef.h"
 #import "YuloreAPIClient.h"
 
 static NSString *baseURLString = kDIANHUACNURL;

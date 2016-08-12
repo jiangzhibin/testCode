@@ -106,7 +106,6 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
     }
 }
 
-
 /**
  设置Signature
 
@@ -130,7 +129,9 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
 
 #pragma mark - 摘取自YuloreAPI.m
 + (BOOL) registerInfoApikey:(NSString *)apikey
-                  signature:(NSString *)signature {
+                  signature:(NSString *)signature
+                       host:(NSString *)host
+                     cityId:(NSString *)cityId{
     
     BOOL registered = NO;
     
@@ -143,7 +144,8 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
     
     [YuloreApiManager sharedYuloreApiManager].apiKey = apikey;
     [YuloreApiManager sharedYuloreApiManager].signature = signature;
-    
+    [YuloreApiManager sharedYuloreApiManager].host = host;
+    [YuloreApiManager sharedYuloreApiManager].cityId = cityId;
     return registered;
     
 }
@@ -198,9 +200,11 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
 
 + (BOOL) registerApp:(NSString *)apikey
            signature:(NSString *)signature
+                host:(NSString *)host
+              cityId:(NSString *)cityId
      completionBlock:(void (^)(NSError *error) )completionBlock {
     BOOL needToUpdate = [StartLoadingService fetcherLastVersion];
-    BOOL registered = [self registerInfoApikey:apikey signature:signature];
+    BOOL registered = [self registerInfoApikey:apikey signature:signature host:host cityId:cityId];
     if (!needToUpdate && registered) {
         if (![self existedFolder]) {
             [self copyInitDataCompletionBlock:^(NSError *error) {

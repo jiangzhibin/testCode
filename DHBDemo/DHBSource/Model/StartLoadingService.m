@@ -5,7 +5,9 @@
 //  Created by Zhang Heyin on 14-3-28.
 //  Copyright (c) 2014年 Yulore. All rights reserved.
 //
+
 #import "CommonTmp.h"
+#import "Commondef.h"
 #import "StartLoadingService.h"
 #import "CategoryItem.h"
 
@@ -329,7 +331,7 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
 }
 
 + (void) cacheServiceIconImageFromInternet:(NSArray *)serviceArray {
-  Reachability *reach = [Reachability reachabilityWithHostName:kHost];
+  Reachability *reach = [Reachability reachabilityWithHostName:kDIANHUACNURL];
   if ([reach isReachable]) {
     if ([serviceArray count]) {
       

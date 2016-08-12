@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GlobalSettings.h"
 @interface ResolveItemNew : NSObject <NSCoding>
 @property (nonatomic, copy) NSString *location;
 @property (nonatomic, copy) NSString *rank;
@@ -34,7 +33,5 @@
 @property (nonatomic, copy) NSString *sloganContent;
 
 @property (nonatomic, copy) NSString *userFlagContent;
-@property (nonatomic, assign) DHBMarkNumberType userTaggedType;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-+ (NSString *)titleWithType:(DHBMarkNumberType)type;
 @end

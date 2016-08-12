@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF1114471D596EA100C60804 /* DHBSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1114461D596EA100C60804 /* DHBSDK.m */; };
-		BF526B951D537EC900E11FD1 /* YuloreApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B941D537EC900E11FD1 /* YuloreApiManager.m */; };
 		BF526B9B1D53808000E11FD1 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = BF526B971D53808000E11FD1 /* LICENCE.txt */; };
 		BF526B9C1D53808000E11FD1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B991D53808000E11FD1 /* Reachability.m */; };
 		BF526B9D1D53808000E11FD1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BF526B9A1D53808000E11FD1 /* README.md */; };
@@ -91,15 +89,11 @@
 		BFA1473E1D53308B008DE524 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147361D53308B008DE524 /* UIView+SDExtension.m */; };
 		BFA147411D5330B0008DE524 /* NSDictionary+Offset.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147401D5330B0008DE524 /* NSDictionary+Offset.m */; };
 		BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFA147431D5330ED008DE524 /* OfflineDataHelper.mm */; };
-		BFA147481D5332A9008DE524 /* GlobalCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147461D5332A9008DE524 /* GlobalCommon.m */; };
 		BFA1474C1D533866008DE524 /* CategoryFetcer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1474B1D533866008DE524 /* CategoryFetcer.m */; };
+		BFDBFB8F1D5D6A0800F4E527 /* YuloreApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB8E1D5D6A0800F4E527 /* YuloreApiManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BF1114451D596EA100C60804 /* DHBSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDK.h; sourceTree = "<group>"; };
-		BF1114461D596EA100C60804 /* DHBSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDK.m; sourceTree = "<group>"; };
-		BF526B931D537EC900E11FD1 /* YuloreApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreApiManager.h; sourceTree = "<group>"; };
-		BF526B941D537EC900E11FD1 /* YuloreApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuloreApiManager.m; sourceTree = "<group>"; };
 		BF526B971D53808000E11FD1 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
 		BF526B981D53808000E11FD1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		BF526B991D53808000E11FD1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -224,7 +218,6 @@
 		BFA146F61D532D0A008DE524 /* NearbyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyItem.m; sourceTree = "<group>"; };
 		BFA146F81D532D1C008DE524 /* PromotionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionItem.h; sourceTree = "<group>"; };
 		BFA146F91D532D1C008DE524 /* PromotionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionItem.m; sourceTree = "<group>"; };
-		BFA146FF1D532DA4008DE524 /* GlobalSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalSettings.h; sourceTree = "<group>"; };
 		BFA147011D532E33008DE524 /* ListFetcer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFetcer.h; sourceTree = "<group>"; };
 		BFA147021D532E33008DE524 /* ListFetcer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFetcer.m; sourceTree = "<group>"; };
 		BFA147051D532E5D008DE524 /* ShopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopItem.h; sourceTree = "<group>"; };
@@ -258,11 +251,10 @@
 		BFA147401D5330B0008DE524 /* NSDictionary+Offset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Offset.m"; sourceTree = "<group>"; };
 		BFA147421D5330ED008DE524 /* OfflineDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineDataHelper.h; sourceTree = "<group>"; };
 		BFA147431D5330ED008DE524 /* OfflineDataHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OfflineDataHelper.mm; sourceTree = "<group>"; };
-		BFA147451D5332A9008DE524 /* GlobalCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalCommon.h; sourceTree = "<group>"; };
-		BFA147461D5332A9008DE524 /* GlobalCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalCommon.m; sourceTree = "<group>"; };
-		BFA147471D5332A9008DE524 /* GlobalMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacros.h; sourceTree = "<group>"; };
 		BFA1474A1D533866008DE524 /* CategoryFetcer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryFetcer.h; sourceTree = "<group>"; };
 		BFA1474B1D533866008DE524 /* CategoryFetcer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryFetcer.m; sourceTree = "<group>"; };
+		BFDBFB8D1D5D6A0800F4E527 /* YuloreApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuloreApiManager.h; sourceTree = "<group>"; };
+		BFDBFB8E1D5D6A0800F4E527 /* YuloreApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuloreApiManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,7 +380,6 @@
 				BFA147121D532F23008DE524 /* Public */,
 				BFA147041D532E56008DE524 /* Model */,
 				BFA147001D532E2D008DE524 /* ListModule */,
-				BFA146FE1D532D96008DE524 /* Global */,
 				BFA146471D5323DE008DE524 /* CallerIDModule */,
 				BFA146391D53232E008DE524 /* Vender */,
 				BFA146351D532328008DE524 /* Category */,
@@ -548,17 +539,6 @@
 			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
-		BFA146FE1D532D96008DE524 /* Global */ = {
-			isa = PBXGroup;
-			children = (
-				BFA147451D5332A9008DE524 /* GlobalCommon.h */,
-				BFA147461D5332A9008DE524 /* GlobalCommon.m */,
-				BFA147471D5332A9008DE524 /* GlobalMacros.h */,
-				BFA146FF1D532DA4008DE524 /* GlobalSettings.h */,
-			);
-			path = Global;
-			sourceTree = "<group>";
-		};
 		BFA147001D532E2D008DE524 /* ListModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,8 +557,6 @@
 				BF526BA91D53834700E11FD1 /* YuloreAPIClient.m */,
 				BF526B9E1D53811600E11FD1 /* StartLoadingService.h */,
 				BF526B9F1D53811600E11FD1 /* StartLoadingService.m */,
-				BF526B931D537EC900E11FD1 /* YuloreApiManager.h */,
-				BF526B941D537EC900E11FD1 /* YuloreApiManager.m */,
 				BFA1474A1D533866008DE524 /* CategoryFetcer.h */,
 				BFA1474B1D533866008DE524 /* CategoryFetcer.m */,
 				BFA147421D5330ED008DE524 /* OfflineDataHelper.h */,
@@ -598,10 +576,10 @@
 		BFA147121D532F23008DE524 /* Public */ = {
 			isa = PBXGroup;
 			children = (
+				BFDBFB8D1D5D6A0800F4E527 /* YuloreApiManager.h */,
+				BFDBFB8E1D5D6A0800F4E527 /* YuloreApiManager.m */,
 				BFA147131D532F35008DE524 /* CommonTmp.h */,
 				BF526BEE1D546EEC00E11FD1 /* Commondef.h */,
-				BF1114451D596EA100C60804 /* DHBSDK.h */,
-				BF1114461D596EA100C60804 /* DHBSDK.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -728,7 +706,6 @@
 				BFA146521D5323DE008DE524 /* DHBDownloadFetcher.m in Sources */,
 				BFA146B01D532719008DE524 /* AFHTTPSessionManager.m in Sources */,
 				BFA146B81D532719008DE524 /* README.md in Sources */,
-				BF526B951D537EC900E11FD1 /* YuloreApiManager.m in Sources */,
 				BFA146B11D532719008DE524 /* AFNetworkReachabilityManager.m in Sources */,
 				BFA146E81D532C16008DE524 /* YP_ASIDataDecompressor.m in Sources */,
 				BFA146BA1D532719008DE524 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -739,7 +716,6 @@
 				BFA146FA1D532D1C008DE524 /* PromotionItem.m in Sources */,
 				BFA147071D532E5D008DE524 /* ShopItem.m in Sources */,
 				BFA146C01D532719008DE524 /* UIWebView+AFNetworking.m in Sources */,
-				BFA147481D5332A9008DE524 /* GlobalCommon.m in Sources */,
 				BF526C091D54762D00E11FD1 /* zip.c in Sources */,
 				BFA1471E1D533022008DE524 /* NSString+Crypto.m in Sources */,
 				BFA146511D5323DE008DE524 /* DHBDataFetcher.m in Sources */,
@@ -754,7 +730,6 @@
 				BFA146DF1D532BA4008DE524 /* DHBFileOperation.m in Sources */,
 				BFA146BB1D532719008DE524 /* UIAlertView+AFNetworking.m in Sources */,
 				BFA147391D53308B008DE524 /* TAAnimatedDotView.m in Sources */,
-				BF1114471D596EA100C60804 /* DHBSDK.m in Sources */,
 				BFA1465F1D5324BB008DE524 /* DHBHTTPSessionManager.m in Sources */,
 				BF526BF21D5471A900E11FD1 /* TuanGouItem.m in Sources */,
 				BFA146B21D532719008DE524 /* AFSecurityPolicy.m in Sources */,
@@ -762,6 +737,7 @@
 				BFA146501D5323DE008DE524 /* DHBCovertIndexContent.m in Sources */,
 				BFA147111D532ED3008DE524 /* TeleNumber.m in Sources */,
 				BFA146AF1D532719008DE524 /* AFHTTPRequestOperationManager.m in Sources */,
+				BFDBFB8F1D5D6A0800F4E527 /* YuloreApiManager.m in Sources */,
 				BFA146381D532328008DE524 /* NSString+YuloreFilePath.m in Sources */,
 				BFA1473C1D53308B008DE524 /* SDCollectionViewCell.m in Sources */,
 				BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */,

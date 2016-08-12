@@ -94,51 +94,6 @@ static  NSString *kUSERFLAGCONTENT = @"userflagcontent";
 static  NSString *kSLOGAN_IMG = @"slogan_img";
 static  NSString *kSLOGAN_CONTENT = @"slogan";
 
-
-
-
-+ (NSString *)titleWithType:(DHBMarkNumberType)type {
-  NSString *title = @"";
-  switch (type) {
-    case DHBMarkNumberTypeUnMark:
-      title = @"未能反查";
-      break;
-    case  DHBMarkNumberTypeAdvertising:
-      title = @"广告推销";
-      break;
-    case  DHBMarkNumberTypeHarassing:
-      title = @"骚扰电话";
-      break;
-    case  DHBMarkNumberTypeSuspectedFraud:
-      title = @"疑似诈骗";
-      break;
-    case DHBMarkNumberTypeExpress:
-      title = @"快递送餐";
-      break;
-    case  DHBMarkNumberTypeIntermediary:
-      title = @"房产中介";
-      break;
-    case DHBMarkNumberTypeRoomService:
-      title = @"外卖送餐";
-      break;
-    case DHBMarkNumberTypeInsuranceMarketing:
-      title = @"保险推销";
-      break;
-    case DHBMarkNumberTypeUserDefine:
-      title = @"自定义";
-      break;
-  }
-  
-  return title;
-}
-
-
-
-
-
-
-
-
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
   self = [super init];
   if (self) {
@@ -187,8 +142,6 @@ static  NSString *kSLOGAN_CONTENT = @"slogan";
 
     _webURL = [dictionary valueForKey:kWEBURL];
     
-    
-    _userTaggedType = DHBMarkNumberTypeUnMark;
   }
 
   return self;
@@ -238,9 +191,6 @@ static  NSString *kSLOGAN_CONTENT = @"slogan";
       _flagDate = [aDecoder decodeObjectForKey:kFLAGDATE];
     }
     
-    if ([aDecoder containsValueForKey:kUSERTAGGED]) {
-      _userTaggedType = (DHBMarkNumberType)[aDecoder decodeIntForKey:kUSERTAGGED];
-    }
     if ([aDecoder containsValueForKey:kRSHOPID]) {
       _shopID = [aDecoder decodeObjectForKey:kRSHOPID];
     }
@@ -283,7 +233,6 @@ static  NSString *kSLOGAN_CONTENT = @"slogan";
   [coder encodeObject:_flagNumber forKey:kFLAGNUM];
   [coder encodeObject:_flagType forKey:kFLAGTYPE];
   [coder encodeObject:_flagDate forKey:kFLAGDATE];
-  [coder encodeInteger:_userTaggedType forKey:kUSERTAGGED];
     [coder encodeObject:_shopID forKey:kRSHOPID];
   
       [coder encodeObject:_teleNumbers forKey:kTELENUMBERS];

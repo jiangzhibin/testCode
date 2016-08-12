@@ -10,6 +10,7 @@
 //#import "FMDatabase.h"
 #include <string>
 #import "CommonTmp.h"
+#import "Commondef.h"
 using namespace std;
 @implementation OfflineDataHelper
 

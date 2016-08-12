@@ -34,13 +34,12 @@
 #define APISIG2 @"E5UaGxNMkUxTVRrd01EbGtNemN5WlRoaFpUUmpZVFV3TnprM01UVT1ZV1l6TXpjell6QXlNVFV6TUdNMU4ySmtNMlExWXpWaU1XRm1OMlptTkdRPVpUSXlNR0UzWWpKalkyUXhNbUptWTJFNVl6QTRObUprTVRjNE1UUm1"
 
 - (IBAction)downloadAction:(id)sender {
-    [YuloreApiManager sharedYuloreApiManager].apiKey = APIKEY_Download;
-    [YuloreApiManager sharedYuloreApiManager].signature = APISIG2;
-    [YuloreApiManager sharedYuloreApiManager].cityId = @"2";
-    
-    
-    
-    [YuloreApiManager registerApp:APIKEY_Download signature:APISIG2 completionBlock:^(NSError *error) {
+
+    [YuloreApiManager registerApp:APIKEY_Download
+                        signature:APISIG2
+                             host:@""
+                             city:@"2"
+                  completionBlock:^(NSError *error) {
         DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
         //DHBDownloadPackageType downloadType = DHBDownloadPackageTypeFull;
         

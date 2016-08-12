@@ -26,8 +26,11 @@ typedef NS_ENUM(NSInteger,DownloadNetworkType) {
 
 @property (nonatomic, copy) NSString *signature;
 
-/// 用户定位或选择的城市id （默认为@"0")
+/// 用户所在城市id,用户修改城市后，需通过[YuloreApiManager sharedYuloreApiManager].cityId 重新设置
 @property (nonatomic, copy) NSString *cityId;
+
+/// 电话邦host https://apis-ios.dianhua.cn/
+@property (nonatomic, copy) NSString *host;
 
 /// 用户定位信息（可选）
 @property (nonatomic, assign) CLLocationCoordinate2D  coordinate;
@@ -42,12 +45,17 @@ typedef NS_ENUM(NSInteger,DownloadNetworkType) {
  *
  *  @param apikey    所需apikey
  *  @param signature 所需signature
+ *  @param host      电话邦host https://apis-ios.dianhua.cn/
+ *  @param city      用户所在城市id,默认传@"0",待用户设置城市后，需通过[YuloreApiManager sharedYuloreApiManager].cityId 重新设置
  *
  *  @return 是否设置成功
  */
 + (BOOL) registerApp:(NSString *)apikey
            signature:(NSString *)signature
+                host:(NSString *)host
+                city:(NSString *)city
      completionBlock:(void (^)(NSError *error) )completionBlock;
 
 + (BOOL)registered;
+
 @end

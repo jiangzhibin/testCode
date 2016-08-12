@@ -22,7 +22,6 @@
 
 #import "APIDotDianHuaDotCNClient.h"
 #import "CommonTmp.h"
-static NSString * const kAFAppDotNetAPIBaseURLString = kDIANHUACNURL;
 
 @implementation APIDotDianHuaDotCNClient
 
@@ -31,7 +30,7 @@ static NSString * const kAFAppDotNetAPIBaseURLString = kDIANHUACNURL;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
 
-    NSURL *baseURL = [NSURL URLWithString:kAFAppDotNetAPIBaseURLString];
+    NSURL *baseURL = [NSURL URLWithString:[YuloreApiManager sharedYuloreApiManager].host];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     

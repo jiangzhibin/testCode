@@ -7,6 +7,7 @@
 //
 
 #import "CommonTmp.h"
+#import "Commondef.h"
 #import "ListFetcer.h"
 #import "ShopItem.h"
 #import "ServicesItem.h"
@@ -19,6 +20,7 @@
 #import "APIDotDianHuaDotCNClient.h"
 #import "CustomItem.h"
 
+static NSString * const kCAT_ID = @"cat_id";
 static NSInteger CACHE_INTERVAL_DAY = 10;
 @implementation ListFetcer
 
