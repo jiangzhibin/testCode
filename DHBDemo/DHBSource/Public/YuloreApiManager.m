@@ -205,6 +205,12 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
                 host:(NSString *)host
               cityId:(NSString *)cityId
      completionBlock:(void (^)(NSError *error) )completionBlock {
+    
+    if (apikey == nil || [apikey isKindOfClass:[NSNull class]] || apikey.length < 4) {
+        NSError *error = [NSError errorWithDomain:@"apikey无效" code:-1 userInfo:nil];
+        completionBlock(error);
+        return NO;
+    }
     BOOL needToUpdate = [DHBSDKStartLoadingService fetcherLastVersion];
     BOOL registered = [self registerInfoApikey:apikey signature:signature host:host cityId:cityId];
     if (!needToUpdate && registered) {
