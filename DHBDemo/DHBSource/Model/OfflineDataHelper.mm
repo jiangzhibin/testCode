@@ -5,13 +5,25 @@
 //  Created by Zhang Heyin on 13-7-23.
 //  Copyright (c) 2013年 Yulore. All rights reserved.
 //
-#import "YP_ASIDataDecompressor.h"
+#import "DHBSDKYP_ASIDataDecompressor.h"
 #import "OfflineDataHelper.h"
 //#import "FMDatabase.h"
 #include <string>
 #import "CommonTmp.h"
 #import "Commondef.h"
 using namespace std;
+
+
+static NSString *const dhbsdkchinese = @"chinese";
+static NSString *const dhbsdkpinyin = @"pinyin";
+//static NSString *const dhbsdkchinese = @"pinyinindex";
+//static NSString *const dhbsdkchinese = @"pinyinshort";
+//static NSString *const dhbsdkchinese = @"pinyinshortindex";
+//static NSString *const dhbsdkchinese = @"offset";
+//static NSString *const dhbsdkchinese = @"chinese";
+//static NSString *const dhbsdkchinese = @"chinese";
+
+
 @implementation OfflineDataHelper
 
 + (NSString *)cacheDir {
@@ -104,7 +116,7 @@ using namespace std;
     [compreseData appendBytes:&c  length:1];
     if ((c || pre) == 0x00) {
       //这里是是位置
-      // DLog(@"");
+      // DHBSDKDLog(@"");
       offsete = ftell(fp);
       break;
     }
@@ -117,7 +129,7 @@ using namespace std;
     
     NSUInteger offsetV = [[offsetArray objectAtIndex:i-1] integerValue];
     NSUInteger readLength = [[offsetArray objectAtIndex:i] integerValue] - [[offsetArray objectAtIndex:i-1] integerValue];
-    DLog(@"offsetV %lu , readLength %lu  i = %d", (unsigned long)offsetV, (unsigned long)readLength, i);
+    DHBSDKDLog(@"offsetV %lu , readLength %lu  i = %d", (unsigned long)offsetV, (unsigned long)readLength, i);
     [self pinyinWithOffset:offsetH + offsetV readLength:readLength  city:aCity];
   }
   
@@ -128,19 +140,19 @@ using namespace std;
 
 
 
-+ (BOOL)decompress:(DataFileType)type cityId:(NSString *)cityId {
++ (BOOL)decompress:(DHBSDKDataFileType)type cityId:(NSString *)cityId {
   
   NSString *orignalDatFilePath = nil;
   NSString *decompressJsonFilePath = nil;
   NSUInteger cutsize = 0;
   switch (type) {
-    case DataPinyin: {
+    case DHBSDKDataPinyin: {
       cutsize = 3;
       orignalDatFilePath = [[self cacheDir] stringByAppendingFormat:@"d%@_id.dat",cityId];
       decompressJsonFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_id.json", cityId];
     }
       break;
-    case DataCategory: {
+    case DHBSDKDataCategory: {
       cutsize = 6;
       orignalDatFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_ic.dat", cityId];
       decompressJsonFilePath = [[self cacheDir]  stringByAppendingFormat:@"d%@_ic.json",cityId];
@@ -171,13 +183,13 @@ using namespace std;
   NSData *newNSData = [NSData dataWithData:newData];
   
   // [newNSData writeToFile:decompressedDatafileName atomically:YES];
-  NSData *decompressedData = [YP_ASIDataDecompressor uncompressData:newNSData error:nil];
+  NSData *decompressedData = [DHBSDKYP_ASIDataDecompressor uncompressData:newNSData error:nil];
   BOOL result =  [decompressedData writeToFile:decompressJsonFilePath atomically:YES];
   
-  if (type == DataPinyin) {
+  if (type == DHBSDKDataPinyin) {
     NSError *error = nil;
     // NSArray *results = decompressedData ? [NSJSONSerialization JSONObjectWithData:decompressedData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
-    if (error) DLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
+    if (error) DHBSDKDLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
     // [self decompressPinyinDataWithOffset:results withCity:aCity];
   }
   
@@ -190,30 +202,30 @@ using namespace std;
 
 
 + (BOOL)decompressDatFileWithCityId:(NSString *)cityId{
-  BOOL pinyinDatFileResult = [self decompress:DataPinyin cityId:cityId];
-  BOOL categoryDatFileResult = [self decompress:DataCategory cityId:cityId];
+  BOOL pinyinDatFileResult = [self decompress:DHBSDKDataPinyin cityId:cityId];
+  BOOL categoryDatFileResult = [self decompress:DHBSDKDataCategory cityId:cityId];
   return (pinyinDatFileResult && categoryDatFileResult);
 }
 
 
-+ (NSString *)nationaldataFilePath:(DataFileType)type {
++ (NSString *)nationaldataFilePath:(DHBSDKDataFileType)type {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
   NSString *documentDirectory = [paths objectAtIndex:0];
   NSString *dbPath = nil;
   switch (type) {
-    case DataPinyin:{
+    case DHBSDKDataPinyin:{
       dbPath = [documentDirectory stringByAppendingFormat:@"/Caches/OfflineData/d0_id.json"];
     }
       break;
-    case DataCategory: {
+    case DHBSDKDataCategory: {
       dbPath = [documentDirectory stringByAppendingFormat:@"/Caches/OfflineData/d0_ic.json"];
     }
       break;
-    case DataCategoryDat: {
+    case DHBSDKDataCategoryDat: {
       dbPath = [documentDirectory stringByAppendingFormat:@"/Caches/OfflineData/d0_ic.dat"];
     }
       break;
-    case DataDetail: {
+    case DHBSDKDataDetail: {
       dbPath = [documentDirectory stringByAppendingFormat:@"/Caches/OfflineData/d0.dat"];
       
     }
@@ -225,25 +237,25 @@ using namespace std;
   return dbPath;
 }
 
-+ (NSString *)dataFilePath:(DataFileType)type {
++ (NSString *)dataFilePath:(DHBSDKDataFileType)type {
   NSString *cityid = [YuloreApiManager sharedYuloreApiManager].cityId;
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
   NSString *documentDirectory = [paths objectAtIndex:0];
   NSString *dbPath = nil;
   switch (type) {
-    case DataPinyin:{
+    case DHBSDKDataPinyin:{
       dbPath = [documentDirectory stringByAppendingFormat:@"/Caches/OfflineData/d%@_id.json", cityid];
     }
       break;
-    case DataCategory: {
+    case DHBSDKDataCategory: {
       dbPath = [documentDirectory stringByAppendingFormat:@"/Caches/OfflineData/d%@_ic.json", cityid];
     }
       break;
-    case DataCategoryDat: {
+    case DHBSDKDataCategoryDat: {
       dbPath = [documentDirectory stringByAppendingFormat:@"/Caches/OfflineData/d%@_ic.dat", cityid];
     }
       break;
-    case DataDetail: {
+    case DHBSDKDataDetail: {
       dbPath = [documentDirectory stringByAppendingFormat:@"/Caches/OfflineData/d%@.dat", cityid];
       
     }
@@ -265,7 +277,7 @@ using namespace std;
 }
 
 + (BOOL)hasCategoryData {
-  NSString *dbPath = [self dataFilePath:DataCategoryDat];
+  NSString *dbPath = [self dataFilePath:DHBSDKDataCategoryDat];
   NSError *error= nil;
   NSData *aData = [NSData dataWithContentsOfFile:dbPath options:0 error:&error];
   
@@ -277,7 +289,7 @@ using namespace std;
   }
 }
 
-+ (NSData *)dataOfFilePath:(DataFileType)type {
++ (NSData *)dataOfFilePath:(DHBSDKDataFileType)type {
   
   NSString *dbPath = [self dataFilePath:type];
   NSError *error= nil;
@@ -289,7 +301,7 @@ using namespace std;
 //  BOOL result = NO;
 //  FMDatabase *db = [FMDatabase databaseWithPath:[self databasePath]];
 //  if (![db open]) {
-//    DLog(@"Could not open db.");
+//    DHBSDKDLog(@"Could not open db.");
 //    return NO;
 //  } else {
 //    NSString * SQLUPDATE=[NSString stringWithFormat:@"UPDATE city SET selected=0  ,DataVersion = 0 WHERE c_id=%ld", (long)aCity];
@@ -305,7 +317,7 @@ using namespace std;
 //  BOOL result = NO;
 //  FMDatabase *db = [FMDatabase databaseWithPath:[self databasePath]];
 //  if (![db open]) {
-//    DLog(@"Could not open db.");
+//    DHBSDKDLog(@"Could not open db.");
 //    return NO;
 //  } else {
 //    NSString * SQLUPDATE=[NSString stringWithFormat:@"UPDATE city SET selected=0  ,DataVersion = 0 WHERE c_id=%@", aCity.cityID];
@@ -425,7 +437,7 @@ using namespace std;
   
   NSError *error = nil;
   NSMutableArray *resultsjson = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
-  if (error) DLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
+  if (error) DHBSDKDLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
   
   return resultsjson;
 }
@@ -525,7 +537,6 @@ using namespace std;
       continue;
     }
   }
-    DLog(@"%@", contentArray[0]);
   if ([contentArray count] > 5) {
     for (int i = 0; i < [contentArray count]; i++) {
       [contentDic setValue:[contentArray objectAtIndex:i]
@@ -590,7 +601,6 @@ using namespace std;
   
   char *content = (char *)malloc(512);
   memset(content, 0, 512);
-  DLog(@"start");
   string strkeyWords =string( [keyWords UTF8String]);
   transform(strkeyWords.begin(), strkeyWords.end(), strkeyWords.begin(), ::tolower);
   while (offset < endofpos) {
@@ -623,7 +633,6 @@ using namespace std;
     }
     offset++;
   }
-  DLog(@"finish");
   free(decompressedDataPoint);
   return array;
 }
@@ -656,12 +665,12 @@ using namespace std;
   //NSString *format = ([self inputCharacterType:searchText]) ? [CITYNAME stringByAppendingString:@" like[cd] %@"] : [ stringByAppendingString:@" like[cd] %@"];//"cityname like[cd] %@" : @"city_en like[cd] %@";
   NSArray *filterArray = [[NSMutableArray alloc] init];
   if ([self inputCharacterType:searchText]) {
-    NSString *format = [chinese stringByAppendingString:@" like[cd] %@"];
+    NSString *format = [dhbsdkchinese stringByAppendingString:@" like[cd] %@"];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:format, match];
     
     filterArray = [recordArray filteredArrayUsingPredicate:predicate];
   } else {
-    NSString *format_en = [pinyin stringByAppendingString:@" like[cd] %@"];
+    NSString *format_en = [dhbsdkpinyin stringByAppendingString:@" like[cd] %@"];
     // NSString *format_sen = [CITYSENAME stringByAppendingString:@" like[cd] %@"];
     NSPredicate *predicate_en = [NSPredicate predicateWithFormat:format_en, match];
     // NSPredicate *predicate_sen = [NSPredicate predicateWithFormat:format_sen, match];
@@ -754,7 +763,7 @@ using namespace std;
     //NSString *filename = [NSString stringWithFormat:@"/datapinyin_%@_%d.dat", currentSelectedCityID, [[offsetArray objectAtIndex:i] integerValue]];
     //  NSString *apartFilePath = [[self cacheDir] stringByAppendingString:filename];
     NSData *newNSData = [NSData dataWithBytes:bufferPreDepress length:readLength + 7];
-    decompressedData = [YP_ASIDataDecompressor uncompressData:newNSData error:nil];
+    decompressedData = [DHBSDKYP_ASIDataDecompressor uncompressData:newNSData error:nil];
    // [decompressedData writeToFile:apartFilePath atomically:YES];
     
     
@@ -779,7 +788,7 @@ using namespace std;
 + (BOOL)canOfflineSearch {
   
   BOOL can = NO;
-  NSString *path = [self dataFilePath:DataCategoryDat];
+  NSString *path = [self dataFilePath:DHBSDKDataCategoryDat];
   if ([path rangeOfString:@"d0_ic.json"].location != NSNotFound) {
     // return NO;
   }

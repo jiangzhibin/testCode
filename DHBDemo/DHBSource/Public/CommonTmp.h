@@ -14,11 +14,11 @@
 
 #import "AFNetworking.h"
 #import "Reachability.h"
-#import "OpenUDID.h"
+#import "DHBSDKOpenUDID.h"
 #import "YuloreApiManager.h"
-#import "NSString+YuloreFilePath.h"
-#import "NSString+Crypto.h"
-#import "YuloreZipArchive.h"
+#import "NSString+DHBSDKYuloreFilePath.h"
+#import "NSString+DHBSDKCrypto.h"
+#import "DHBSDKYuloreZipArchive.h"
 #endif
 
 #endif

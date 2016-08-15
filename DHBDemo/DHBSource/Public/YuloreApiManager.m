@@ -7,10 +7,10 @@
 //
 
 #import "YuloreApiManager.h"
-#import "NSString+YuloreFilePath.h"
-#import "StartLoadingService.h"
+#import "NSString+DHBSDKYuloreFilePath.h"
+#import "DHBSDKStartLoadingService.h"
 #import "Commondef.h"
-#import "MarkTeleHelper.h"
+#import "DHBSDKMarkTeleHelper.h"
 
 /// ApiKey & Signature
 static NSString * const kApiKeyString               = @"DHBSDKApiKeyString";
@@ -59,7 +59,7 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
     _apiKey = [[userDefaults objectForKey:kApiKeyString] copy];
     _signature = [[userDefaults objectForKey:kSignatureString] copy];
     
-    // 网络类型 (未设置过，则为0，代表DownloadNetworkTypeWifiOnly 仅wifi)
+    // 网络类型 (未设置过，则为0，代表DHBSDKDownloadNetworkTypeWifiOnly 仅wifi)
     _downloadNetworkType = [userDefaults integerForKey:kDownloadNetworkType];
 }
 
@@ -120,7 +120,7 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
     }
 }
 
-- (void)setDownloadNetworkType:(DownloadNetworkType)downloadNetworkType {
+- (void)setDownloadNetworkType:(DHBSDKDownloadNetworkType)downloadNetworkType {
     if (_downloadNetworkType != downloadNetworkType) {
         _downloadNetworkType = downloadNetworkType;
         [[NSUserDefaults standardUserDefaults] setInteger:downloadNetworkType forKey:kDownloadNetworkType];
@@ -156,10 +156,10 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
     dispatch_queue_t q = dispatch_queue_create("queue", 0);
     dispatch_async(q, ^{
         
-        [StartLoadingService copyInitDataCompletionBlock:^(NSError *error) {
+        [DHBSDKStartLoadingService copyInitDataCompletionBlock:^(NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 // [StartLoadingService cacheCategoyDataFromInternet];
-                [StartLoadingService updateLastVersion];
+                [DHBSDKStartLoadingService updateLastVersion];
                 completionBlock(nil);
             });
         }];
@@ -205,7 +205,7 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
                 host:(NSString *)host
               cityId:(NSString *)cityId
      completionBlock:(void (^)(NSError *error) )completionBlock {
-    BOOL needToUpdate = [StartLoadingService fetcherLastVersion];
+    BOOL needToUpdate = [DHBSDKStartLoadingService fetcherLastVersion];
     BOOL registered = [self registerInfoApikey:apikey signature:signature host:host cityId:cityId];
     if (!needToUpdate && registered) {
         if (![self existedFolder]) {
@@ -233,8 +233,8 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
  @param completionHandler 查询结果回调
  */
 + (void)searchTeleNumber:(nonnull NSString *)teleNumber
-       completionHandler:(void (^)(ResolveItemNew *resolveItem, NSError *error))completionHandler {
-        [[ResolveFecherNew sharedResolveFecherNew] resolveFectcherWithTelephoneNumber:teleNumber completionHandler:^(ResolveItemNew *resolveItem, NSError *error) {
+       completionHandler:(void (^)(DHBSDKResolveItemNew *resolveItem, NSError *error))completionHandler {
+        [[DHBSDKResolveFecherNew sharedResolveFecherNew] resolveFectcherWithTelephoneNumber:teleNumber completionHandler:^(DHBSDKResolveItemNew *resolveItem, NSError *error) {
             if (completionHandler) {
                 completionHandler(resolveItem,error);
             }
@@ -251,7 +251,7 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
 + (void)markTeleNumberOnlineWithNumber:(NSString *)aNumber
                         flagInfomation:(NSString *)flagInfomation
                      completionHandler:(void (^)( BOOL successed, NSError *error))completeBlock {
-    [MarkTeleHelper markTeleNumberOnlineWithNumber:aNumber flagInfomation:flagInfomation completionHandler:completeBlock];
+    [DHBSDKMarkTeleHelper markTeleNumberOnlineWithNumber:aNumber flagInfomation:flagInfomation completionHandler:completeBlock];
 }
 
 @end

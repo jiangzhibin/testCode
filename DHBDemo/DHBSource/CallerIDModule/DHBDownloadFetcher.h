@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DHBUpdateItem.h"
+#import "DHBSDKUpdateItem.h"
 typedef NS_ENUM(NSInteger, DHBDownloadPackageType) {
   DHBDownloadPackageTypeDelta,
   DHBDownloadPackageTypeFull
@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, DHBDownloadPackageType) {
  *  @param completionHandler 任务完成回调
  */
 - (void)baseDownloadingWithType:(DHBDownloadPackageType)packageType
-                     updateItem:(DHBUpdateItem *)updateItem
+                     updateItem:(DHBSDKUpdateItem *)updateItem
                   progressBlock:(void (^)(double progress, long long totalBytes))progressBlock
               completionHandler:(void (^)(BOOL retry, NSError *error))completionHandler;
 

@@ -7,18 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ResolveDataFile.h"
+#import "DHBSDKResolveDataFile.h"
 
 @interface DHBCovertIndexContent : NSObject
 @property (nonatomic, strong) NSDictionary *indexContent;
 @property (nonatomic, strong) NSData *mappedData;
 @property (nonatomic, copy) NSString *dataFileInfo;
-@property (nonatomic, strong) ResolveDataFile *resolveDataFile;
+@property (nonatomic, strong) DHBSDKResolveDataFile *resolveDataFile;
 
 + (instancetype)sharedInstance;
 - (void)needReload;
 - (void)readDataFromFile:(void (^)(float progress))progressBlock
                  completionHandler:(void (^)(NSError *error))completionHandler;
--(void) reloadExtentsion;
 
 @end

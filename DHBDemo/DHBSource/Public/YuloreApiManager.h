@@ -10,13 +10,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "ResolveFecherNew.h"
+#import "DHBSDKResolveFecherNew.h"
 
 /// 允许执行下载操作的网络类型
-typedef NS_ENUM(NSInteger,DownloadNetworkType) {
-    DownloadNetworkTypeWifiOnly,    // 仅wifi网络
-    DownloadNetworkTypeAllAllow,    // 所有网络
-    DownloadNetworkTypeNotAllow     // 禁止联网
+typedef NS_ENUM(NSInteger,DHBSDKDownloadNetworkType) {
+    DHBSDKDownloadNetworkTypeWifiOnly,    // 仅wifi网络
+    DHBSDKDownloadNetworkTypeAllAllow,    // 所有网络
+    DHBSDKDownloadNetworkTypeNotAllow     // 禁止联网
 };
 
 
@@ -36,8 +36,8 @@ typedef NS_ENUM(NSInteger,DownloadNetworkType) {
 /// 用户定位信息（可选）
 @property (nonatomic, assign) CLLocationCoordinate2D  coordinate;
 
-/// 允许执行下载操作的网络类型(默认DownloadNetworkTypeWifiOnly)
-@property (nonatomic, assign) DownloadNetworkType downloadNetworkType;
+/// 允许执行下载操作的网络类型(默认DHBSDKDownloadNetworkTypeWifiOnly)
+@property (nonatomic, assign) DHBSDKDownloadNetworkType downloadNetworkType;
 
 + (instancetype)sharedYuloreApiManager;
 
@@ -72,7 +72,7 @@ typedef NS_ENUM(NSInteger,DownloadNetworkType) {
  @param completionHandler 查询结果回调
  */
 + (void)searchTeleNumber:(NSString *)teleNumber
-           completionHandler:(void (^)( ResolveItemNew *resolveItem, NSError *error) )completionHandler;
+           completionHandler:(void (^)( DHBSDKResolveItemNew *resolveItem, NSError *error) )completionHandler;
 
 /**
  在线标记号码

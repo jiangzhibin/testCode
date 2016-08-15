@@ -5,13 +5,12 @@
 //  Created by Zhang Heyin on 15/8/12.
 //  Copyright (c) 2015年 Yulore Inc. All rights reserved.
 //
-#import <CallKit/CallKit.h>
 #import "DHBCovertIndexContent.h"
-#import "ListFetcer.h"
-#import "TeleNumber.h"
-#import "ShopItem.h"
+#import "DHBSDKListFetcer.h"
+#import "DHBSDKTeleNumber.h"
+#import "DHBSDKShopItem.h"
 #import "CommonTmp.h"
-#import "CategoryFetcer.h"
+#import "DHBSDKCategoryFetcer.h"
 
 @interface DHBCovertIndexContent()
 @property (nonatomic, strong) NSDate *dataVersionDate;
@@ -46,7 +45,7 @@
   self = [super init];
   
   if (self) {
-    _resolveDataFile = [[ResolveDataFile alloc] init];
+    _resolveDataFile = [[DHBSDKResolveDataFile alloc] init];
     _dataVersionDate = [NSDate dateWithTimeIntervalSince1970:_resolveDataFile.timeStamp];
     _currentVersion = _resolveDataFile.currentVersion;
     NSLog(@"init version %@ %ld", _dataVersionDate ,_currentVersion);
@@ -56,7 +55,7 @@
 }
 
 - (void)loadHotCategoryNumbersComplete:(void(^)(NSDictionary *hotTeleNumberList))completeBlock {
-    [[CategoryFetcer sharedCategoryFetcer] categoriesWithCityID:[YuloreApiManager sharedYuloreApiManager].cityId loadFromSandboxCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
+    [[DHBSDKCategoryFetcer sharedCategoryFetcer] categoriesWithCityID:[YuloreApiManager sharedYuloreApiManager].cityId loadFromSandboxCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
         NSMutableArray *categoryItems = [NSMutableArray new];
         [categoryItems addObjectsFromArray:allHotCategories];
         [categoryItems addObjectsFromArray:allLocalServices];
@@ -76,7 +75,7 @@
     NSMutableDictionary * hotTeleNumberList = [[NSMutableDictionary alloc] initWithCapacity:10000];
     for (CategoryItem * aCategoryItem in categoryItems) {
         //NSLog(@"Category Item: %@",aCategoryItem);
-        NSMutableArray *shopItems__ =[ListFetcer executeFectcerFromCategoryJson:aCategoryItem];
+        NSMutableArray *shopItems__ =[DHBSDKListFetcer executeFectcerFromCategoryJson:aCategoryItem];
         if (shopItems__) {
             NSLog(@"Shop Item ****");
             for (id aShopItem in shopItems__) {
@@ -84,9 +83,9 @@
                 for (id shopItems in [aShopItem allValues]) {
                     NSLog(@"Shop Item ----");
                     for (id item in shopItems) {
-                        if ([item isKindOfClass:[ShopItem class]]){
-                            ShopItem * shopItem = item;
-                            for (TeleNumber * tel in shopItem.teleNumbers) {
+                        if ([item isKindOfClass:[DHBSDKShopItem class]]){
+                            DHBSDKShopItem * shopItem = item;
+                            for (DHBSDKTeleNumber * tel in shopItem.teleNumbers) {
                                 NSString * telNumber=[[NSString alloc] initWithString:[tel.teleNumber stringByReplacingOccurrencesOfString:@"-" withString:@""]];
                                 NSString * label;
                                 if ([tel.teleDescription isEqualToString:@"电话"]) {
@@ -229,7 +228,7 @@
 
 - (void)needReload {
     _resolveDataFile = nil;
-    _resolveDataFile = [[ResolveDataFile alloc] init];
+    _resolveDataFile = [[DHBSDKResolveDataFile alloc] init];
     _dataVersionDate = [NSDate dateWithTimeIntervalSince1970:_resolveDataFile.timeStamp];
     NSLog(@"needReload version %@", _dataVersionDate );
 }

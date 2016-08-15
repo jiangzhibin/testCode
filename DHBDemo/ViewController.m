@@ -51,7 +51,7 @@
 //                return ;
         
         [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
-            DHBUpdateItem *updateItem = [deltaPackageList firstObject];
+            DHBSDKUpdateItem *updateItem = [deltaPackageList firstObject];
             if (updateItem == nil) {
                 return ;
             }

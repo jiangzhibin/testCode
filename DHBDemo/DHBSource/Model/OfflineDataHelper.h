@@ -8,31 +8,25 @@
 
 #import <Foundation/Foundation.h>
 @class City;
-#define chinese @"chinese"
-#define pinyin @"pinyin"
-#define pinyinindex @"pinyinindex"
-#define pinyinshort @"pinyinshort"
-#define pinyinshortindex @"pinyinshortindex"
-#define dataoffset @"offset"
-#define datalength @"length"
-typedef enum DATAFILETYPE {
-  DataPinyin,
-  DataCategory,
-  DataCategoryDat,
-  DataDetail
+
+typedef enum DHBSDKDATAFILETYPE {
+  DHBSDKDataPinyin,
+  DHBSDKDataCategory,
+  DHBSDKDataCategoryDat,
+  DHBSDKDataDetail
 	
-} DataFileType;
+} DHBSDKDataFileType;
 @interface OfflineDataHelper : NSObject
 + (BOOL)hasCategoryData;
 + (BOOL)canOfflineSearch;
-+ (NSString *)nationaldataFilePath:(DataFileType)type;
++ (NSString *)nationaldataFilePath:(DHBSDKDataFileType)type;
 + (NSArray *)pinyinIndexWithKeyWords:(NSString *)keyWords;
 //+ (NSMutableArray *)pinyinIndexFileOffsetArray;
 //+ (NSMutableArray *)allItem;
 //+ (BOOL)decompressDatFile:(City *)aCity;
 + (BOOL)decompressDatFileWithCityId:(NSString *)cityId;
-+ (NSData *)dataOfFilePath:(DataFileType)type;
-+ (NSString *)dataFilePath:(DataFileType)type;
++ (NSData *)dataOfFilePath:(DHBSDKDataFileType)type;
++ (NSString *)dataFilePath:(DHBSDKDataFileType)type;
 //+ (BOOL)deleteSelected:(City *)aCity ;
 //+ (BOOL)deleteSelectedCityID:(NSInteger)aCity;
 //+ (BOOL) updateCityDataDelete :(City *)aCity;

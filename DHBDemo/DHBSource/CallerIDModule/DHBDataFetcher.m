@@ -8,10 +8,10 @@
 
 #import "DHBDataFetcher.h"
 
-#import "DHBUpdateItem.h"
-#import "OpenUDID.h"
+#import "DHBSDKUpdateItem.h"
+#import "DHBSDKOpenUDID.h"
 #import "DHBHTTPSessionManager.h"
-#import "NSDictionary+DHBSignature.h"
+#import "NSDictionary+DHBSDKSignature.h"
 #import "DHBCovertIndexContent.h"
 #import "YuloreApiManager.h"
 
@@ -105,7 +105,7 @@
  */
 - (NSString *)uid {
   
-  return [OpenUDID value];
+  return [DHBSDKOpenUDID value];
 }
 
 /**
@@ -133,7 +133,7 @@
   NSArray *list = result[@"data"];
   for (id aData in list) {
     
-    DHBUpdateItem *aItem = [DHBUpdateItem itemWithDictionary:aData];
+    DHBSDKUpdateItem *aItem = [DHBSDKUpdateItem itemWithDictionary:aData];
     [items addObject:aItem];
     
   }
@@ -235,7 +235,7 @@
               NSLog(@"FLAG AVAILABLE");
             items = [[NSMutableArray alloc] init];
             
-            DHBUpdateItem *aItem = [DHBUpdateItem itemWithDictionary:result[@"flag"]];
+            DHBSDKUpdateItem *aItem = [DHBSDKUpdateItem itemWithDictionary:result[@"flag"]];
             [items addObject:aItem];
             [aItem print];
           }

@@ -8,24 +8,24 @@
 
 #import "DHBDownloadFetcher.h"
 #import "FileHash.h"
-#import "NSString+MD5Check.h"
-#import "DHBbspatchOC.h"
-#import "AFDownloadRequestOperation.h"
-#import "NSString+YuloreFilePath.h"
+#import "NSString+DHBSDKMD5Check.h"
+#import "DHBSDKbspatchOC.h"
+#import "DHBSDKAFDownloadRequestOperation.h"
+#import "NSString+DHBSDKYuloreFilePath.h"
 #import "DHBEnvironmentValidate.h"
 #import "CommonTmp.h"
 
 
 //#import "VirtualInterface.h"
 #import "DHBErrorHelper.h"
-#import "DHBFileOperation.h"
+#import "DHBSDKDHBFileOperation.h"
 //#import "DHBUpdateLogging.h"
 @interface DHBDownloadFetcher()
-@property (nonatomic, strong) AFDownloadRequestOperation *downloadOperation;
+@property (nonatomic, strong) DHBSDKAFDownloadRequestOperation *downloadOperation;
 
 
 @property (nonatomic, strong) NSURL *requestURL;
-@property (nonatomic, strong) DHBUpdateItem *updateItem;
+@property (nonatomic, strong) DHBSDKUpdateItem *updateItem;
 @end
 @implementation DHBDownloadFetcher
 
@@ -71,7 +71,7 @@
 }
 
 
-- (NSString *)md5WithUpdateItem:(DHBUpdateItem *)updateItem packageType:(DHBDownloadPackageType)packageType {
+- (NSString *)md5WithUpdateItem:(DHBSDKUpdateItem *)updateItem packageType:(DHBDownloadPackageType)packageType {
   NSString *MD5 = nil;
   if (packageType == DHBDownloadPackageTypeDelta) {
     MD5 = updateItem.deltaMD5;
@@ -108,7 +108,7 @@
 
     NSLog(@"to %@ (%@)", targetPath,targetPathUnzipped);
 
-  self.downloadOperation = [[AFDownloadRequestOperation alloc] initWithRequest:urlRequest
+  self.downloadOperation = [[DHBSDKAFDownloadRequestOperation alloc] initWithRequest:urlRequest
                                                                     targetPath:targetPath
                                                                   shouldResume:YES];
   self.downloadOperation.shouldOverwrite = YES;
@@ -135,7 +135,7 @@
     
       if (packageType == DHBDownloadPackageTypeFull){
           
-          YuloreZipArchive *zip = [[YuloreZipArchive alloc] init];
+          DHBSDKYuloreZipArchive *zip = [[DHBSDKYuloreZipArchive alloc] init];
           //   zip.progressBlock = progressBlock;
           zip.progressBlock = ^ (int percentage, int filesProcessed, int numFiles) {
               if (percentage == 100) {
@@ -200,7 +200,7 @@
  *  @param completionHandler <#completionHandler description#>
  */
 - (void)baseDownloadingWithType:(DHBDownloadPackageType)packageType
-                     updateItem:(DHBUpdateItem *)updateItem
+                     updateItem:(DHBSDKUpdateItem *)updateItem
                   progressBlock:(void (^)(double progress, long long totalBytes))progressBlock
               completionHandler:(void (^)(BOOL retry, NSError *error))completionHandler  {
 
@@ -298,7 +298,7 @@
      /**
       *  2 文件更新
       */
-     error = [DHBFileOperation errorWithFileUpdateOperation];
+     error = [DHBSDKDHBFileOperation errorWithFileUpdateOperation];
 
        completionHandler(error);
 

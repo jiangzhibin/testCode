@@ -27,7 +27,7 @@ NSString * const DHBCallerIDEnvironmentErrorDomain = @"com.yulore.callerid.envir
                                               code:statusCode
                                           userInfo:errorDetail];
   return error;
-//  DDLogError(@"Response statusCode: %i", response.statusCode);
+//  DHBSDKDLog(@"Response statusCode: %i", response.statusCode);
 }
 
 + (NSError *)errorMD5ValidWithUserInfo:(NSDictionary *)userInfo {
