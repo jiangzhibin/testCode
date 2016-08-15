@@ -152,4 +152,26 @@
   _versionString = showtimeNew;
   return _versionString;
 }
+
+//@property (nonatomic, copy) NSDate *version;
+//
+//
+//@property (nonatomic, copy) NSString *deltaDownloadPath;
+//@property (nonatomic, copy) NSString *deltaMD5;
+//@property (nonatomic, assign) NSInteger deltaSize;
+//@property (nonatomic, assign) NSInteger deltaVersion;
+//
+//@property (nonatomic, copy) NSString *fullDownloadPath;
+//@property (nonatomic, copy) NSString *fullMD5;
+//@property (nonatomic, assign) NSInteger fullSize;
+//@property (nonatomic, assign) NSInteger fullVersion;
+//
+//
+//@property (nonatomic, copy) NSString *versionString;
+//@property (nonatomic, copy) NSString *dataSizeString;
+//@property (nonatomic, assign, getter=isNeedRetry) BOOL needRetry;
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@:%p>{version:%@,\ndeltaDownloadPath:%@,\ndeltaMD5:%@,\ndeltaSize:%zd,\ndeltaVersion:%zd,\nfullDownloadPath:%@,\nfullMD5:%@,\nfullSize:%zd,\nfullVersion:%zd,\nversionString:%@,\ndataSizeString:%@,\nneedRetry:%zd}",[self class],self,_version,_deltaDownloadPath,_deltaMD5,_deltaSize,_deltaVersion,_fullDownloadPath,_fullMD5,_fullSize,_fullVersion,_versionString,_dataSizeString,_needRetry];
+}
 @end

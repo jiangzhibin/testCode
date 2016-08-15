@@ -35,53 +35,78 @@
 
 - (IBAction)downloadAction:(id)sender {
 
-    [YuloreApiManager registerApp:APIKEY2 signature:APISIG2 host:@"https://apis-ios.dianhua.cn/" cityId:@"2" completionBlock:^(NSError *error) {
+    [YuloreApiManager registerApp:APIKEY_Download signature:APISIG2 host:@"https://apis-ios.dianhua.cn/" cityId:@"2" completionBlock:^(NSError *error) {
         // 在线标记 APIKEY2
-//        [YuloreApiManager markTeleNumberOnlineWithNumber:@"13311171716" flagInfomation:@"荷塘蛋花粥" completionHandler:^(BOOL successed, NSError *error) {
+//        [YuloreApiManager markTeleNumberOnlineWithNumber:@"12315" flagInfomation:@"荷塘蛋花粥" completionHandler:^(BOOL successed, NSError *error) {
 //            NSLog(@"标记号码:%zd  error:%@",successed,error);
 //        }];
         
         // 在线查询
-        [YuloreApiManager searchTeleNumber:@"13311171716" completionHandler:^(ResolveItemNew *resolveItem, NSError *error) {
-            NSLog(@"%@",resolveItem);
-            NSLog(@"error:%@",error);
-        }];
+//        [YuloreApiManager searchTeleNumber:@"12315" completionHandler:^(ResolveItemNew *resolveItem, NSError *error) {
+//            NSLog(@"%@",resolveItem);
+//            NSLog(@"error:%@",error);
+//        }];
 //
 //        
 //                return ;
-//        
-//        [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
-//            DHBUpdateItem *updateItem = [deltaPackageList firstObject];
-//            if (updateItem == nil) {
-//                return ;
-//            }
-//            [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:DHBDownloadPackageTypeFull updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
-//                NSLog(@"下载进度:%f totalBytes:%lld",progress,totalBytes);
-//            } completionHandler:^(BOOL retry, NSError *error) {
-//                NSLog(@"下载完成操作完成,error:%@",error);
-//                if (error) {
-//                    NSLog(@"下载失败");
-//                    return ;
-//                }
-//                
-//                
-//                [[DHBCovertIndexContent sharedInstance] needReload];
-//                
-//                dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.dataloader", 0);
-//                dispatch_async(q, ^{
-//                    [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
-//                        NSLog(@"\n\n\nreadDataFromFile:\n%f",progress);
-//                    } completionHandler:^(NSError *error) {
-//                        ;
-//                    }];
-//                });
-//            }];
-//        }];
+        
+        [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
+            DHBUpdateItem *updateItem = [deltaPackageList firstObject];
+            if (updateItem == nil) {
+                return ;
+            }
+            [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:DHBDownloadPackageTypeFull updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
+                NSLog(@"下载进度:%f totalBytes:%lld",progress,totalBytes);
+            } completionHandler:^(BOOL retry, NSError *error) {
+                NSLog(@"下载完成操作完成,error:%@",error);
+                if (error) {
+                    NSLog(@"下载失败");
+                    return ;
+                }
+                
+                
+                [[DHBCovertIndexContent sharedInstance] needReload];
+                
+                dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.dataloader", 0);
+                dispatch_async(q, ^{
+                    [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
+                        NSLog(@"\n\n\nreadDataFromFile:\n%f",progress);
+                    } completionHandler:^(NSError *error) {
+                        ;
+                    }];
+                });
+            }];
+        }];
     }];
-    
-    
-    
-    
+}
+
+- (IBAction)btnReadDataToMemory:(id)sender {
+    NSString *filePath = [NSString pathForBridgeOfflineFilePath];
+    NSUInteger count = 0;
+    for (int i=0;i<1000;i++) {
+        @autoreleasepool {
+            NSString * filePathI=[[NSString alloc] initWithFormat:@"%@%d",filePath,i];
+            if (![[NSFileManager defaultManager] fileExistsAtPath:filePathI])
+            {
+                NSLog(@"<<< %d >文件不存在:%@",i,filePathI);
+                break;
+            }
+            //            unsigned long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:filePathI error:nil] fileSize];
+            NSMutableDictionary *contentDict = [NSMutableDictionary dictionaryWithContentsOfFile:filePathI];
+            count += [[contentDict allKeys] count];
+            //            phoneNumbers = [phoneNumbers sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+            //            NSLog(@"phoneNumbers:%@",contentDict);
+            //            for (NSString * phoneNumber in phoneNumbers) {
+            //                NSString *label = [contentDict objectForKey:phoneNumber];
+            //
+            //                NSLog(@"PN: %@",phoneNumber);
+            //            }
+            //            usleep(300000);
+            //            [[NSFileManager defaultManager] removeItemAtPath:filePathI error:nil];
+            filePathI=nil;
+        }
+    }
+    NSLog(@"记录总数:%zd",count);
 }
 
 
