@@ -78,14 +78,6 @@
 		BFA147111D532ED3008DE524 /* DHBSDKTeleNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147101D532ED3008DE524 /* DHBSDKTeleNumber.m */; };
 		BFA147181D532FDA008DE524 /* DHBSDKCustomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147171D532FDA008DE524 /* DHBSDKCustomItem.m */; };
 		BFA1471E1D533022008DE524 /* NSString+DHBSDKCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1471D1D533022008DE524 /* NSString+DHBSDKCrypto.m */; };
-		BFA147371D53308B008DE524 /* NSData+DHBSDKSDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147271D53308B008DE524 /* NSData+DHBSDKSDDataCache.m */; };
-		BFA147381D53308B008DE524 /* DHBSDKTAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1472A1D53308B008DE524 /* DHBSDKTAAbstractDotView.m */; };
-		BFA147391D53308B008DE524 /* DHBSDKTAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1472C1D53308B008DE524 /* DHBSDKTAAnimatedDotView.m */; };
-		BFA1473A1D53308B008DE524 /* DHBSDKTADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1472E1D53308B008DE524 /* DHBSDKTADotView.m */; };
-		BFA1473B1D53308B008DE524 /* DHBSDKTAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147301D53308B008DE524 /* DHBSDKTAPageControl.m */; };
-		BFA1473C1D53308B008DE524 /* DHBSDKSDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147321D53308B008DE524 /* DHBSDKSDCollectionViewCell.m */; };
-		BFA1473D1D53308B008DE524 /* DHBSDKSDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147341D53308B008DE524 /* DHBSDKSDCycleScrollView.m */; };
-		BFA1473E1D53308B008DE524 /* UIView+DHBSDKSDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147361D53308B008DE524 /* UIView+DHBSDKSDExtension.m */; };
 		BFA147411D5330B0008DE524 /* NSDictionary+DHBSDKOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA147401D5330B0008DE524 /* NSDictionary+DHBSDKOffset.m */; };
 		BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFA147431D5330ED008DE524 /* OfflineDataHelper.mm */; };
 		BFA1474C1D533866008DE524 /* DHBSDKCategoryFetcer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1474B1D533866008DE524 /* DHBSDKCategoryFetcer.m */; };
@@ -126,6 +118,7 @@
 		BF526C041D54762D00E11FD1 /* dhbsdkzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dhbsdkzip.h; sourceTree = "<group>"; };
 		BF5307E31D5AC7AA000901F9 /* 0_mtyF_full.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 0_mtyF_full.zip; sourceTree = "<group>"; };
 		BF5307E41D5AC7AA000901F9 /* service_icon.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = service_icon.zip; sourceTree = "<group>"; };
+		BF7E81011D61CC1100732469 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BFA1461A1D53222D008DE524 /* DHBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DHBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA1461E1D53222D008DE524 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BFA146201D53222D008DE524 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -232,22 +225,6 @@
 		BFA147171D532FDA008DE524 /* DHBSDKCustomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKCustomItem.m; sourceTree = "<group>"; };
 		BFA1471C1D533022008DE524 /* NSString+DHBSDKCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DHBSDKCrypto.h"; sourceTree = "<group>"; };
 		BFA1471D1D533022008DE524 /* NSString+DHBSDKCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DHBSDKCrypto.m"; sourceTree = "<group>"; };
-		BFA147261D53308B008DE524 /* NSData+DHBSDKSDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+DHBSDKSDDataCache.h"; sourceTree = "<group>"; };
-		BFA147271D53308B008DE524 /* NSData+DHBSDKSDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+DHBSDKSDDataCache.m"; sourceTree = "<group>"; };
-		BFA147291D53308B008DE524 /* DHBSDKTAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKTAAbstractDotView.h; sourceTree = "<group>"; };
-		BFA1472A1D53308B008DE524 /* DHBSDKTAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKTAAbstractDotView.m; sourceTree = "<group>"; };
-		BFA1472B1D53308B008DE524 /* DHBSDKTAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKTAAnimatedDotView.h; sourceTree = "<group>"; };
-		BFA1472C1D53308B008DE524 /* DHBSDKTAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKTAAnimatedDotView.m; sourceTree = "<group>"; };
-		BFA1472D1D53308B008DE524 /* DHBSDKTADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKTADotView.h; sourceTree = "<group>"; };
-		BFA1472E1D53308B008DE524 /* DHBSDKTADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKTADotView.m; sourceTree = "<group>"; };
-		BFA1472F1D53308B008DE524 /* DHBSDKTAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKTAPageControl.h; sourceTree = "<group>"; };
-		BFA147301D53308B008DE524 /* DHBSDKTAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKTAPageControl.m; sourceTree = "<group>"; };
-		BFA147311D53308B008DE524 /* DHBSDKSDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKSDCollectionViewCell.h; sourceTree = "<group>"; };
-		BFA147321D53308B008DE524 /* DHBSDKSDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKSDCollectionViewCell.m; sourceTree = "<group>"; };
-		BFA147331D53308B008DE524 /* DHBSDKSDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKSDCycleScrollView.h; sourceTree = "<group>"; };
-		BFA147341D53308B008DE524 /* DHBSDKSDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKSDCycleScrollView.m; sourceTree = "<group>"; };
-		BFA147351D53308B008DE524 /* UIView+DHBSDKSDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DHBSDKSDExtension.h"; sourceTree = "<group>"; };
-		BFA147361D53308B008DE524 /* UIView+DHBSDKSDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DHBSDKSDExtension.m"; sourceTree = "<group>"; };
 		BFA1473F1D5330B0008DE524 /* NSDictionary+DHBSDKOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DHBSDKOffset.h"; sourceTree = "<group>"; };
 		BFA147401D5330B0008DE524 /* NSDictionary+DHBSDKOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+DHBSDKOffset.m"; sourceTree = "<group>"; };
 		BFA147421D5330ED008DE524 /* OfflineDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfflineDataHelper.h; sourceTree = "<group>"; };
@@ -307,6 +284,7 @@
 		BF526BE81D54614200E11FD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF7E81011D61CC1100732469 /* UIKit.framework */,
 				BF526BF71D5474F100E11FD1 /* libbz2.tbd */,
 				BF526BF51D5474E700E11FD1 /* libc++.tbd */,
 				BF526BF31D5474DE00E11FD1 /* libsqlite3.tbd */,
@@ -421,7 +399,6 @@
 			children = (
 				BF526BF91D54762D00E11FD1 /* minizip */,
 				BF526B961D53808000E11FD1 /* Reachability */,
-				BFA147251D53308B008DE524 /* SDCycleScrollView */,
 				BFA146841D532719008DE524 /* AFNetworking */,
 				BFA146571D532488008DE524 /* OpenUDID */,
 			);
@@ -596,37 +573,6 @@
 			path = Public;
 			sourceTree = "<group>";
 		};
-		BFA147251D53308B008DE524 /* SDCycleScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				BFA147261D53308B008DE524 /* NSData+DHBSDKSDDataCache.h */,
-				BFA147271D53308B008DE524 /* NSData+DHBSDKSDDataCache.m */,
-				BFA147281D53308B008DE524 /* PageControl */,
-				BFA147311D53308B008DE524 /* DHBSDKSDCollectionViewCell.h */,
-				BFA147321D53308B008DE524 /* DHBSDKSDCollectionViewCell.m */,
-				BFA147331D53308B008DE524 /* DHBSDKSDCycleScrollView.h */,
-				BFA147341D53308B008DE524 /* DHBSDKSDCycleScrollView.m */,
-				BFA147351D53308B008DE524 /* UIView+DHBSDKSDExtension.h */,
-				BFA147361D53308B008DE524 /* UIView+DHBSDKSDExtension.m */,
-			);
-			path = SDCycleScrollView;
-			sourceTree = "<group>";
-		};
-		BFA147281D53308B008DE524 /* PageControl */ = {
-			isa = PBXGroup;
-			children = (
-				BFA147291D53308B008DE524 /* DHBSDKTAAbstractDotView.h */,
-				BFA1472A1D53308B008DE524 /* DHBSDKTAAbstractDotView.m */,
-				BFA1472B1D53308B008DE524 /* DHBSDKTAAnimatedDotView.h */,
-				BFA1472C1D53308B008DE524 /* DHBSDKTAAnimatedDotView.m */,
-				BFA1472D1D53308B008DE524 /* DHBSDKTADotView.h */,
-				BFA1472E1D53308B008DE524 /* DHBSDKTADotView.m */,
-				BFA1472F1D53308B008DE524 /* DHBSDKTAPageControl.h */,
-				BFA147301D53308B008DE524 /* DHBSDKTAPageControl.m */,
-			);
-			path = PageControl;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -733,18 +679,14 @@
 				BF526C091D54762D00E11FD1 /* dhbsdkzip.c in Sources */,
 				BFA1471E1D533022008DE524 /* NSString+DHBSDKCrypto.m in Sources */,
 				BFA146511D5323DE008DE524 /* DHBDataFetcher.m in Sources */,
-				BFA147371D53308B008DE524 /* NSData+DHBSDKSDDataCache.m in Sources */,
 				BF526BA01D53811600E11FD1 /* DHBSDKStartLoadingService.m in Sources */,
 				BFDBFB921D5D74C900F4E527 /* DHBSDKResolveFecherNew.m in Sources */,
 				BFA146B91D532719008DE524 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BFA1474C1D533866008DE524 /* DHBSDKCategoryFetcer.m in Sources */,
 				BF526BAA1D53834700E11FD1 /* DHBSDKYuloreAPIClient.m in Sources */,
-				BFA1473D1D53308B008DE524 /* DHBSDKSDCycleScrollView.m in Sources */,
-				BFA1473E1D53308B008DE524 /* UIView+DHBSDKSDExtension.m in Sources */,
 				BFA146531D5323DE008DE524 /* DHBSDKUpdateItem.m in Sources */,
 				BFA146DF1D532BA4008DE524 /* DHBSDKDHBFileOperation.m in Sources */,
 				BFA146BB1D532719008DE524 /* UIAlertView+AFNetworking.m in Sources */,
-				BFA147391D53308B008DE524 /* DHBSDKTAAnimatedDotView.m in Sources */,
 				BFA1465F1D5324BB008DE524 /* DHBHTTPSessionManager.m in Sources */,
 				BF526BF21D5471A900E11FD1 /* DHBSDKTuanGouItem.m in Sources */,
 				BFA146B21D532719008DE524 /* AFSecurityPolicy.m in Sources */,
@@ -754,18 +696,14 @@
 				BFA146AF1D532719008DE524 /* AFHTTPRequestOperationManager.m in Sources */,
 				BFDBFB8F1D5D6A0800F4E527 /* YuloreApiManager.m in Sources */,
 				BFA146381D532328008DE524 /* NSString+DHBSDKYuloreFilePath.m in Sources */,
-				BFA1473C1D53308B008DE524 /* DHBSDKSDCollectionViewCell.m in Sources */,
 				BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */,
 				BF526B9D1D53808000E11FD1 /* README.md in Sources */,
 				BFA146251D53222D008DE524 /* ViewController.m in Sources */,
 				BFA146221D53222D008DE524 /* AppDelegate.m in Sources */,
-				BFA1473B1D53308B008DE524 /* DHBSDKTAPageControl.m in Sources */,
 				BFA146C61D53274C008DE524 /* DHBEnvironmentValidate.m in Sources */,
-				BFA147381D53308B008DE524 /* DHBSDKTAAbstractDotView.m in Sources */,
 				BFA1461F1D53222D008DE524 /* main.m in Sources */,
 				BFA1465B1D532488008DE524 /* DHBSDKOpenUDID.m in Sources */,
 				BFA1466C1D532554008DE524 /* DHBSDKbspatchOC.m in Sources */,
-				BFA1473A1D53308B008DE524 /* DHBSDKTADotView.m in Sources */,
 				BFA147411D5330B0008DE524 /* NSDictionary+DHBSDKOffset.m in Sources */,
 				BFA146EE1D532CCE008DE524 /* DHBSDKCategoryItem.m in Sources */,
 				BFA146B41D532719008DE524 /* AFURLRequestSerialization.m in Sources */,
