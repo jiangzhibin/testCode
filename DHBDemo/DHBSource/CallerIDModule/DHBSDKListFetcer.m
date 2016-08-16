@@ -226,7 +226,7 @@ static NSString * const kCAT_ID = @"cat_id";
     NSArray *postsFromResponse2 = [JSON valueForKeyPath:@"customs"];
     
     for (NSDictionary *attributes in postsFromResponse2) {
-      CustomItem *post = [[DHBSDKCustomItem alloc] initWithDictionary:attributes];
+      DHBSDKCustomItem *post = [[DHBSDKCustomItem alloc] initWithDictionary:attributes];
       [customItems addObject:post];
       //[customItems insertObject:post atIndex:0];
     }
