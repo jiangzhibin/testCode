@@ -30,25 +30,9 @@
   return [self pathForDirectory:NSLibraryDirectory domainMask:NSUserDomainMask];
 }
 
-+ (NSString *)pathForUserPathHelperCachesDirectory {
-  return [[self pathForLibraryDirectory] stringByAppendingString:@"/Caches/UserPath/"];
-}
-
 
 + (NSString *)pathForOfflineDataDirectory {
   return [[self pathForLibraryDirectory] stringByAppendingString:@"/Caches/OfflineData/"];
-}
-////Caches/ServiceIcon
-//+ (NSString *)pathForServiceIconDirectory {
-//  
-//  return [[self pathForLibraryDirectory] stringByAppendingString:@"/Caches/ServiceIcon/"];
-//}
-
-
-
-
-+ (NSString *)pathForOfflineDataDirectoryWithFileName:(NSString *)fileName{
-  return [[self pathForOfflineDataDirectory] stringByAppendingPathComponent:fileName];
 }
 
 /**

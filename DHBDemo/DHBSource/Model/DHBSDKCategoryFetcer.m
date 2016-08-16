@@ -207,7 +207,7 @@ updateFromServerCompletionHandler:(DHBSDKCategoryCompletionHandler)updateFromSer
   NSFileManager *fileManager = [NSFileManager defaultManager];
   BOOL fileExists = [fileManager fileExistsAtPath:folderPath];
   
-  if (!fileExists) {//如果不存在说创建,因为下载时,不会自动创建文件夹
+  if (!fileExists) {//如果不存在时创建,因为下载时,不会自动创建文件夹
     folderPath = [NSString pathForOriginalCategoryDataFile];
   }
   

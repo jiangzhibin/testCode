@@ -360,7 +360,7 @@
     NSMutableArray *telnumbersArray = [item valueForKey:telKey];
     
     for (NSDictionary *aTel in telnumbersArray) {
-      TeleNumber *aTelNumber = [[DHBSDKTeleNumber alloc] initWithDictionary:aTel];
+      DHBSDKTeleNumber *aTelNumber = [[DHBSDKTeleNumber alloc] initWithDictionary:aTel];
       [_teleNumbers addObject:aTelNumber];
     }
     
@@ -375,7 +375,7 @@
     
     _customs = [[NSMutableArray alloc] init];
     for (NSDictionary *aCustom in customsArray) {
-      CustomItem *aCus = [[DHBSDKCustomItem alloc] initWithDictionary:aCustom];
+      DHBSDKCustomItem *aCus = [[DHBSDKCustomItem alloc] initWithDictionary:aCustom];
       [_customs addObject:aCus];
     }
     

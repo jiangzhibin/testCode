@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 
 #import <CoreLocation/CoreLocation.h>
-@class ResolveItemNew;
-@class TeleNumber;
-@class CustomItem;
+@class DHBSDKResolveItemNew;
+@class DHBSDKTeleNumber;
+@class DHBSDKCustomItem;
 @interface DHBSDKShopItem : NSObject <NSCoding>
 + (instancetype)shopItemWithDictionary:(NSDictionary *)dictionary;
 //- (instancetype)initWithDictionary:(NSDictionary *)item;
 
-+ (instancetype)shopItemWithCustomItem:(CustomItem *)customItem;
-+ (instancetype)shopItemWithResolveItem:(ResolveItemNew *)aResolveItem;
++ (instancetype)shopItemWithCustomItem:(DHBSDKCustomItem *)customItem;
++ (instancetype)shopItemWithResolveItem:(DHBSDKResolveItemNew *)aResolveItem;
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *sid;

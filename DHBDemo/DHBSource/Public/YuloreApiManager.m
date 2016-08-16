@@ -355,5 +355,8 @@ static float const kProgressPercentDownload             = 0.75f;
     }];
 }
 
+- (NSString *)pathForBridgeOfflineFilePath {
+    return [NSString pathForBridgeOfflineFilePath];
+}
 
 @end

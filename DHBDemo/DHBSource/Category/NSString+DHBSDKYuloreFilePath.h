@@ -11,9 +11,8 @@
 @interface NSString (DHBSDKYuloreFilePath)
 //+ (NSString *)pathForServiceIconDirectory;
 + (NSString *)pathForOfflineDataDirectory;
-+ (NSString *)pathForOfflineDataDirectoryWithFileName:(NSString *)fileName;
 
-+ (NSString *)pathForUserPathHelperCachesDirectory;
+
 + (NSString *)pathForOriginalCategoryDataFile;
 + (NSString *)pathForCategoryDataFileWithCityID:(NSString *)cityID;
 + (NSString *)pathForOfflineLOGOWithShopID:(NSString *)shopID;

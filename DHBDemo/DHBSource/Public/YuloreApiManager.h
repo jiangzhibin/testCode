@@ -32,6 +32,25 @@
 /// 允许执行下载操作的网络类型(默认DHBSDKDownloadNetworkTypeWifiOnly)
 @property (nonatomic, assign) DHBSDKDownloadNetworkType downloadNetworkType;
 
+/**
+ * 合并后的数据文件路径 （当前分1000个子文件)
+ * 
+ for (int i=0;i<1000;i++) {
+    @autoreleasepool {
+        NSString * filePathI=[[NSString alloc] initWithFormat:@"%@%d",filePath,i];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:filePathI])
+        {
+            NSLog(@"<<< %d >文件不存在:%@",i,filePathI);
+            break;
+        }
+        NSMutableDictionary *contentDict = [NSMutableDictionary dictionaryWithContentsOfFile:filePathI];
+        count += [[contentDict allKeys] count];
+        filePathI=nil;
+}
+ */
+/// 合并后的数据文件路径
+@property (nonatomic, readonly) NSString *pathForBridgeOfflineFilePath;
+
 + (instancetype)shareManager;
 
 
