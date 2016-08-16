@@ -15,7 +15,7 @@
   static DHBHTTPSessionManager *_sharedClient = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    NSURL *baseURL = [NSURL URLWithString:[YuloreApiManager sharedYuloreApiManager].host];
+    NSURL *baseURL = [NSURL URLWithString:[YuloreApiManager shareManager].host];
     
 //    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
 //    //  [config setHTTPAdditionalHeaders:@{ @"User-Agent" : @"TuneStore iOS 1.0"}];

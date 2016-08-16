@@ -67,7 +67,7 @@
     _parameters[@"uid"] = [DHBSDKOpenUDID value];//@"99000567710378";
     _parameters[@"uip"] = [self getIPAddress];
     _parameters[@"tel"] = @"";
-    _parameters[@"apikey"] = [YuloreApiManager sharedYuloreApiManager].apiKey;//@"mgBkfHsubhpahKfZpxcPi7HMWr0nsahd";
+    _parameters[@"apikey"] = [YuloreApiManager shareManager].apiKey;//@"mgBkfHsubhpahKfZpxcPi7HMWr0nsahd";
     _parameters[@"sig"] = @"";
 
   }

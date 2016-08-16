@@ -44,7 +44,7 @@
   self = [super init];
   if (self) {
     _parameters = [NSMutableDictionary dictionary];
-    _parameters[@"apikey"] = [YuloreApiManager sharedYuloreApiManager].apiKey;
+    _parameters[@"apikey"] = [YuloreApiManager shareManager].apiKey;
     _parameters[@"ver"] = [self versionString];
     _parameters[@"uid"] = [self uid];
     _parameters[@"app"] = [self appName];
@@ -54,7 +54,7 @@
     
     
     _parametersFull = [NSMutableDictionary dictionary];
-    _parametersFull[@"apikey"] = [YuloreApiManager sharedYuloreApiManager].apiKey;
+    _parametersFull[@"apikey"] = [YuloreApiManager shareManager].apiKey;
     _parametersFull[@"ver"] = [self versionString];
     _parametersFull[@"uid"] = [self uid];
     _parametersFull[@"app"] = [self appName];
@@ -141,85 +141,8 @@
   return items;
 }
 
-- (void)fullDataFetcherCompletionHandler:(void (^)( NSArray *fullPackageList, NSArray *deltaPackageList , NSError *error) )completionHandler {
-  
-//  __block NSArray *fulls = nil;//change here to enable default data
-  __block NSArray *deltas = nil;
-  
-  /*[self onlyfullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSError *error) {
-    fulls = fullPackageList;
-    
-    if (fulls != nil  && error == nil) {
-      completionHandler(fulls,deltas , nil);
-    }
-    else if (error) {
-      completionHandler(nil,nil , error);
-    }
-    
-  }];*/
-    NSLog(@"checkUpdate S");
-  [self dataFetcherCompletionHandler:^(NSArray *results, NSError *error) {
-    deltas =  results;
-    if (deltas != nil && error == nil) {
-        completionHandler(nil,deltas , nil);
-        NSLog(@"checkUpdate 0");
-    }
-    else if (error) {
-        completionHandler(nil,nil , error);
-        NSLog(@"checkUpdate 1");
-    }
-    else {
-        completionHandler(nil,nil,nil);
-        NSLog(@"checkUpdate 2");
-    }
-  }];
-}
-/**
- *  数据获取器的回调
- *
- *  @param completionHandler 返回结果与错误
- */
-/*
-- (void)onlyfullDataFetcherCompletionHandler:(void (^)( NSArray *fullPackageList, NSError *error) )completionHandler {
-    NSLog(@"onlyfullDataFetcherCompletionHandler");
 
-  dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.datafetcher", 0);
-  dispatch_async(q, ^{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT+0000"];
-    [dateFormatter setDateFormat:@"yyyyMMdd"];
-    NSString *dateString =  [dateFormatter stringFromDate:[NSDate date]];
-      NSLog(@"onlyfullDataFetcherCompletionHandler async");
-
-    
-    _parametersFull[@"data_ver"] = dateString;
-    _parametersFull[@"sig"] = [_parametersFull signature];
-    [[DHBHTTPSessionManager sharedManager] dataWithParameters:_parametersFull URLString:@"chkdata/" completionHandler:^(NSDictionary *result, NSError *error) {
-
-      if (result) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-          NSError *jsonError = nil;
-          NSMutableArray *items = [[NSMutableArray alloc] init];
-          NSArray *list = result[@"data"];
-          for (id aData in list) {
-            
-            DHBUpdateItem *aItem = [DHBUpdateItem itemWithDictionary:aData];
-            [items addObject:aItem];
-            
-          }
-          completionHandler(items, error);
-          
-        });
-      } else {
-        completionHandler(nil, error);
-      }
-    }];
-  });
-  
- 
-  
-}*/
-- (void)dataFetcherCompletionHandler:(void (^)( NSArray *results, NSError *error) )completionHandler {
+- (void)dataFetcherCompletionHandler:(void (^)(DHBSDKUpdateItem *updateItem, NSError *error) )completionHandler {
   
   dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.datafetcher", 0);
   dispatch_async(q, ^{
@@ -229,20 +152,13 @@
       
       if (result) {
         dispatch_async(dispatch_get_main_queue(), ^{
-          NSError *jsonError = nil;
-          NSMutableArray *items = nil;
+          DHBSDKUpdateItem *aItem = nil;
           if (result[@"flag"]) {
-              NSLog(@"FLAG AVAILABLE");
-            items = [[NSMutableArray alloc] init];
-            
-            DHBSDKUpdateItem *aItem = [DHBSDKUpdateItem itemWithDictionary:result[@"flag"]];
-            [items addObject:aItem];
-            [aItem print];
+            aItem = [DHBSDKUpdateItem itemWithDictionary:result[@"flag"]];
           }
-          completionHandler(items, error);
+          completionHandler(aItem, error);
         });
       } else {
-          NSLog(@"FLAG CHECK ERROR");
           completionHandler(nil, error);
       }
     }];

@@ -9,9 +9,9 @@
 #import "DHBErrorHelper.h"
 #import <UIKit/UIKit.h>
 
-NSString * const DHBCallerIDBSPatchErrorDomain = @"com.yulore.callerid.bspatch";
-NSString * const DHBCallerIDMD5ValidErrorDomain = @"com.yulore.callerid.md5invalid";
-NSString * const DHBCallerIDEnvironmentErrorDomain = @"com.yulore.callerid.environment";
+static NSString * const DHBCallerIDBSPatchErrorDomain = @"com.yulore.callerid.bspatch";
+static NSString * const DHBCallerIDMD5ValidErrorDomain = @"com.yulore.callerid.md5invalid";
+static NSString * const DHBCallerIDEnvironmentErrorDomain = @"com.yulore.callerid.environment";
 
 
 @implementation DHBErrorHelper

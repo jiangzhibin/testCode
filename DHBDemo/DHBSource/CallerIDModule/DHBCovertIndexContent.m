@@ -55,7 +55,7 @@
 }
 
 - (void)loadHotCategoryNumbersComplete:(void(^)(NSDictionary *hotTeleNumberList))completeBlock {
-    [[DHBSDKCategoryFetcer sharedCategoryFetcer] categoriesWithCityID:[YuloreApiManager sharedYuloreApiManager].cityId loadFromSandboxCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
+    [[DHBSDKCategoryFetcer sharedCategoryFetcer] categoriesWithCityID:[YuloreApiManager shareManager].cityId loadFromSandboxCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
         NSMutableArray *categoryItems = [NSMutableArray new];
         [categoryItems addObjectsFromArray:allHotCategories];
         [categoryItems addObjectsFromArray:allLocalServices];
@@ -138,16 +138,12 @@
 -(void) saveDataToBridgeFile:(void (^)(float progress))progressBlock {
     NSMutableDictionary * list=[_resolveDataFile resolveOffsetDictionary];
     NSString *filePath = [NSString pathForBridgeOfflineFilePath];
-    NSLog(@"store resolve: %@",filePath);
     
     [self loadHotCategoryNumbersComplete:^(NSDictionary *hotList) {
-        //dispatch_queue_t q = dispatch_queue_create("queue", 0);
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSTimeInterval start = [[NSDate date] timeIntervalSince1970];
         NSArray * hotListKeys=[hotList allKeys];
         for (NSString * key in hotListKeys){
             [list setObject:[hotList objectForKey:key] forKey:key];
-            NSLog(@"HOT: %@ %@",key,[hotList objectForKey:key]);
         }
         //import hot category numbers
         
@@ -160,40 +156,35 @@
                 }
             }
         }
-        NSTimeInterval thousandTime = [[NSDate date] timeIntervalSince1970];
-        NSLog(@"----------jbb  一千次耗时:%f",thousandTime - start);
         
-            int i=0;
-            int SPLIT_SIZE=10000;
-            NSString * filePathI=[[NSString alloc] initWithFormat:@"%@%ld",filePath,(long)(i/SPLIT_SIZE)];
-            NSMutableDictionary * subList = [[NSMutableDictionary alloc] initWithCapacity:SPLIT_SIZE];
-            NSArray * keys = [list allKeys];
+        int i=0;
+        int SPLIT_SIZE=10000;
+        NSString * filePathI=[[NSString alloc] initWithFormat:@"%@%ld",filePath,(long)(i/SPLIT_SIZE)];
+        NSMutableDictionary * subList = [[NSMutableDictionary alloc] initWithCapacity:SPLIT_SIZE];
+        NSArray * keys = [list allKeys];
+        
+        keys = [keys sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
+        
+        for (NSString * key in keys)
+        {
+            [subList setObject:[self tagLabelFromTagID:[list objectForKey:key]] forKey:key];
             
-            keys = [keys sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
-            
-            for (NSString * key in keys)
-            {
-                [subList setObject:[self tagLabelFromTagID:[list objectForKey:key]] forKey:key];
-                
-                if (i%SPLIT_SIZE==SPLIT_SIZE-1){
-                    NSLog(@"%@",key);
-                    [subList writeToFile:filePathI atomically:YES];
-                    //NSLog(@"store resolve %d: %@",i,filePathI);
-                    [subList removeAllObjects];
-                    filePathI=[[NSString alloc] initWithFormat:@"%@%ld",filePath,(long)((i+1)/SPLIT_SIZE)];
-                    dispatch_async(dispatch_get_main_queue(), ^(void) {
-                        progressBlock((float)i/(float)[keys count]);
-                    });
-                }
-                i++;
-            }
-            if ([[subList allKeys] count]>0){
+            if (i%SPLIT_SIZE==SPLIT_SIZE-1){
                 [subList writeToFile:filePathI atomically:YES];
+                //NSLog(@"store resolve %d: %@",i,filePathI);
                 [subList removeAllObjects];
+                filePathI=[[NSString alloc] initWithFormat:@"%@%ld",filePath,(long)((i+1)/SPLIT_SIZE)];
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
+                    progressBlock((float)i/(float)[keys count]);
+                });
             }
-        NSTimeInterval endTime = [[NSDate date] timeIntervalSince1970];
-        NSLog(@"----------jbb  总耗时:%f",endTime - start);
-        });
+            i++;
+        }
+        if ([[subList allKeys] count]>0){
+            [subList writeToFile:filePathI atomically:YES];
+            [subList removeAllObjects];
+        }
+    });
        
 
     }];

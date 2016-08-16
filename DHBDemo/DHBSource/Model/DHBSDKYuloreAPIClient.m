@@ -14,7 +14,7 @@
   static DHBSDKYuloreAPIClient *_sharedClient = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    NSURL *baseURL = [NSURL URLWithString:[YuloreApiManager sharedYuloreApiManager].host];
+    NSURL *baseURL = [NSURL URLWithString:[YuloreApiManager shareManager].host];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     //  [config setHTTPAdditionalHeaders:@{ @"User-Agent" : @"TuneStore iOS 1.0"}];
@@ -103,7 +103,7 @@
   
   NSString *ver = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)@"CFBundleShortVersionString"];
   NSString * uid = [DHBSDKOpenUDID value];
-  NSString *apiKey = [YuloreApiManager sharedYuloreApiManager].apiKey;
+  NSString *apiKey = [YuloreApiManager shareManager].apiKey;
   NSDictionary *parameters = @{ @"city_id" : cityID,
                          @"ver" : ver,
                          @"uid" : uid,

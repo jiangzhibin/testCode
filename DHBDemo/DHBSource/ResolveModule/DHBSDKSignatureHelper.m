@@ -15,7 +15,7 @@
 
 
 + (NSString *) listPassword {
-  NSString *sdkKey = [YuloreApiManager sharedYuloreApiManager].signature;
+  NSString *sdkKey = [YuloreApiManager shareManager].signature;
   if ([sdkKey length] < 150) {
     return nil;
   }
@@ -68,7 +68,7 @@
 }
 
 + (NSString *)detailKey {
-  NSString *sdkKey = [YuloreApiManager sharedYuloreApiManager].signature;
+  NSString *sdkKey = [YuloreApiManager shareManager].signature;
   return [sdkKey substringWithRange:NSMakeRange(89, 40)];
 
 
@@ -147,7 +147,7 @@
 
   NSString *uid = [DHBSDKOpenUDID value];
 
-  NSString *string = [NSString stringWithFormat:@"vs2#D_%@d&-vaSc%@7szV%@s!jc%@Cs5$N%@", uid,[YuloreApiManager sharedYuloreApiManager].apiKey, uid,telenumberString, [YuloreApiManager sharedYuloreApiManager].apiKey];
+  NSString *string = [NSString stringWithFormat:@"vs2#D_%@d&-vaSc%@7szV%@s!jc%@Cs5$N%@", uid,[YuloreApiManager shareManager].apiKey, uid,telenumberString, [YuloreApiManager shareManager].apiKey];
   
   NSString *sha1String = [string sha1String];
   return  [sha1String substringWithRange:NSMakeRange(7, 32)];
@@ -162,7 +162,7 @@
   NSRange r4 = NSMakeRange(17, 4);
   NSRange r5 = NSMakeRange(21, 6);
   
-  NSString *sig = [YuloreApiManager sharedYuloreApiManager].signature;
+  NSString *sig = [YuloreApiManager shareManager].signature;
 
   NSString *str1 = [sig substringWithRange:r1];
   NSString *str2 = [sig substringWithRange:r2];
@@ -170,7 +170,7 @@
   NSString *str4 = [sig substringWithRange:r4];
   NSString *str5 = [sig substringWithRange:r5];
   
-  NSString *string = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",str1,uid,str2,telenumber,str3,uid,str4,[YuloreApiManager sharedYuloreApiManager].apiKey,str5,telenumber];
+  NSString *string = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",str1,uid,str2,telenumber,str3,uid,str4,[YuloreApiManager shareManager].apiKey,str5,telenumber];
 
   NSString *sha1String = [string sha1String];// [self sha1String:string];
   
@@ -204,7 +204,7 @@
   NSRange r5 = NSMakeRange(19+offset, 6);
   NSRange r6 = NSMakeRange(25+offset, 6);
   NSRange r7 = NSMakeRange(31+offset, 5);
-  NSString *sig = [YuloreApiManager sharedYuloreApiManager].signature;
+  NSString *sig = [YuloreApiManager shareManager].signature;
   
   NSString *str1 = [sig substringWithRange:r1];
   NSString *str2 = [sig substringWithRange:r2];
@@ -214,7 +214,7 @@
   NSString *str6 = [sig substringWithRange:r6];
   NSString *str7 = [sig substringWithRange:r7];
   
-    NSString *string = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@",str1, telenumber,str2, appName ,str3, flag,str4, telenumber,str5,  [YuloreApiManager sharedYuloreApiManager].apiKey,str6, uid, str7];
+    NSString *string = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@%@%@%@",str1, telenumber,str2, appName ,str3, flag,str4, telenumber,str5,  [YuloreApiManager shareManager].apiKey,str6, uid, str7];
   
   
 //  NSString *app = @"com.yulore.yellowpage";
@@ -225,7 +225,7 @@
 }
 
 + (NSString *)orderSignature:(NSString *)parametersString {
-  NSString *APISECRET = [YuloreApiManager sharedYuloreApiManager].signature;
+  NSString *APISECRET = [YuloreApiManager shareManager].signature;
   
   NSString *APISECRET1_32 = [APISECRET substringToIndex:32];
   NSString *APISECRET33_128 = [APISECRET substringWithRange:NSMakeRange(32, 96)];
@@ -240,7 +240,7 @@
 
 
 + (NSString *)returnSignature:(NSString *)parametersString {
-  NSString *APISECRET = [YuloreApiManager sharedYuloreApiManager].signature;
+  NSString *APISECRET = [YuloreApiManager shareManager].signature;
   
   NSString *APISECRET1_96 = [APISECRET substringToIndex:96];
   NSString *APISECRET96_128 = [APISECRET substringWithRange:NSMakeRange(96, 32)];

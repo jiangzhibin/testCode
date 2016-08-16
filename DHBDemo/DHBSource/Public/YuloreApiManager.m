@@ -11,6 +11,10 @@
 #import "DHBSDKStartLoadingService.h"
 #import "Commondef.h"
 #import "DHBSDKMarkTeleHelper.h"
+#import "DHBDataFetcher.h"
+#import "DHBDownloadFetcher.h"
+#import "DHBSDKResolveFecherNew.h"
+#import "DHBCovertIndexContent.h"
 
 /// ApiKey & Signature
 static NSString * const kApiKeyString               = @"DHBSDKApiKeyString";
@@ -26,12 +30,21 @@ static NSString * const kCityId                     = @"kDHBSDKCityId";
 /// 下载网络类型
 static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkType";
 
+/*
+a)	数据下载完成，显示进度75%，进入校验流程
+b)	数据校验完成，显示90%，进入导入流程
+c)	数据校验失败，则进入校验失败界面，选择【重新下载】、【取消】
+*/
+static float const kProgressPercentDownload             = 0.75f;
+//static float const kProgressPercentDataValidate         = 0.90f;
+//static float const kProgressPercentDownloadPercent      = 1.0f;
+
 
 @interface YuloreApiManager ()
 
 @end
 @implementation YuloreApiManager
-+ (instancetype)sharedYuloreApiManager {
++ (instancetype)shareManager {
   static YuloreApiManager *apiManager;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -143,10 +156,10 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
         registered = YES;
     }
     
-    [YuloreApiManager sharedYuloreApiManager].apiKey = apikey;
-    [YuloreApiManager sharedYuloreApiManager].signature = signature;
-    [YuloreApiManager sharedYuloreApiManager].host = host;
-    [YuloreApiManager sharedYuloreApiManager].cityId = cityId;
+    [YuloreApiManager shareManager].apiKey = apikey;
+    [YuloreApiManager shareManager].signature = signature;
+    [YuloreApiManager shareManager].host = host;
+    [YuloreApiManager shareManager].cityId = cityId;
     return registered;
     
 }
@@ -192,7 +205,7 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
         return NO;
     }
     
-    if ([[YuloreApiManager sharedYuloreApiManager].cityId isEqualToString:@"0"]) {
+    if ([[YuloreApiManager shareManager].cityId isEqualToString:@"0"]) {
         return NO;
     }
     
@@ -259,5 +272,65 @@ static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkTy
                      completionHandler:(void (^)( BOOL successed, NSError *error))completeBlock {
     [DHBSDKMarkTeleHelper markTeleNumberOnlineWithNumber:aNumber flagInfomation:flagInfomation completionHandler:completeBlock];
 }
+
+/**
+ 数据信息获取
+ 如 更新包下载地址及md5等，详情见DHBSDKUpdateItem.h
+ @param completionHandler 回调
+ */
++ (void)dataInfoFetcherCompletionHandler:(void(^)(DHBSDKUpdateItem *updateItem, NSError *error))completionHandler {
+    [[DHBDataFetcher sharedInstance] dataFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
+        completionHandler(updateItem,error);
+    }];
+}
+
+/**
+ 下载 全量/增量包
+ 
+ @param updateItem        下载所需的信息model
+ @param dataType          下载的数据类型
+ @param progressBlock     进度回调
+ @param completionHandler 下载结束回调，error == nil，则下载失败；error == nil,下载成功
+ */
++ (void)downloadDataWithUpdateItem:(DHBSDKUpdateItem *)updateItem
+                          dataType:(DHBSDKDownloadDataType)dataType
+                     progressBlock:(void(^)(double progress))progressBlock
+                 completionHandler:(void(^)(NSError *error))completionHandler {
+    if (updateItem == nil) {
+        NSError *error = [NSError errorWithDomain:@"downloadDataWithUpdateItem 传入的 updateItem为空" code:-1 userInfo:nil];
+        completionHandler(error);
+        return;
+    }
+    DHBDownloadPackageType packageType;
+    switch (dataType) {
+        case DHBSDKDownloadDataTypeDelta:
+            packageType = DHBDownloadPackageTypeDelta;
+            break;
+        case DHBSDKDownloadDataTypeFull:
+            packageType = DHBDownloadPackageTypeFull;
+            break;
+    }
+    [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:packageType updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
+        progressBlock(progress * kProgressPercentDownload);
+    } completionHandler:^(BOOL retry, NSError *error) {
+        if (error) {
+            NSLog(@"下载失败");
+            completionHandler(error);
+            return ;
+        }
+        
+        [[DHBCovertIndexContent sharedInstance] needReload];
+        
+        dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.dataloader", 0);
+        dispatch_async(q, ^{
+            [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
+                progressBlock(kProgressPercentDownload + progress * (1 - kProgressPercentDownload)+0.005);
+            } completionHandler:^(NSError *error) {
+                completionHandler(error);
+            }];
+        });
+    }];
+}
+
 
 @end

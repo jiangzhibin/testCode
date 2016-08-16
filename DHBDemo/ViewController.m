@@ -32,10 +32,11 @@
 
 #define APIKEY2 @"abFRSWVlxTYkhZYbCcZSdapLVlllteGX"
 #define APISIG2 @"E5UaGxNMkUxTVRrd01EbGtNemN5WlRoaFpUUmpZVFV3TnprM01UVT1ZV1l6TXpjell6QXlNVFV6TUdNMU4ySmtNMlExWXpWaU1XRm1OMlptTkdRPVpUSXlNR0UzWWpKalkyUXhNbUptWTJFNVl6QTRObUprTVRjNE1UUm1"
+#define kDHBHost @"https://apis-ios.dianhua.cn/"
 
 - (IBAction)downloadAction:(id)sender {
 
-    [YuloreApiManager registerApp:APIKEY_Download signature:APISIG2 host:@"https://apis-ios.dianhua.cn/" cityId:@"2" completionBlock:^(NSError *error) {
+    [YuloreApiManager registerApp:APIKEY_Download signature:APISIG2 host:kDHBHost cityId:@"2" completionBlock:^(NSError *error) {
         // 在线标记 APIKEY2
 //        [YuloreApiManager markTeleNumberOnlineWithNumber:@"12315" flagInfomation:@"荷塘蛋花粥" completionHandler:^(BOOL successed, NSError *error) {
 //            NSLog(@"标记号码:%zd  error:%@",successed,error);
@@ -50,12 +51,29 @@
 //        
 //                return ;
         
-        [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
-            DHBSDKUpdateItem *updateItem = [deltaPackageList firstObject];
+        
+        
+//        [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
+//            
+//        }];
+//        return ;
+        
+        [YuloreApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
+            [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBSDKDownloadDataTypeFull progressBlock:^(double progress) {
+                NSLog(@"进度:%f",progress);
+            } completionHandler:^(NSError *error) {
+                NSLog(@"下载结果 error:%@",error);
+            }];
+        }];
+        
+        
+        return;
+        [[DHBDataFetcher sharedInstance] dataFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
             if (updateItem == nil) {
                 return ;
             }
-            [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:DHBDownloadPackageTypeFull updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
+            
+            [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:DHBDownloadPackageTypeDelta updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
                 NSLog(@"下载进度:%f totalBytes:%lld",progress,totalBytes);
             } completionHandler:^(BOOL retry, NSError *error) {
                 NSLog(@"下载完成操作完成,error:%@",error);

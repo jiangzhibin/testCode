@@ -76,7 +76,7 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
   NSString *offlineDirectory = [NSString pathForOfflineDataDirectory];
   
   NSString *filename = nil;
-  NSString *apiKey = [YuloreApiManager sharedYuloreApiManager].apiKey;
+  NSString *apiKey = [YuloreApiManager shareManager].apiKey;
   if (apiKey.length > 0) {
     filename = [NSString stringWithFormat:@"0_%@_full.zip", [apiKey substringToIndex:4]];
   } else {
@@ -343,7 +343,7 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
 }
 
 + (void) cacheServiceIconImageFromInternet:(NSArray *)serviceArray {
-  Reachability *reach = [Reachability reachabilityWithHostName:[YuloreApiManager sharedYuloreApiManager].host];
+  Reachability *reach = [Reachability reachabilityWithHostName:[YuloreApiManager shareManager].host];
   if ([reach isReachable]) {
     if ([serviceArray count]) {
       

@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "DHBSDKUpdateItem.h"
 @interface DHBDataFetcher : NSObject
 + (instancetype)sharedInstance;
-- (void)fullDataFetcherCompletionHandler:(void (^)( NSArray *fullPackageList, NSArray *deltaPackageList , NSError *error) )completionHandler;
-- (void)dataFetcherCompletionHandler:(void (^)( NSArray *results, NSError *error) )completionHandler;
+- (void)dataFetcherCompletionHandler:(void (^)( DHBSDKUpdateItem *updateItem, NSError *error) )completionHandler;
 @end
