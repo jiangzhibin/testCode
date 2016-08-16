@@ -144,7 +144,7 @@
 
 - (void)dataFetcherCompletionHandler:(void (^)(DHBSDKUpdateItem *updateItem, NSError *error) )completionHandler {
   
-  dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.datafetcher", 0);
+  dispatch_queue_t q = dispatch_queue_create("com.dhbsdk.callerid.datafetcher", 0);
   dispatch_async(q, ^{
     _parameters[@"flag_ver"] = [self dataVersion];
     _parameters[@"sig"] = [_parameters signature];

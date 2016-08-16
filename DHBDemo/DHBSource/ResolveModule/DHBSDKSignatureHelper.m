@@ -11,6 +11,21 @@
 #import "CommonTmp.h"
 #import "Commondef.h"
 
+static NSString * const kCITY_ID            =   @"city_id";
+static NSString * const kCAT_ID             =   @"cat_id";
+static NSString * const kSTART              =   @"s";
+static NSString * const kNUMBER             =   @"n";
+static NSString * const kQUERY              =   @"q";
+static NSString * const kUID                =   @"uid";
+static NSString * const kMN                 =   @"mn";
+static NSString * const kSEARCHCATEGORY     =   @"t";
+static NSString * const kLAT                =   @"lat";
+static NSString * const kLNG                =   @"lng";
+static NSString * const kOLDER              =   @"o";
+static NSString * const kSID                =   @"sid";
+static NSString * const kDIS_ID             =   @"dis_id";
+static NSString * const kSIGNATURE          =   @"sig";
+
 @implementation DHBSDKSignatureHelper
 
 

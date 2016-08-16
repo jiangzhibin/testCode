@@ -13,10 +13,7 @@
 + (NSString *)pathForOfflineDataDirectory;
 + (NSString *)pathForOfflineDataDirectoryWithFileName:(NSString *)fileName;
 
-+ (NSString *)pathForResolveCachesDirectory;
-
 + (NSString *)pathForUserPathHelperCachesDirectory;
-+ (NSString *)pathForFavoriteHelperCachesDirectory ;
 + (NSString *)pathForOriginalCategoryDataFile;
 + (NSString *)pathForCategoryDataFileWithCityID:(NSString *)cityID;
 + (NSString *)pathForOfflineLOGOWithShopID:(NSString *)shopID;

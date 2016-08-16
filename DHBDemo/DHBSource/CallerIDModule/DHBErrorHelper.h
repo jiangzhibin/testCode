@@ -14,7 +14,6 @@ typedef NS_ENUM(NSInteger, DHBCallerIDErrorCode) {
   DHBCallerIDErrorCodeNetworkNotWiFiError,
 };
 
-
 @interface DHBErrorHelper : NSObject
 //  
 + (NSError *)errorResponse:(NSInteger)statusCode;

@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DHBSDKUpdateItem.h"
-typedef NS_ENUM(NSInteger, DHBDownloadPackageType) {
-  DHBDownloadPackageTypeDelta,
-  DHBDownloadPackageTypeFull
-};
+#import "DHBSDKCommonType.h"
 
 @interface DHBDownloadFetcher : NSObject
 + (instancetype)sharedInstance;

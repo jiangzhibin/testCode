@@ -217,11 +217,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "492920266.046371"
+            timestampString = "493031836.3189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-downloadingWithType:progressBlock:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -249,59 +249,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "492921641.21382"
+            timestampString = "493031836.3189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "-baseDownloadingWithType:updateItem:progressBlock:completionHandler:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__89-[DHBDownloadFetcher baseDownloadingWithType:updateItem:progressBlock:completionHandler:]_block_invoke.125"
-                  moduleName = "DHBDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-                  timestampString = "493015432.987526"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "235"
-                  endingLineNumber = "235"
-                  offsetFromSymbolStart = "292">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__89-[DHBDownloadFetcher baseDownloadingWithType:updateItem:progressBlock:completionHandler:]_block_invoke_2"
-                  moduleName = "DHBDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-                  timestampString = "493015432.988778"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "240"
-                  endingLineNumber = "240"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "493003245.979304"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "-downloadingWithType:progressBlock:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -313,11 +265,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "493003260.965173"
+            timestampString = "493031836.3189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "-afterDownloadingWithType:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -329,11 +281,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/NSString+DHBSDKMD5Check.m"
-            timestampString = "493004598.109373"
+            timestampString = "493031836.3189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "-fileValidMD5WithMD5String:error:"
             landmarkType = "7">
          </BreakpointContent>
@@ -360,28 +312,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/CallerIDModule/NSString+DHBSDKMD5Check.m"
-            timestampString = "493004728.000131"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-fileValidMD5WithMD5String:error:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "493004789.487617"
+            timestampString = "493031836.3189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "281"
-            endingLineNumber = "281"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "-bspatchActionCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -393,11 +329,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "493004908.53202"
+            timestampString = "493031836.3189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-bspatchActionCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -409,11 +345,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "493004942.411931"
+            timestampString = "493031836.3189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "-bspatchActionCompletionHandler:"
             landmarkType = "7">
          </BreakpointContent>
@@ -425,12 +361,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "493004999.18715"
+            timestampString = "493031836.3189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "-bspatchActionCompletionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
+            timestampString = "493031836.3189"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-init"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

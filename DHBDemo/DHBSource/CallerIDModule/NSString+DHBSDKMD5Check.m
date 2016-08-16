@@ -11,6 +11,8 @@
 #import "DHBSDKbspatchOC.h"
 #import "DHBErrorHelper.h"
 #import "FileHash.h"
+#import "DHBSDKCommonType.h"
+
 @implementation NSString (DHBSDKMD5Check)
 
 - (BOOL)fileValidMD5WithMD5String:(NSString *)MD5String error:(NSError **)error {
@@ -18,12 +20,10 @@
   NSString *deltaFileMD5 = [FileHash md5HashOfFileAtPath:self];
   
   if (deltaFileMD5 == nil) {
-        NSString *info = [NSString stringWithFormat:@"File path %@ MD5 maybe not exist.", self];
-    NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-    [errorDetail setValue:info forKey:NSLocalizedDescriptionKey];
-    
-
-    *error = [DHBErrorHelper errorMD5ValidWithUserInfo:errorDetail];
+      NSString *info = [NSString stringWithFormat:@"File path %@ MD5 maybe not exist.", self];
+      *error = [[NSError alloc] initWithDomain:DHBSDKMD5ValidErrorDomain
+                                          code:DHBSDKDownloadErrorCodeMD5CheckInvalidError
+                                      userInfo:@{@"description":info}];
   }
   else {
     if ([MD5String isEqualToString:deltaFileMD5]) {
@@ -32,9 +32,9 @@
     }
     else {
       NSString *info = [NSString stringWithFormat:@"File path %@ MD5 invalid failed. %@ %@", self,MD5String,deltaFileMD5];
-      NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
-      [errorDetail setValue:info forKey:NSLocalizedDescriptionKey];
-      *error = [DHBErrorHelper errorMD5ValidWithUserInfo:errorDetail];
+        *error = [[NSError alloc] initWithDomain:DHBSDKMD5ValidErrorDomain
+                                            code:DHBSDKDownloadErrorCodeMD5CheckInvalidError
+                                        userInfo:@{@"description":info}];
       
       result = NO;
     }

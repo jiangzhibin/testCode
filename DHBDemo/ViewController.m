@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
 }
 
@@ -59,7 +58,7 @@
 //        return ;
         
         [YuloreApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
-            [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBSDKDownloadDataTypeFull progressBlock:^(double progress) {
+            [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
                 NSLog(@"进度:%f",progress);
             } completionHandler:^(NSError *error) {
                 NSLog(@"下载结果 error:%@",error);
@@ -85,7 +84,7 @@
                 
                 [[DHBCovertIndexContent sharedInstance] needReload];
                 
-                dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.dataloader", 0);
+                dispatch_queue_t q = dispatch_queue_create("com.dhbsdk.callerid.dataloader", 0);
                 dispatch_async(q, ^{
                     [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
                         NSLog(@"\n\n\nreadDataFromFile:\n%f",progress);

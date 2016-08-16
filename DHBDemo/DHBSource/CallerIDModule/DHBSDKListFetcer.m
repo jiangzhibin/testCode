@@ -21,6 +21,7 @@
 #import "DHBSDKCustomItem.h"
 
 static NSInteger CACHE_INTERVAL_DAY = 10;
+static NSString * const kCAT_ID = @"cat_id";
 @implementation DHBSDKListFetcer
 
 + (BOOL)isJsonHasCategory:(DHBSDKCategoryItem *)categoryItem {

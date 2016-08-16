@@ -15,6 +15,8 @@
 #import "DHBDownloadFetcher.h"
 #import "DHBSDKResolveFecherNew.h"
 #import "DHBCovertIndexContent.h"
+#import "AFNetworking.h"
+#import "DHBSDKNetworkManager.h"
 
 /// ApiKey & Signature
 static NSString * const kApiKeyString               = @"DHBSDKApiKeyString";
@@ -50,7 +52,7 @@ static float const kProgressPercentDownload             = 0.75f;
   dispatch_once(&onceToken, ^{
       apiManager = [YuloreApiManager new];
       [apiManager initializeValues];
-      
+      [[AFNetworkReachabilityManager sharedManager] startMonitoring];
   });
   return apiManager;
 }
@@ -288,12 +290,12 @@ static float const kProgressPercentDownload             = 0.75f;
  下载 全量/增量包
  
  @param updateItem        下载所需的信息model
- @param dataType          下载的数据类型
+ @param packageType          下载的数据类型
  @param progressBlock     进度回调
  @param completionHandler 下载结束回调，error == nil，则下载失败；error == nil,下载成功
  */
 + (void)downloadDataWithUpdateItem:(DHBSDKUpdateItem *)updateItem
-                          dataType:(DHBSDKDownloadDataType)dataType
+                          dataType:(DHBDownloadPackageType)packageType
                      progressBlock:(void(^)(double progress))progressBlock
                  completionHandler:(void(^)(NSError *error))completionHandler {
     if (updateItem == nil) {
@@ -301,27 +303,48 @@ static float const kProgressPercentDownload             = 0.75f;
         completionHandler(error);
         return;
     }
-    DHBDownloadPackageType packageType;
-    switch (dataType) {
-        case DHBSDKDownloadDataTypeDelta:
-            packageType = DHBDownloadPackageTypeDelta;
-            break;
-        case DHBSDKDownloadDataTypeFull:
-            packageType = DHBDownloadPackageTypeFull;
-            break;
+    
+    // 网络状态及下载设置处理
+    DHBSDKNetworkType networkType = [DHBSDKNetworkManager networkType];
+    DHBSDKDownloadNetworkType downloadNetworkType = [YuloreApiManager shareManager].downloadNetworkType;
+    NSError *error = nil;
+    if (networkType == DHBSDKNetworkTypeNotReachable) {
+        // 无网状态 提示连接网络
+        error = [NSError errorWithDomain:DHBSDKDownloadErrorDomain code:DHBSDKDownloadErrorCodeNetworkNotReachable userInfo:@{@"description":@"下载失败：网络不可用"}];
+        completionHandler(error);
+        return;
     }
+    if (downloadNetworkType == DHBSDKDownloadNetworkTypeNotAllow) {
+        // 未允许下载 提示打开下载
+        error = [NSError errorWithDomain:DHBSDKDownloadErrorDomain code:DHBSDKDownloadErrorCodeNotAllow userInfo:@{@"description":@"下载失败：用户已设置不允许下载"}];
+        completionHandler(error);
+        return;
+    }
+    if (networkType == DHBSDKNetworkTypeViaWWAN
+        && downloadNetworkType == DHBSDKDownloadNetworkTypeWifiOnly) {
+        // 未打开数据流量下载
+        error = [NSError errorWithDomain:DHBSDKDownloadErrorDomain code:DHBSDKDownloadErrorCodeWWANDownloadNotAllow userInfo:@{@"description":@"下载失败：当前为3G/4G网络，用户仅允许WiFi下载"}];
+        completionHandler(error);
+        return;
+    }
+    NSError *batteryLevelError = [DHBErrorHelper errorWithBatteryLevel];
+    if (batteryLevelError) {
+        // 电量过低
+        error = [NSError errorWithDomain:DHBSDKDownloadErrorDomain code:DHBSDKDownloadErrorCodeBatteryLevelTooLow userInfo:@{@"description":@"下载失败：当前电量过低，不允许下载"}];
+        completionHandler(error);
+        return;
+    }
+    
     [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:packageType updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
         progressBlock(progress * kProgressPercentDownload);
     } completionHandler:^(BOOL retry, NSError *error) {
         if (error) {
-            NSLog(@"下载失败");
             completionHandler(error);
             return ;
         }
         
         [[DHBCovertIndexContent sharedInstance] needReload];
-        
-        dispatch_queue_t q = dispatch_queue_create("com.yulore.callerid.dataloader", 0);
+        dispatch_queue_t q = dispatch_queue_create("com.dhbsdk.callerid.dataloader", 0);
         dispatch_async(q, ^{
             [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
                 progressBlock(kProgressPercentDownload + progress * (1 - kProgressPercentDownload)+0.005);

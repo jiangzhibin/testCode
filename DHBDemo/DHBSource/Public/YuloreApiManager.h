@@ -12,24 +12,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "DHBSDKUpdateItem.h"
 #import "DHBSDKResolveItemNew.h"
-
-/// 允许执行下载操作的网络类型
-typedef NS_ENUM(NSInteger,DHBSDKDownloadNetworkType) {
-    DHBSDKDownloadNetworkTypeWifiOnly,      // 仅wifi网络
-    DHBSDKDownloadNetworkTypeAllAllow,      // 所有网络
-    DHBSDKDownloadNetworkTypeNotAllow       // 禁止联网
-};
-
-/// 下载的数据类型
-typedef NS_ENUM(NSInteger,DHBSDKDownloadDataType) {
-    DHBSDKDownloadDataTypeDelta,            // 全量包
-    DHBSDKDownloadDataTypeFull,             // 增量包
-};
-
+#import "DHBErrorHelper.h"
+#import "DHBSDKCommonType.h"
 
 @interface YuloreApiManager : NSObject
-
-
 @property (nonatomic, copy) NSString *apiKey;
 
 @property (nonatomic, copy) NSString *signature;
@@ -48,6 +34,8 @@ typedef NS_ENUM(NSInteger,DHBSDKDownloadDataType) {
 
 + (instancetype)shareManager;
 
+
+#pragma mark - 注册相关
 /**
  *  初始化所需ApiKey以及密码
  *
@@ -71,7 +59,7 @@ typedef NS_ENUM(NSInteger,DHBSDKDownloadDataType) {
  */
 + (BOOL)registered;
 
-
+#pragma mark - 号码查询及标记
 /**
  查询号码信息
 
@@ -92,6 +80,8 @@ typedef NS_ENUM(NSInteger,DHBSDKDownloadDataType) {
                         flagInfomation:(NSString *)flagInfomation
                      completionHandler:(void (^)( BOOL successed, NSError *error))completeBlock;
 
+
+#pragma mark - 数据获取及下载
 /**
  数据信息获取
  如 更新包下载地址及md5等，详情见DHBSDKUpdateItem.h
@@ -102,14 +92,14 @@ typedef NS_ENUM(NSInteger,DHBSDKDownloadDataType) {
 
 /**
  下载 全量/增量包
-
+ 
  @param updateItem        下载所需的信息model
- @param dataType          下载的数据类型
+ @param packageType          下载的数据类型
  @param progressBlock     进度回调
  @param completionHandler 下载结束回调，error == nil，则下载失败；error == nil,下载成功
  */
 + (void)downloadDataWithUpdateItem:(DHBSDKUpdateItem *)updateItem
-                          dataType:(DHBSDKDownloadDataType)dataType
+                          dataType:(DHBDownloadPackageType)packageType
                      progressBlock:(void(^)(double progress))progressBlock
                  completionHandler:(void(^)(NSError *error))completionHandler;
 

@@ -14,6 +14,8 @@
 #import "NSString+DHBSDKYuloreFilePath.h"
 #import "DHBEnvironmentValidate.h"
 #import "CommonTmp.h"
+#import "DHBSDKNetworkManager.h"
+#import "Commondef.h"
 
 
 //#import "VirtualInterface.h"
@@ -34,24 +36,32 @@
   static DHBDownloadFetcher *_sharedDownloadFetcher = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    
-    _sharedDownloadFetcher = [[self alloc] init];
+      _sharedDownloadFetcher = [[self alloc] init];
     
   });
   
   return _sharedDownloadFetcher;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+}
 
 - (instancetype)init {
   self = [super init];
   if (self) {
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
 
   }
   return self;
 }
 
+- (void)networkStatusChanged:(NSNotification *)notify {
+    DHBSDKDLog(@"notify:%@",notify);
+    
+    
+    
+}
 
 - (NSString *)targetPathWithType:(DHBDownloadPackageType)type {
   
@@ -98,7 +108,7 @@
   } else if (packageType == DHBDownloadPackageTypeFull) {
     self.requestURL = [NSURL URLWithString:self.updateItem.fullDownloadPath];
   }
-    NSLog(@"Downloading from %@", self.requestURL);
+    DHBSDKDLog(@"Downloading from %@", self.requestURL);
 
 
   NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.requestURL];
@@ -106,7 +116,7 @@
   NSString *targetPath = [self targetPathWithType:packageType];
     NSString *targetPathUnzipped = [[NSString alloc] initWithFormat:@"%@_zip/",targetPath];
 
-    NSLog(@"to %@ (%@)", targetPath,targetPathUnzipped);
+    DHBSDKDLog(@"to %@ (%@)", targetPath,targetPathUnzipped);
 
   self.downloadOperation = [[DHBSDKAFDownloadRequestOperation alloc] initWithRequest:urlRequest
                                                                     targetPath:targetPath
@@ -115,12 +125,12 @@
   NSError *error = nil;
   [self.downloadOperation deleteTempFileWithError:&error];
   
-  NSLog(@"error deleteTempFileWithError %@", error);
+  DHBSDKDLog(@"error deleteTempFileWithError %@", error);
   [self.downloadOperation start];
   [self.downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *  operation, id  responseObject) {
-    //    NSLog(@"Success");
     if (operation.response.statusCode != 200) {
-      completionHandler([DHBErrorHelper errorResponse:operation.response.statusCode]);
+        NSError *error = [NSError errorWithDomain:DHBSDKDownloadErrorDomain code:DHBSDKDownloadErrorCodeResponseCodeNot200 userInfo:@{@"description:%@":responseObject?:@"nil"}];
+      completionHandler(error);
       return;
     }
 
@@ -148,24 +158,24 @@
               result = [zip UnzipFileTo:targetPathUnzipped overWrite:YES];//解压文件
               if (!result) {
                   //解压失败
-                  NSLog(@"unzip fail................");
+                  DHBSDKDLog(@"unzip fail................");
               } else if ([zip numFiles]>0) {
                   //解压成功
                   NSString * unzippedFile=[[NSString alloc] initWithFormat:@"%@%@",targetPathUnzipped,[[zip getZipFileContents] objectAtIndex:0]];
-                  NSLog(@"unzip success.............%@",unzippedFile);
+                  DHBSDKDLog(@"unzip success.............%@",unzippedFile);
                   [zip UnzipCloseFile];
                   
                   NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:targetPathUnzipped error:NULL];
                   for (int count = 0; count < (int)[directoryContent count]; count++)
                   {
-                      NSLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
+                      DHBSDKDLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
                   }
                   
                   [[NSFileManager defaultManager] removeItemAtPath:targetPath error:&error];
                   [[NSFileManager defaultManager] moveItemAtPath:unzippedFile toPath:targetPath error:&error];
                   [targetPath fileValidMD5WithMD5String:testMD5 error:&error];
                   if (error!=nil){
-                      NSLog(@"error fileValidMD5WithMD5String %@", error);
+                      DHBSDKDLog(@"error fileValidMD5WithMD5String %@", error);
                   }
               }
           }
@@ -173,7 +183,7 @@
       } else {
           [targetPath fileValidMD5WithMD5String:testMD5 error:&error];
           if (error!=nil){
-              NSLog(@"error fileValidMD5WithMD5String %@", error);
+              DHBSDKDLog(@"error fileValidMD5WithMD5String %@", error);
           }
           //delta package, not zipped
       }
@@ -204,54 +214,37 @@
                   progressBlock:(void (^)(double progress, long long totalBytes))progressBlock
               completionHandler:(void (^)(BOOL retry, NSError *error))completionHandler  {
 
-  self.updateItem = updateItem;
-  
-  /**
-   *  运行环境检测是否符合要求
-   */
-  NSError *error = nil;
-  if (![DHBEnvironmentValidate environmentValidate:&error]) {
+    self.updateItem = updateItem;
+    [self downloadingWithType:packageType  progressBlock:^(double progress, long long totalBytes) {
+        //进度回调
+        progressBlock(progress, totalBytes);
     
-    completionHandler(NO, error);
-    return;
-  }
-  
-  /**
-   *  环境符合，可以下载操作
-   */
-  [self downloadingWithType:packageType  progressBlock:^(double progress, long long totalBytes) {
-    //进度回调
-    progressBlock(progress, totalBytes);
-    
-  } completionHandler:^(NSError *error)
-   {
-     if (error) {
-       
-       [self.updateItem failed];
-       completionHandler([self.updateItem isNeedRetry], error);
-       
-     }
-     else {
-       [self afterDownloadingWithType:packageType completionHandler:^(NSError *error) {
+    } completionHandler:^(NSError *error)
+    {
+        if (error) {
+            [self.updateItem failed];
+            completionHandler([self.updateItem isNeedRetry], error);
+        }
+        else {
+            [self afterDownloadingWithType:packageType completionHandler:^(NSError *error) {
          
-         /**
-          *  如果没有异常重置次版本的版本报错记录
-          */
-         if (error == nil) {
+             /**
+              *  如果没有异常重置次版本的版本报错记录
+              */
+                if (error == nil) {
           
-         }
-         
-         completionHandler([self.updateItem isNeedRetry], error);
-       }];
-     }
+                }
+                completionHandler([self.updateItem isNeedRetry], error);
+            }];
+        }
    }];
   
 }
 
 /**
- *  <#Description#>
+ *  Description
  *
- *  @param completionHandler <#completionHandler description#>
+ *  @param completionHandler completionHandler description
  */
 - (void)bspatchActionCompletionHandler:(void (^)(NSError *error))completionHandler  {
   
@@ -312,7 +305,7 @@
   /**
    *  bspatch
    */
-    NSLog(@"After Download");
+    DHBSDKDLog(@"After Download");
   if (type == DHBDownloadPackageTypeDelta) {
     [self bspatchActionCompletionHandler:^(NSError *error) {
       

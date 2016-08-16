@@ -17,23 +17,6 @@
 #   define DHBSDKDLog(...)
 #endif
 
-#define kERRORTYPE          @"errortype"
-#define kVERSION            @"version"
-#define kCITY_ID            @"city_id"
-#define kSEARCHCATEGORY     @"t"
-#define kCAT_ID             @"cat_id"
-#define kSTART              @"s"
-#define kNUMBER             @"n"
-#define kQUERY              @"q"
-#define kUID                @"uid"
-#define kMN                 @"mn"
-#define kLAT                @"lat"
-#define kLNG                @"lng"
-#define kOLDER              @"o"
-#define kSID                @"sid"
-#define kDIS_ID             @"dis_id"
-#define kSIGNATURE          @"sig"
-
 
 #endif /* #ifdef __OBJC__ */
 #endif  /* #ifndef Commondef_h */
