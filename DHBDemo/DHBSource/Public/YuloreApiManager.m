@@ -53,6 +53,9 @@ static float const kProgressPercentDownload             = 0.75f;
       apiManager = [YuloreApiManager new];
       [apiManager initializeValues];
       [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+      [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+          [[NSNotificationCenter defaultCenter] postNotificationName:kDHBSDKNotifReachabilityStatusChanged object:@(status)];
+      }];
   });
   return apiManager;
 }
@@ -335,6 +338,8 @@ static float const kProgressPercentDownload             = 0.75f;
         return;
     }
     
+    
+    // 下载
     [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:packageType updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
         progressBlock(progress * kProgressPercentDownload);
     } completionHandler:^(BOOL retry, NSError *error) {

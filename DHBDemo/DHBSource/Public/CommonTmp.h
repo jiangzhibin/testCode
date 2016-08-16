@@ -13,7 +13,7 @@
 #import <UIKit/UIKit.h>
 
 #import "AFNetworking.h"
-#import "Reachability.h"
+#import "AFNetworkReachabilityManager.h"
 #import "DHBSDKOpenUDID.h"
 #import "YuloreApiManager.h"
 #import "NSString+DHBSDKYuloreFilePath.h"

@@ -17,11 +17,15 @@
 #import "Commondef.h"
 #import "DHBErrorHelper.h"
 #import "DHBSDKDHBFileOperation.h"
+#import "DHBSDKURLSessionManager.h"
+
 @interface DHBDownloadFetcher()
 
 
 @property (nonatomic, strong) NSURL *requestURL;
 @property (nonatomic, strong) DHBSDKUpdateItem *updateItem;
+@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
+
 @end
 @implementation DHBDownloadFetcher
 
@@ -31,30 +35,27 @@
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
       _sharedDownloadFetcher = [[self alloc] init];
+      [[NSNotificationCenter defaultCenter] addObserver:_sharedDownloadFetcher selector:@selector(reachabilityStatusChanged:) name:kDHBSDKNotifReachabilityStatusChanged object:nil];
     
   });
   
   return _sharedDownloadFetcher;
 }
 
+- (void)reachabilityStatusChanged:(NSNotification *)notif {
+    AFNetworkReachabilityStatus status = [notif.object integerValue];
+    if (status == AFNetworkReachabilityStatusNotReachable) {
+        [self.downloadTask cancel];
+    }
+    else if (status == AFNetworkReachabilityStatusReachableViaWWAN) {
+        if ([YuloreApiManager shareManager].downloadNetworkType == DHBSDKDownloadNetworkTypeWifiOnly) {
+            [self.downloadTask cancel];
+        }
+    }
+}
+
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
-}
-
-- (instancetype)init {
-  self = [super init];
-  if (self) {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:kReachabilityChangedNotification object:nil];
-
-  }
-  return self;
-}
-
-- (void)networkStatusChanged:(NSNotification *)notify {
-    DHBSDKDLog(@"notify:%@",notify);
-    
-    
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDHBSDKNotifReachabilityStatusChanged object:nil];
 }
 
 - (NSString *)targetPathWithType:(DHBDownloadPackageType)type {
@@ -113,12 +114,9 @@
         [fileManager removeItemAtPath:targetSavePath error:nil];
     }
     
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    
     NSURLRequest *request = [NSURLRequest requestWithURL:self.requestURL];
     
-    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+    self.downloadTask = [[DHBSDKURLSessionManager shareManager] downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         float progress = downloadProgress.completedUnitCount * 1.0 / downloadProgress.totalUnitCount;
         progressBlock(progress, downloadProgress.totalUnitCount);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
@@ -185,7 +183,7 @@
         }
         completionHandler(errorTmp);
     }];
-    [downloadTask resume];
+    [self.downloadTask resume];
 }
 
 /**

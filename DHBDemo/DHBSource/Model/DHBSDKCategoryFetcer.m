@@ -131,8 +131,8 @@
 
 - (void)categoriesFromeSandboxWithCityID:(NSString *)cityID
                        completionHandler:(DHBSDKCategoryAllCompletionHandler)completionHandler {
-  dispatch_queue_t q = dispatch_queue_create("queue", 0);
-  dispatch_async(q, ^{
+//  dispatch_queue_t q = dispatch_queue_create("queue", 0);
+//  dispatch_async(q, ^{
     
     
     
@@ -151,7 +151,7 @@
        });
      } withCityID:cityID];
     
-  });
+//  });
 }
 
 
@@ -238,11 +238,11 @@ updateFromServerCompletionHandler:(DHBSDKCategoryCompletionHandler)updateFromSer
            completionHandler:(DHBSDKCategoryAllCompletionHandler)xcompletionHandler {
   
   
-  dispatch_queue_t q = dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL);
-  
-  
-  dispatch_async(q, ^{
-    
+//  dispatch_queue_t q = dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL);
+//  
+//  
+//  dispatch_async(q, ^{
+//    
     
     
     [[DHBSDKYuloreAPIClient sharedClient] categoriesWithCityID:cityID
@@ -281,7 +281,7 @@ updateFromServerCompletionHandler:(DHBSDKCategoryCompletionHandler)updateFromSer
          
        }
      }];
-  });
+//  });
   
   //
   //  dispatch_async(q, ^{

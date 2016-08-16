@@ -342,40 +342,6 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
   
 }
 
-+ (void) cacheServiceIconImageFromInternet:(NSArray *)serviceArray {
-  Reachability *reach = [Reachability reachabilityWithHostName:[YuloreApiManager shareManager].host];
-  if ([reach isReachable]) {
-    if ([serviceArray count]) {
-      
-      
-      NSMutableArray *urlArray = [[NSMutableArray alloc] initWithCapacity:[serviceArray count]];
-      for (NSDictionary *aServiceItem in serviceArray) {
-        if ([[aServiceItem allKeys] containsObject:@"icon"]) {
-          [urlArray addObject:aServiceItem[@"icon"]];
-        }
-        
-      }
-      
-      
-      dispatch_queue_t q = dispatch_queue_create("queue", 0);
-      dispatch_async(q, ^{
-        for (NSString *urlString in urlArray) {
-          
-          NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-          
-          
-          NSArray *urlArray = [urlString componentsSeparatedByString:@"/"];
-          NSString *fileName = [urlArray lastObject];
-          NSString *cacheFileNamePath = [[NSString pathForOfflineDataDirectory] stringByAppendingFormat:@"/sicon_%@", fileName ];
-          [data writeToFile:cacheFileNamePath atomically:YES];
-        }
-        
-      });
-      
-    }
-  }
-}
-
 
 + (void) updateCurrentCity {
   [[NSNotificationCenter defaultCenter] addObserver: self

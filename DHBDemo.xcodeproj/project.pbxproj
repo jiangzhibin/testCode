@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		BF3406171D62F6E2002CFEE6 /* DHBSDKListFetcer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3406161D62F6E2002CFEE6 /* DHBSDKListFetcer.m */; };
 		BF34061E1D62F8CB002CFEE6 /* DHBSDKNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BF34061D1D62F8CB002CFEE6 /* DHBSDKNetworkManager.m */; };
-		BF526B9B1D53808000E11FD1 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = BF526B971D53808000E11FD1 /* LICENCE.txt */; };
-		BF526B9C1D53808000E11FD1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B991D53808000E11FD1 /* Reachability.m */; };
-		BF526B9D1D53808000E11FD1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BF526B9A1D53808000E11FD1 /* README.md */; };
 		BF526BA01D53811600E11FD1 /* DHBSDKStartLoadingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526B9F1D53811600E11FD1 /* DHBSDKStartLoadingService.m */; };
 		BF526BA41D53820600E11FD1 /* DHBSDKResolveItemNew.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526BA31D53820600E11FD1 /* DHBSDKResolveItemNew.m */; };
 		BF526BAA1D53834700E11FD1 /* DHBSDKYuloreAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526BA91D53834700E11FD1 /* DHBSDKYuloreAPIClient.m */; };
@@ -81,18 +78,15 @@
 		BFF102891D6356E400EF1DBF /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF102781D6356E400EF1DBF /* UIProgressView+AFNetworking.m */; };
 		BFF1028A1D6356E400EF1DBF /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1027A1D6356E400EF1DBF /* UIRefreshControl+AFNetworking.m */; };
 		BFF1028B1D6356E400EF1DBF /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1027C1D6356E400EF1DBF /* UIWebView+AFNetworking.m */; };
+		BFF1028E1D635FD000EF1DBF /* DHBSDKURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1028D1D635FD000EF1DBF /* DHBSDKURLSessionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF3406151D62F6E2002CFEE6 /* DHBSDKListFetcer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKListFetcer.h; sourceTree = "<group>"; };
 		BF3406161D62F6E2002CFEE6 /* DHBSDKListFetcer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKListFetcer.m; sourceTree = "<group>"; };
-		BF34061C1D62F8CB002CFEE6 /* DHBSDKNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKNetworkManager.h; sourceTree = "<group>"; };
+		BF34061C1D62F8CB002CFEE6 /* DHBSDKNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHBSDKNetworkManager.h; path = ../Utils/DHBSDKNetworkManager.h; sourceTree = "<group>"; };
 		BF34061D1D62F8CB002CFEE6 /* DHBSDKNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKNetworkManager.m; sourceTree = "<group>"; };
 		BF3406211D630648002CFEE6 /* DHBSDKCommonType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKCommonType.h; sourceTree = "<group>"; };
-		BF526B971D53808000E11FD1 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
-		BF526B981D53808000E11FD1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		BF526B991D53808000E11FD1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		BF526B9A1D53808000E11FD1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BF526B9E1D53811600E11FD1 /* DHBSDKStartLoadingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKStartLoadingService.h; sourceTree = "<group>"; };
 		BF526B9F1D53811600E11FD1 /* DHBSDKStartLoadingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKStartLoadingService.m; sourceTree = "<group>"; };
 		BF526BA21D53820600E11FD1 /* DHBSDKResolveItemNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHBSDKResolveItemNew.h; path = ../ResolveModule/DHBSDKResolveItemNew.h; sourceTree = "<group>"; };
@@ -230,6 +224,8 @@
 		BFF1027A1D6356E400EF1DBF /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		BFF1027B1D6356E400EF1DBF /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		BFF1027C1D6356E400EF1DBF /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		BFF1028C1D635FD000EF1DBF /* DHBSDKURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKURLSessionManager.h; sourceTree = "<group>"; };
+		BFF1028D1D635FD000EF1DBF /* DHBSDKURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKURLSessionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,21 +247,9 @@
 			isa = PBXGroup;
 			children = (
 				BFA146DB1D532B8F008DE524 /* DHBErrorHelper.m */,
-				BF34061C1D62F8CB002CFEE6 /* DHBSDKNetworkManager.h */,
 				BF34061D1D62F8CB002CFEE6 /* DHBSDKNetworkManager.m */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		BF526B961D53808000E11FD1 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				BF526B971D53808000E11FD1 /* LICENCE.txt */,
-				BF526B981D53808000E11FD1 /* Reachability.h */,
-				BF526B991D53808000E11FD1 /* Reachability.m */,
-				BF526B9A1D53808000E11FD1 /* README.md */,
-			);
-			path = Reachability;
 			sourceTree = "<group>";
 		};
 		BF526BA11D5381FC00E11FD1 /* ResolveModule */ = {
@@ -400,7 +384,6 @@
 				BFF1025A1D6356E400EF1DBF /* AFNetworking */,
 				BFF102681D6356E400EF1DBF /* UIKit+AFNetworking */,
 				BF526BF91D54762D00E11FD1 /* minizip */,
-				BF526B961D53808000E11FD1 /* Reachability */,
 				BFA146571D532488008DE524 /* OpenUDID */,
 			);
 			path = Vender;
@@ -443,6 +426,8 @@
 				BFA146ED1D532CCE008DE524 /* DHBSDKCategoryItem.m */,
 				BFA1464E1D5323DE008DE524 /* DHBSDKUpdateItem.h */,
 				BFA1464F1D5323DE008DE524 /* DHBSDKUpdateItem.m */,
+				BFF1028C1D635FD000EF1DBF /* DHBSDKURLSessionManager.h */,
+				BFF1028D1D635FD000EF1DBF /* DHBSDKURLSessionManager.m */,
 			);
 			name = DownloadModule;
 			path = CallerIDModule;
@@ -499,6 +484,7 @@
 				BFDBFB901D5D74C900F4E527 /* DHBSDKResolveFecherNew.h */,
 				BFA146DA1D532B8F008DE524 /* DHBErrorHelper.h */,
 				BF526BA21D53820600E11FD1 /* DHBSDKResolveItemNew.h */,
+				BF34061C1D62F8CB002CFEE6 /* DHBSDKNetworkManager.h */,
 				BFDBFB8D1D5D6A0800F4E527 /* YuloreApiManager.h */,
 				BF3406211D630648002CFEE6 /* DHBSDKCommonType.h */,
 			);
@@ -612,7 +598,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF526B9B1D53808000E11FD1 /* LICENCE.txt in Resources */,
 				BF5307E61D5AC7AA000901F9 /* service_icon.zip in Resources */,
 				BFA1462D1D53222D008DE524 /* LaunchScreen.storyboard in Resources */,
 				BFA1462A1D53222D008DE524 /* Assets.xcassets in Resources */,
@@ -644,6 +629,7 @@
 				BFA146521D5323DE008DE524 /* DHBDownloadFetcher.m in Sources */,
 				BFA146E81D532C16008DE524 /* DHBSDKYP_ASIDataDecompressor.m in Sources */,
 				BFA1470E1D532EC0008DE524 /* DHBSDKAPIDotDianHuaDotCNClient.m in Sources */,
+				BFF1028E1D635FD000EF1DBF /* DHBSDKURLSessionManager.m in Sources */,
 				BFA146621D5324DE008DE524 /* FileHash.m in Sources */,
 				BF526C061D54762D00E11FD1 /* dhbsdkmztools.c in Sources */,
 				BFF1027E1D6356E400EF1DBF /* AFNetworkReachabilityManager.m in Sources */,
@@ -674,7 +660,6 @@
 				BFDBFB8F1D5D6A0800F4E527 /* YuloreApiManager.m in Sources */,
 				BFA146381D532328008DE524 /* NSString+DHBSDKYuloreFilePath.m in Sources */,
 				BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */,
-				BF526B9D1D53808000E11FD1 /* README.md in Sources */,
 				BFF1028B1D6356E400EF1DBF /* UIWebView+AFNetworking.m in Sources */,
 				BFA146251D53222D008DE524 /* ViewController.m in Sources */,
 				BFF102851D6356E400EF1DBF /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -689,7 +674,6 @@
 				BFA146EE1D532CCE008DE524 /* DHBSDKCategoryItem.m in Sources */,
 				BFA147181D532FDA008DE524 /* DHBSDKCustomItem.m in Sources */,
 				BFA146651D5324F5008DE524 /* NSString+DHBSDKMD5Check.m in Sources */,
-				BF526B9C1D53808000E11FD1 /* Reachability.m in Sources */,
 				BFA146DC1D532B8F008DE524 /* DHBErrorHelper.m in Sources */,
 				BF3406171D62F6E2002CFEE6 /* DHBSDKListFetcer.m in Sources */,
 			);

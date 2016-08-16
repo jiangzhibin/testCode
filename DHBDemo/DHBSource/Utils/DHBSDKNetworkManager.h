@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/// 网络状态发改变时 发送通知的key
+extern NSString *const kDHBSDKNotifReachabilityStatusChanged;
+
 typedef NS_ENUM(NSInteger,DHBSDKNetworkType) {
     DHBSDKNetworkTypeNotReachable,      // 没有网络
     DHBSDKNetworkTypeViaWiFi,           // WiFi

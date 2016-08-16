@@ -58,44 +58,14 @@
 //        return ;
         
         [YuloreApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
-            updateItem.deltaDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61_1";
-            updateItem.deltaMD5 = @"4e8e1b38e4c116b76e21b1b8020857bf";
-            updateItem.deltaSize = 613319;
-            updateItem.deltaVersion = 62;
-            [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeDelta progressBlock:^(double progress) {
+//            updateItem.deltaDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61_1";
+//            updateItem.deltaMD5 = @"4e8e1b38e4c116b76e21b1b8020857bf";
+//            updateItem.deltaSize = 613319;
+//            updateItem.deltaVersion = 62;
+            [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
                 NSLog(@"进度:%f",progress);
             } completionHandler:^(NSError *error) {
                 NSLog(@"下载结果 error:%@",error);
-            }];
-        }];
-        
-        
-        return;
-        [[DHBDataFetcher sharedInstance] dataFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
-            if (updateItem == nil) {
-                return ;
-            }
-            
-            [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:DHBDownloadPackageTypeDelta updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
-                NSLog(@"下载进度:%f totalBytes:%lld",progress,totalBytes);
-            } completionHandler:^(BOOL retry, NSError *error) {
-                NSLog(@"下载完成操作完成,error:%@",error);
-                if (error) {
-                    NSLog(@"下载失败");
-                    return ;
-                }
-                
-                
-                [[DHBCovertIndexContent sharedInstance] needReload];
-                
-                dispatch_queue_t q = dispatch_queue_create("com.dhbsdk.callerid.dataloader", 0);
-                dispatch_async(q, ^{
-                    [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
-                        NSLog(@"\n\n\nreadDataFromFile:\n%f",progress);
-                    } completionHandler:^(NSError *error) {
-                        ;
-                    }];
-                });
             }];
         }];
     }];
