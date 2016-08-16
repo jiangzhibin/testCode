@@ -58,7 +58,11 @@
 //        return ;
         
         [YuloreApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
-            [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
+            updateItem.deltaDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61_1";
+            updateItem.deltaMD5 = @"4e8e1b38e4c116b76e21b1b8020857bf";
+            updateItem.deltaSize = 613319;
+            updateItem.deltaVersion = 62;
+            [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeDelta progressBlock:^(double progress) {
                 NSLog(@"进度:%f",progress);
             } completionHandler:^(NSError *error) {
                 NSLog(@"下载结果 error:%@",error);

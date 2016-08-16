@@ -10,20 +10,14 @@
 #import "FileHash.h"
 #import "NSString+DHBSDKMD5Check.h"
 #import "DHBSDKbspatchOC.h"
-#import "DHBSDKAFDownloadRequestOperation.h"
 #import "NSString+DHBSDKYuloreFilePath.h"
 #import "DHBEnvironmentValidate.h"
 #import "CommonTmp.h"
 #import "DHBSDKNetworkManager.h"
 #import "Commondef.h"
-
-
-//#import "VirtualInterface.h"
 #import "DHBErrorHelper.h"
 #import "DHBSDKDHBFileOperation.h"
-//#import "DHBUpdateLogging.h"
 @interface DHBDownloadFetcher()
-@property (nonatomic, strong) DHBSDKAFDownloadRequestOperation *downloadOperation;
 
 
 @property (nonatomic, strong) NSURL *requestURL;
@@ -99,108 +93,99 @@
  *  @param completionHandler <#completionHandler description#>
  */
 - (void)downloadingWithType:(DHBDownloadPackageType)packageType
-              //   updateItem:(DHBUpdateItem *)updateItem
+//   updateItem:(DHBUpdateItem *)updateItem
               progressBlock:(void (^)(double progress, long long totalBytes))progressBlock
           completionHandler:(void (^)(NSError *error))completionHandler {
     self.requestURL = nil;
-  if (packageType == DHBDownloadPackageTypeDelta) {
-    self.requestURL = [NSURL URLWithString:self.updateItem.deltaDownloadPath];
-  } else if (packageType == DHBDownloadPackageTypeFull) {
-    self.requestURL = [NSURL URLWithString:self.updateItem.fullDownloadPath];
-  }
-    DHBSDKDLog(@"Downloading from %@", self.requestURL);
-
-
-  NSURLRequest *urlRequest = [NSURLRequest requestWithURL:self.requestURL];
-  
-  NSString *targetPath = [self targetPathWithType:packageType];
-    NSString *targetPathUnzipped = [[NSString alloc] initWithFormat:@"%@_zip/",targetPath];
-
-    DHBSDKDLog(@"to %@ (%@)", targetPath,targetPathUnzipped);
-
-  self.downloadOperation = [[DHBSDKAFDownloadRequestOperation alloc] initWithRequest:urlRequest
-                                                                    targetPath:targetPath
-                                                                  shouldResume:YES];
-  self.downloadOperation.shouldOverwrite = YES;
-  NSError *error = nil;
-  [self.downloadOperation deleteTempFileWithError:&error];
-  
-  DHBSDKDLog(@"error deleteTempFileWithError %@", error);
-  [self.downloadOperation start];
-  [self.downloadOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *  operation, id  responseObject) {
-    if (operation.response.statusCode != 200) {
-        NSError *error = [NSError errorWithDomain:DHBSDKDownloadErrorDomain code:DHBSDKDownloadErrorCodeResponseCodeNot200 userInfo:@{@"description:%@":responseObject?:@"nil"}];
-      completionHandler(error);
-      return;
-    }
-
-    NSString *testMD5 = nil;
     if (packageType == DHBDownloadPackageTypeDelta) {
-      testMD5 = self.updateItem.deltaMD5;
+        self.requestURL = [NSURL URLWithString:self.updateItem.deltaDownloadPath];
     } else if (packageType == DHBDownloadPackageTypeFull) {
-      testMD5 = self.updateItem.fullMD5;
+        self.requestURL = [NSURL URLWithString:self.updateItem.fullDownloadPath];
     }
-
-    NSError *error = nil;
     
-      if (packageType == DHBDownloadPackageTypeFull){
-          
-          DHBSDKYuloreZipArchive *zip = [[DHBSDKYuloreZipArchive alloc] init];
-          //   zip.progressBlock = progressBlock;
-          zip.progressBlock = ^ (int percentage, int filesProcessed, int numFiles) {
-              if (percentage == 100) {
-                  //completionBlock(nil);
-              }
-          };
-          BOOL result = NO;
-          
-          if ([zip UnzipOpenFile:targetPath]) {
-              result = [zip UnzipFileTo:targetPathUnzipped overWrite:YES];//解压文件
-              if (!result) {
-                  //解压失败
-                  DHBSDKDLog(@"unzip fail................");
-              } else if ([zip numFiles]>0) {
-                  //解压成功
-                  NSString * unzippedFile=[[NSString alloc] initWithFormat:@"%@%@",targetPathUnzipped,[[zip getZipFileContents] objectAtIndex:0]];
-                  DHBSDKDLog(@"unzip success.............%@",unzippedFile);
-                  [zip UnzipCloseFile];
-                  
-                  NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:targetPathUnzipped error:NULL];
-                  for (int count = 0; count < (int)[directoryContent count]; count++)
-                  {
-                      DHBSDKDLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
-                  }
-                  
-                  [[NSFileManager defaultManager] removeItemAtPath:targetPath error:&error];
-                  [[NSFileManager defaultManager] moveItemAtPath:unzippedFile toPath:targetPath error:&error];
-                  [targetPath fileValidMD5WithMD5String:testMD5 error:&error];
-                  if (error!=nil){
-                      DHBSDKDLog(@"error fileValidMD5WithMD5String %@", error);
-                  }
-              }
-          }
-          //full package, unzip first
-      } else {
-          [targetPath fileValidMD5WithMD5String:testMD5 error:&error];
-          if (error!=nil){
-              DHBSDKDLog(@"error fileValidMD5WithMD5String %@", error);
-          }
-          //delta package, not zipped
-      }
-    completionHandler(error);
-  } failure:^(AFHTTPRequestOperation * operation, NSError * error) {
+    NSString *targetSavePath = [self targetPathWithType:packageType];
+    NSString *targetPathUnzipped = [[NSString alloc] initWithFormat:@"%@_zip/",targetSavePath];
     
-    completionHandler(error);
-  }];
-  
-  
-  [self.downloadOperation setDownloadProgressBlock:^ void(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+    DHBSDKDLog(@"to %@ (%@)", targetSavePath,targetPathUnzipped);
     
-    float progress = totalBytesRead / (float)totalBytesExpectedToRead;
-    progressBlock(progress, totalBytesExpectedToRead);
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:targetSavePath]) {
+        [fileManager removeItemAtPath:targetSavePath error:nil];
+    }
     
-  }];
- 
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.requestURL];
+    
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        float progress = downloadProgress.completedUnitCount * 1.0 / downloadProgress.totalUnitCount;
+        progressBlock(progress, downloadProgress.totalUnitCount);
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        return [NSURL fileURLWithPath:targetSavePath];
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        DHBSDKDLog(@"file downloaded to:%@",filePath);
+        if ([(NSHTTPURLResponse *)response statusCode] != 200) {
+            NSError *errorTmp = [NSError errorWithDomain:DHBSDKDownloadErrorDomain code:DHBSDKDownloadErrorCodeResponseCodeNot200 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:error,@"description", nil]];
+            completionHandler(errorTmp);
+            return;
+        }
+        
+        NSString *testMD5 = nil;
+        if (packageType == DHBDownloadPackageTypeDelta) {
+            testMD5 = self.updateItem.deltaMD5;
+        } else if (packageType == DHBDownloadPackageTypeFull) {
+            testMD5 = self.updateItem.fullMD5;
+        }
+        
+        NSError *errorTmp = nil;
+        
+        if (packageType == DHBDownloadPackageTypeFull){
+            
+            DHBSDKYuloreZipArchive *zip = [[DHBSDKYuloreZipArchive alloc] init];
+            zip.progressBlock = ^ (int percentage, int filesProcessed, int numFiles) {
+                if (percentage == 100) {
+                    //completionBlock(nil);
+                }
+            };
+            BOOL result = NO;
+            
+            if ([zip UnzipOpenFile:targetSavePath]) {
+                result = [zip UnzipFileTo:targetPathUnzipped overWrite:YES];//解压文件
+                if (!result) {
+                    //解压失败
+                    DHBSDKDLog(@"unzip fail................");
+                } else if ([zip numFiles]>0) {
+                    //解压成功
+                    NSString * unzippedFile=[[NSString alloc] initWithFormat:@"%@%@",targetPathUnzipped,[[zip getZipFileContents] objectAtIndex:0]];
+                    DHBSDKDLog(@"unzip success.............%@",unzippedFile);
+                    [zip UnzipCloseFile];
+                    
+                    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:targetPathUnzipped error:NULL];
+                    for (int count = 0; count < (int)[directoryContent count]; count++)
+                    {
+                        DHBSDKDLog(@"File %d: %@", (count + 1), [directoryContent objectAtIndex:count]);
+                    }
+                    
+                    [[NSFileManager defaultManager] removeItemAtPath:targetSavePath error:&errorTmp];
+                    [[NSFileManager defaultManager] moveItemAtPath:unzippedFile toPath:targetSavePath error:&error];
+                    [targetSavePath fileValidMD5WithMD5String:testMD5 error:&errorTmp];
+                    if (errorTmp!=nil){
+                        DHBSDKDLog(@"error fileValidMD5WithMD5String %@", errorTmp);
+                    }
+                }
+            }
+            //full package, unzip first
+        } else {
+            [targetSavePath fileValidMD5WithMD5String:testMD5 error:&errorTmp];
+            if (errorTmp!=nil){
+                DHBSDKDLog(@"error fileValidMD5WithMD5String %@", errorTmp);
+            }
+            //delta package, not zipped
+        }
+        completionHandler(errorTmp);
+    }];
+    [downloadTask resume];
 }
 
 /**
