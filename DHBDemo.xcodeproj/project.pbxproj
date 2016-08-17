@@ -191,6 +191,7 @@
 		BFDBFB971D5DAD6D00F4E527 /* DHBSDKMarkTeleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKMarkTeleHelper.m; sourceTree = "<group>"; };
 		BFF01D341D64036500DEF35E /* DHBSDKFilePaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKFilePaths.h; sourceTree = "<group>"; };
 		BFF01D351D64036500DEF35E /* DHBSDKFilePaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKFilePaths.m; sourceTree = "<group>"; };
+		BFF01D371D640E6A00DEF35E /* DHBDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DHBDemo.entitlements; sourceTree = "<group>"; };
 		BFF1025B1D6356E400EF1DBF /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		BFF1025C1D6356E400EF1DBF /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		BFF1025D1D6356E400EF1DBF /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -326,6 +327,7 @@
 		BFA1461C1D53222D008DE524 /* DHBDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BFF01D371D640E6A00DEF35E /* DHBDemo.entitlements */,
 				BFA146341D53224E008DE524 /* DHBSource */,
 				BFA146201D53222D008DE524 /* AppDelegate.h */,
 				BFA146211D53222D008DE524 /* AppDelegate.m */,
@@ -572,6 +574,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = B66KMZ39N5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -795,6 +802,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DHBDemo/DHBDemo.entitlements;
 				DEVELOPMENT_TEAM = B66KMZ39N5;
 				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;
@@ -810,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DHBDemo/DHBDemo.entitlements;
 				DEVELOPMENT_TEAM = B66KMZ39N5;
 				ENABLE_BITCODE = NO;
 				GCC_INPUT_FILETYPE = automatic;

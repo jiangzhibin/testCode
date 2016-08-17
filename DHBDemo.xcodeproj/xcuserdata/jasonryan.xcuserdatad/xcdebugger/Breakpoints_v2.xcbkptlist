@@ -216,22 +216,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
-            timestampString = "493052454.133251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-downloadingWithType:progressBlock:completionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBUpdateItem.m"
             timestampString = "492919592.552777"
             startingColumnNumber = "9223372036854775807"
@@ -303,22 +287,6 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "-reachabilityStatusChanged:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/Public/YuloreApiManager.m"
-            timestampString = "493095929.228455"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
-            landmarkName = "+downloadDataWithUpdateItem:dataType:progressBlock:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -409,7 +377,7 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
-                  timestampString = "493096189.123404"
+                  timestampString = "493097402.943758"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -424,7 +392,7 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
-                  timestampString = "493096189.124609"
+                  timestampString = "493097402.945665"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "127"
@@ -457,7 +425,7 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/BSPatch/DHBSDKbspatchOC.m"
-                  timestampString = "493096189.127143"
+                  timestampString = "493097402.948815"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -472,7 +440,7 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/BSPatch/DHBSDKbspatchOC.m"
-                  timestampString = "493096189.128354"
+                  timestampString = "493097402.950057"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -544,6 +512,102 @@
             endingLineNumber = "168"
             landmarkName = "-saveDataToBridgeFile:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Utils/DHBSDKFilePaths.m"
+            timestampString = "493096755.294379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "+pathForBridgeOfflineFilePath"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/Utils/DHBSDKFilePaths.m"
+            timestampString = "493096739.568328"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "+pathForShareGroupContainerDirectory"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBDownloadFetcher.m"
+            timestampString = "493097034.187281"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-downloadingWithType:progressBlock:completionHandler:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
+            timestampString = "493097137.842093"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-saveDataToBridgeFile:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DHBCovertIndexContent saveDataToBridgeFile:]"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
+                  timestampString = "493097402.968976"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[DHBCovertIndexContent saveDataToBridgeFile:]_block_invoke"
+                  moduleName = "DHBDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBCovertIndexContent.m"
+                  timestampString = "493097402.970353"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -28,8 +28,7 @@
 /// 电话邦host https://apis-ios.dianhua.cn/
 @property (nonatomic, copy) NSString *host;
 
-/// iOS10以上 实现来电识别功能时，必须设置此参数，用于宿主App和Extension的数据共享；无此需求可不设置
-/// 任何iOS版本，设置此属性后，号码的数据文件 将存储到共享容器中。不设置，则存储到Document目录中
+/// iOS10以上 实现来电识别功能时，必须设置此参数，用于宿主App和Extension的数据共享；无此需求可不设置 任何iOS版本，设置此属性后，号码的数据文件 将存储到共享容器中。不设置，则存储到Document目录中。
 @property (nonatomic, copy) NSString *shareGroupIdentifier;
 
 #pragma mark - 可选

@@ -76,11 +76,11 @@
     if (![[NSFileManager defaultManager] fileExistsAtPath:path]) {
         [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:NO attributes:nil error:nil];
     }
-//    path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     return path;
 }
 
 + (NSString *)pathForShareGroupContainerDirectory {
+    NSURL *url = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:[YuloreApiManager shareManager].shareGroupIdentifier];
     if ([YuloreApiManager shareManager].shareGroupIdentifier
         && ![[YuloreApiManager shareManager].shareGroupIdentifier isKindOfClass:[NSNull class]]
         && [YuloreApiManager shareManager].shareGroupIdentifier.length > 0) {

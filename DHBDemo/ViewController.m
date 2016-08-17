@@ -56,7 +56,7 @@
 //            
 //        }];
 //        return ;
-        
+        [YuloreApiManager shareManager].shareGroupIdentifier = @"group.yulore";
         [YuloreApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
             /*
              fullDownloadPath:http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip,
