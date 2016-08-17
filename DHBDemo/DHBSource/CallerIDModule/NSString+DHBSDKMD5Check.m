@@ -7,7 +7,7 @@
 //
 
 #import "NSString+DHBSDKMD5Check.h"
-#import "NSString+DHBSDKYuloreFilePath.h"
+#import "DHBSDKFilePaths.h"
 #import "DHBSDKbspatchOC.h"
 #import "DHBErrorHelper.h"
 #import "FileHash.h"

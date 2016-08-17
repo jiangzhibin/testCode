@@ -30,7 +30,6 @@
 		BFA146281D53222D008DE524 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA146261D53222D008DE524 /* Main.storyboard */; };
 		BFA1462A1D53222D008DE524 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFA146291D53222D008DE524 /* Assets.xcassets */; };
 		BFA1462D1D53222D008DE524 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA1462B1D53222D008DE524 /* LaunchScreen.storyboard */; };
-		BFA146381D532328008DE524 /* NSString+DHBSDKYuloreFilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146371D532328008DE524 /* NSString+DHBSDKYuloreFilePath.m */; };
 		BFA146501D5323DE008DE524 /* DHBCovertIndexContent.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146491D5323DE008DE524 /* DHBCovertIndexContent.m */; };
 		BFA146511D5323DE008DE524 /* DHBDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1464B1D5323DE008DE524 /* DHBDataFetcher.m */; };
 		BFA146521D5323DE008DE524 /* DHBDownloadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1464D1D5323DE008DE524 /* DHBDownloadFetcher.m */; };
@@ -63,6 +62,7 @@
 		BFDBFB921D5D74C900F4E527 /* DHBSDKResolveFecherNew.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB911D5D74C900F4E527 /* DHBSDKResolveFecherNew.m */; };
 		BFDBFB951D5D74FC00F4E527 /* DHBSDKSignatureHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB941D5D74FC00F4E527 /* DHBSDKSignatureHelper.m */; };
 		BFDBFB981D5DAD6D00F4E527 /* DHBSDKMarkTeleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDBFB971D5DAD6D00F4E527 /* DHBSDKMarkTeleHelper.m */; };
+		BFF01D361D64036500DEF35E /* DHBSDKFilePaths.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF01D351D64036500DEF35E /* DHBSDKFilePaths.m */; };
 		BFF1027D1D6356E400EF1DBF /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1025C1D6356E400EF1DBF /* AFHTTPSessionManager.m */; };
 		BFF1027E1D6356E400EF1DBF /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF1025F1D6356E400EF1DBF /* AFNetworkReachabilityManager.m */; };
 		BFF1027F1D6356E400EF1DBF /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF102611D6356E400EF1DBF /* AFSecurityPolicy.m */; };
@@ -124,8 +124,6 @@
 		BFA146291D53222D008DE524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFA1462C1D53222D008DE524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BFA1462E1D53222D008DE524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFA146361D532328008DE524 /* NSString+DHBSDKYuloreFilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DHBSDKYuloreFilePath.h"; sourceTree = "<group>"; };
-		BFA146371D532328008DE524 /* NSString+DHBSDKYuloreFilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DHBSDKYuloreFilePath.m"; sourceTree = "<group>"; };
 		BFA146481D5323DE008DE524 /* DHBCovertIndexContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBCovertIndexContent.h; sourceTree = "<group>"; };
 		BFA146491D5323DE008DE524 /* DHBCovertIndexContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBCovertIndexContent.m; sourceTree = "<group>"; };
 		BFA1464A1D5323DE008DE524 /* DHBDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBDataFetcher.h; sourceTree = "<group>"; };
@@ -191,6 +189,8 @@
 		BFDBFB941D5D74FC00F4E527 /* DHBSDKSignatureHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKSignatureHelper.m; sourceTree = "<group>"; };
 		BFDBFB961D5DAD6D00F4E527 /* DHBSDKMarkTeleHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKMarkTeleHelper.h; sourceTree = "<group>"; };
 		BFDBFB971D5DAD6D00F4E527 /* DHBSDKMarkTeleHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKMarkTeleHelper.m; sourceTree = "<group>"; };
+		BFF01D341D64036500DEF35E /* DHBSDKFilePaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKFilePaths.h; sourceTree = "<group>"; };
+		BFF01D351D64036500DEF35E /* DHBSDKFilePaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKFilePaths.m; sourceTree = "<group>"; };
 		BFF1025B1D6356E400EF1DBF /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		BFF1025C1D6356E400EF1DBF /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		BFF1025D1D6356E400EF1DBF /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -248,6 +248,8 @@
 			children = (
 				BFA146DB1D532B8F008DE524 /* DHBErrorHelper.m */,
 				BF34061D1D62F8CB002CFEE6 /* DHBSDKNetworkManager.m */,
+				BFF01D341D64036500DEF35E /* DHBSDKFilePaths.h */,
+				BFF01D351D64036500DEF35E /* DHBSDKFilePaths.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -372,8 +374,6 @@
 				BFA147401D5330B0008DE524 /* NSDictionary+DHBSDKOffset.m */,
 				BFA1471C1D533022008DE524 /* NSString+DHBSDKCrypto.h */,
 				BFA1471D1D533022008DE524 /* NSString+DHBSDKCrypto.m */,
-				BFA146361D532328008DE524 /* NSString+DHBSDKYuloreFilePath.h */,
-				BFA146371D532328008DE524 /* NSString+DHBSDKYuloreFilePath.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -641,6 +641,7 @@
 				BFA147071D532E5D008DE524 /* DHBSDKShopItem.m in Sources */,
 				BF526C091D54762D00E11FD1 /* dhbsdkzip.c in Sources */,
 				BFA1471E1D533022008DE524 /* NSString+DHBSDKCrypto.m in Sources */,
+				BFF01D361D64036500DEF35E /* DHBSDKFilePaths.m in Sources */,
 				BFA146511D5323DE008DE524 /* DHBDataFetcher.m in Sources */,
 				BF526BA01D53811600E11FD1 /* DHBSDKStartLoadingService.m in Sources */,
 				BFDBFB921D5D74C900F4E527 /* DHBSDKResolveFecherNew.m in Sources */,
@@ -658,7 +659,6 @@
 				BFA146501D5323DE008DE524 /* DHBCovertIndexContent.m in Sources */,
 				BFA147111D532ED3008DE524 /* DHBSDKTeleNumber.m in Sources */,
 				BFDBFB8F1D5D6A0800F4E527 /* YuloreApiManager.m in Sources */,
-				BFA146381D532328008DE524 /* NSString+DHBSDKYuloreFilePath.m in Sources */,
 				BFA147441D5330ED008DE524 /* OfflineDataHelper.mm in Sources */,
 				BFF1028B1D6356E400EF1DBF /* UIWebView+AFNetworking.m in Sources */,
 				BFA146251D53222D008DE524 /* ViewController.m in Sources */,

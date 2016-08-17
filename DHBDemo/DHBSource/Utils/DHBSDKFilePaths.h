@@ -1,26 +1,24 @@
 //
-//  NSString+YuloreFilePath.h
-//  SuperYellowPageSDK
+//  DHBSDKFilePaths.h
+//  DHBDemo
 //
-//  Created by Zhang Heyin on 14/9/4.
-//  Copyright (c) 2014年 Yulore. All rights reserved.
+//  Created by 蒋兵兵 on 16/8/17.
+//  Copyright © 2016年 蒋兵兵. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (DHBSDKYuloreFilePath)
-//+ (NSString *)pathForServiceIconDirectory;
+@interface DHBSDKFilePaths : NSObject
+
 + (NSString *)pathForOfflineDataDirectory;
-
-
 + (NSString *)pathForOriginalCategoryDataFile;
 + (NSString *)pathForCategoryDataFileWithCityID:(NSString *)cityID;
 + (NSString *)pathForOfflineLOGOWithShopID:(NSString *)shopID;
-
 + (NSString *)pathForFullOfflineFilePath;
 + (NSString *)pathForDeltaOfflineFilePath;
 + (NSString *)pathForPreOfflineFilePath;
 + (NSString *)pathForBackupTempOfflineFilePath;
 + (NSString *)pathForBridgeOfflineFilePath;
+
 
 @end

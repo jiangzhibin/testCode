@@ -10,27 +10,35 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "DHBSDKUpdateItem.h"
-#import "DHBSDKResolveItemNew.h"
-#import "DHBErrorHelper.h"
 #import "DHBSDKCommonType.h"
 
+@class DHBSDKUpdateItem;
+@class DHBSDKResolveItemNew;
+
 @interface YuloreApiManager : NSObject
+
+#pragma mark - 必须
 @property (nonatomic, copy) NSString *apiKey;
 
 @property (nonatomic, copy) NSString *signature;
 
-/// 用户所在城市id,用户修改城市后，需通过[YuloreApiManager shareManager].cityId 重新设置
+/// 用户所在城市id,默认为@"0" 代表全部城市，用户修改城市后，需重新赋值
 @property (nonatomic, copy) NSString *cityId;
 
 /// 电话邦host https://apis-ios.dianhua.cn/
 @property (nonatomic, copy) NSString *host;
 
-/// 用户定位信息（可选）
+/// iOS10以上 实现来电识别功能时，必须设置此参数，用于宿主App和Extension的数据共享；无此需求可不设置
+/// 任何iOS版本，设置此属性后，号码的数据文件 将存储到共享容器中。不设置，则存储到Document目录中
+@property (nonatomic, copy) NSString *shareGroupIdentifier;
+
+#pragma mark - 可选
+/// 用户定位信息
 @property (nonatomic, assign) CLLocationCoordinate2D  coordinate;
 
 /// 允许执行下载操作的网络类型(默认DHBSDKDownloadNetworkTypeWifiOnly)
 @property (nonatomic, assign) DHBSDKDownloadNetworkType downloadNetworkType;
+
 
 /**
  * 合并后的数据文件路径 （当前分1000个子文件)

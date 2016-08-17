@@ -137,10 +137,10 @@
 
 -(void) saveDataToBridgeFile:(void (^)(float progress))progressBlock {
     NSMutableDictionary * list=[_resolveDataFile resolveOffsetDictionary];
-    NSString *filePath = [NSString pathForBridgeOfflineFilePath];
+    NSString *filePath = [DHBSDKFilePaths pathForBridgeOfflineFilePath];
     
     [self loadHotCategoryNumbersComplete:^(NSDictionary *hotList) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSArray * hotListKeys=[hotList allKeys];
         for (NSString * key in hotListKeys){
             [list setObject:[hotList objectForKey:key] forKey:key];
@@ -184,7 +184,7 @@
             [subList writeToFile:filePathI atomically:YES];
             [subList removeAllObjects];
         }
-    });
+//    });
        
 
     }];

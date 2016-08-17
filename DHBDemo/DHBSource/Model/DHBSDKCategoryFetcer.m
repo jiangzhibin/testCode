@@ -89,7 +89,7 @@
 - (void)categoryLoadFromSandboxCompletionHandler:(DHBSDKCategoryAllCompletionHandler)loadFromSandboxCompletionHandler withCityID:(NSString *)cityID {
   
   
-  NSString *categoryPath = [NSString pathForCategoryDataFileWithCityID:cityID];
+  NSString *categoryPath = [DHBSDKFilePaths pathForCategoryDataFileWithCityID:cityID];
   NSData  *categoryData  = [NSData dataWithContentsOfFile:categoryPath];
   
   if (categoryData != nil) {
@@ -144,11 +144,11 @@
                                                      NSMutableArray *allPromotions,
                                                      NSError *error)
      {
-       dispatch_async(dispatch_get_main_queue(), ^{
+//       dispatch_async(dispatch_get_main_queue(), ^{
          
          completionHandler(allCategories, allHotCategories, allServices, allLocalServices,allNearbys,allPromotions, error);
          
-       });
+//       });
      } withCityID:cityID];
     
 //  });
@@ -208,7 +208,7 @@ updateFromServerCompletionHandler:(DHBSDKCategoryCompletionHandler)updateFromSer
   BOOL fileExists = [fileManager fileExistsAtPath:folderPath];
   
   if (!fileExists) {//如果不存在时创建,因为下载时,不会自动创建文件夹
-    folderPath = [NSString pathForOriginalCategoryDataFile];
+    folderPath = [DHBSDKFilePaths pathForOriginalCategoryDataFile];
   }
   
   return folderPath;
@@ -328,7 +328,7 @@ updateFromServerCompletionHandler:(DHBSDKCategoryCompletionHandler)updateFromSer
 
 - (NSMutableArray *)categoryDataValue {
   if (!_categoryDataValue) {
-    NSString *categoryPath = [NSString pathForCategoryDataFileWithCityID:@"2"];
+    NSString *categoryPath = [DHBSDKFilePaths pathForCategoryDataFileWithCityID:@"2"];
     NSData  *categoryData  = [NSData dataWithContentsOfFile:categoryPath];
     
     if (categoryData != nil) {
@@ -346,7 +346,7 @@ updateFromServerCompletionHandler:(DHBSDKCategoryCompletionHandler)updateFromSer
 
 - (NSMutableArray *)nearbyDataValue {
   if (!_nearbyDataValue) {
-    NSString *nearbyPath = [NSString pathForCategoryDataFileWithCityID:@"2"];
+    NSString *nearbyPath = [DHBSDKFilePaths pathForCategoryDataFileWithCityID:@"2"];
     NSData  *nearbyData  = [NSData dataWithContentsOfFile:nearbyPath];
     
     if (nearbyData != nil) {

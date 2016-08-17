@@ -7,7 +7,7 @@
 //
 
 #import "YuloreApiManager.h"
-#import "NSString+DHBSDKYuloreFilePath.h"
+#import "DHBSDKFilePaths.h"
 #import "DHBSDKStartLoadingService.h"
 #import "Commondef.h"
 #import "DHBSDKMarkTeleHelper.h"
@@ -17,20 +17,21 @@
 #import "DHBCovertIndexContent.h"
 #import "AFNetworking.h"
 #import "DHBSDKNetworkManager.h"
+#import "DHBSDKUpdateItem.h"
+#import "DHBSDKResolveItemNew.h"
+#import "DHBErrorHelper.h"
 
 /// ApiKey & Signature
 static NSString * const kApiKeyString               = @"DHBSDKApiKeyString";
 static NSString * const kSignatureString            = @"DHBSDKSignatureString";
-
 /// 经纬度
 static NSString * const kCoordinatelatitude         = @"kDHBSDKCoordinatelatitude";
 static NSString * const kCoordinatelongitude        = @"kDHBSDKCoordinatelongitude";
-
 /// CityId
 static NSString * const kCityId                     = @"kDHBSDKCityId";
-
 /// 下载网络类型
 static NSString * const kDownloadNetworkType        = @"kDHBSDKDownloadNetworkType";
+static NSString * const kShareGroupIdentifier       = @"kShareGroupIdentifier";
 
 /*
 a)	数据下载完成，显示进度75%，进入校验流程
@@ -79,6 +80,9 @@ static float const kProgressPercentDownload             = 0.75f;
     
     // 网络类型 (未设置过，则为0，代表DHBSDKDownloadNetworkTypeWifiOnly 仅wifi)
     _downloadNetworkType = [userDefaults integerForKey:kDownloadNetworkType];
+    
+    // 数据共享标识
+    _shareGroupIdentifier = [[userDefaults objectForKey:kShareGroupIdentifier] copy];
 }
 
 #pragma mark - properties getter && setter
@@ -146,6 +150,16 @@ static float const kProgressPercentDownload             = 0.75f;
     }
 }
 
+- (void)setShareGroupIdentifier:(NSString *)shareGroupIdentifier {
+    if (_shareGroupIdentifier != shareGroupIdentifier) {
+        _shareGroupIdentifier = [shareGroupIdentifier copy];
+        [[NSUserDefaults standardUserDefaults] setObject:shareGroupIdentifier forKey:kShareGroupIdentifier];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+
+
 #pragma mark - 摘取自YuloreAPI.m
 + (BOOL) registerInfoApikey:(NSString *)apikey
                   signature:(NSString *)signature
@@ -193,7 +207,7 @@ static float const kProgressPercentDownload             = 0.75f;
 + (BOOL)existedFolder
 {
     BOOL isDir = NO;
-    NSString *createFolder = [NSString pathForOfflineDataDirectory];
+    NSString *createFolder = [DHBSDKFilePaths pathForOfflineDataDirectory];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL existed = [fileManager fileExistsAtPath:createFolder isDirectory:&isDir];
@@ -361,7 +375,7 @@ static float const kProgressPercentDownload             = 0.75f;
 }
 
 - (NSString *)pathForBridgeOfflineFilePath {
-    return [NSString pathForBridgeOfflineFilePath];
+    return [DHBSDKFilePaths pathForBridgeOfflineFilePath];
 }
 
 @end

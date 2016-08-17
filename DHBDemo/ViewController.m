@@ -58,10 +58,19 @@
 //        return ;
         
         [YuloreApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
-//            updateItem.deltaDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61_1";
-//            updateItem.deltaMD5 = @"4e8e1b38e4c116b76e21b1b8020857bf";
-//            updateItem.deltaSize = 613319;
-//            updateItem.deltaVersion = 62;
+            /*
+             fullDownloadPath:http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip,
+             fullMD5:a19a05255a33b5384641e9dd740524be,
+             fullSize:2698755,
+             fullVersion:61,
+             DHBDownloadPackageTypeDelta,
+             DHBDownloadPackageTypeFull
+             */
+//            updateItem.fullMD5 = @"a19a05255a33b5384641e9dd740524be";
+//            updateItem.fullDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip";
+//            updateItem.fullSize = 2698755;
+//            updateItem.fullVersion = 61;
+            
             [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
                 NSLog(@"进度:%f",progress);
             } completionHandler:^(NSError *error) {
@@ -72,7 +81,7 @@
 }
 
 - (IBAction)btnReadDataToMemory:(id)sender {
-    NSString *filePath = [NSString pathForBridgeOfflineFilePath];
+    NSString *filePath = [DHBSDKFilePaths pathForBridgeOfflineFilePath];
     NSUInteger count = 0;
     for (int i=0;i<1000;i++) {
         @autoreleasepool {

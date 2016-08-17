@@ -27,7 +27,7 @@ static NSString *const dhbsdkpinyin = @"pinyin";
 @implementation OfflineDataHelper
 
 + (NSString *)cacheDir {
-  return [NSString pathForOfflineDataDirectory];
+  return [DHBSDKFilePaths pathForOfflineDataDirectory];
 }
 
 + (NSString *)databasePath {

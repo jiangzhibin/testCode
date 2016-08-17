@@ -73,7 +73,7 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
  *  @param completionBlock <#completionBlock description#>
  */
 + (void) copyInitDataCompletionBlock:(void (^)(NSError *error) )completionBlock {
-  NSString *offlineDirectory = [NSString pathForOfflineDataDirectory];
+  NSString *offlineDirectory = [DHBSDKFilePaths pathForOfflineDataDirectory];
   
   NSString *filename = nil;
   NSString *apiKey = [YuloreApiManager shareManager].apiKey;
@@ -240,7 +240,7 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
                              
                              NSArray *urlArray = [aItem.iconURLString componentsSeparatedByString:@"/"];
                              NSString *fileName = [urlArray lastObject];
-                             NSString *cacheFileNamePath = [[NSString pathForOfflineDataDirectory] stringByAppendingFormat:@"%@", fileName ];
+                             NSString *cacheFileNamePath = [[DHBSDKFilePaths pathForOfflineDataDirectory] stringByAppendingFormat:@"%@", fileName ];
                              [data writeToFile:cacheFileNamePath atomically:YES];
 //                             DLog(@"%@ nearbyArray writeToFile", fileName);
                              //                             countsForUpdate--;
@@ -301,9 +301,9 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
                                
                                NSArray *urlArray = [urlString componentsSeparatedByString:@"/"];
                                NSString *fileName = [urlArray lastObject];
-                               NSString *cacheFileNamePath = [[NSString pathForOfflineDataDirectory] stringByAppendingFormat:@"%@_%@",prefix, fileName ];
+                               NSString *cacheFileNamePath = [[DHBSDKFilePaths pathForOfflineDataDirectory] stringByAppendingFormat:@"%@_%@",prefix, fileName ];
                                
-                                [self createFolder:[NSString pathForOfflineDataDirectory]];
+                                [self createFolder:[DHBSDKFilePaths pathForOfflineDataDirectory]];
                                
                                
 

@@ -10,7 +10,7 @@
 #import "FileHash.h"
 #import "NSString+DHBSDKMD5Check.h"
 #import "DHBSDKbspatchOC.h"
-#import "NSString+DHBSDKYuloreFilePath.h"
+#import "DHBSDKFilePaths.h"
 #import "DHBEnvironmentValidate.h"
 #import "CommonTmp.h"
 #import "DHBSDKNetworkManager.h"
@@ -63,11 +63,11 @@
   NSString *targetPath = nil;
   switch (type) {
     case DHBDownloadPackageTypeDelta:
-      targetPath = [NSString pathForDeltaOfflineFilePath];
+      targetPath = [DHBSDKFilePaths pathForDeltaOfflineFilePath];
       break;
       
     case DHBDownloadPackageTypeFull:
-      targetPath = [NSString pathForFullOfflineFilePath];
+      targetPath = [DHBSDKFilePaths pathForFullOfflineFilePath];
       break;
       
   }
@@ -231,11 +231,11 @@
  */
 - (void)bspatchActionCompletionHandler:(void (^)(NSError *error))completionHandler  {
   
-  NSString *oldFile = [NSString pathForFullOfflineFilePath];
+  NSString *oldFile = [DHBSDKFilePaths pathForFullOfflineFilePath];
   
-  NSString *deltaFile = [NSString pathForDeltaOfflineFilePath];
+  NSString *deltaFile = [DHBSDKFilePaths pathForDeltaOfflineFilePath];
   
-  NSString *newFile = [NSString pathForPreOfflineFilePath];
+  NSString *newFile = [DHBSDKFilePaths pathForPreOfflineFilePath];
   
   
   [DHBbspatchOC DHBbspatchWithOldFile:oldFile newFile:newFile patchFile:deltaFile

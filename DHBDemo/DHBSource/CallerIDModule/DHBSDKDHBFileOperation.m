@@ -7,12 +7,12 @@
 //
 
 #import "DHBSDKDHBFileOperation.h"
-#import "NSString+DHBSDKYuloreFilePath.h"
+#import "DHBSDKFilePaths.h"
 @implementation DHBSDKDHBFileOperation
 
 + (NSError *)rollbackOperation {
-  NSString *backupTempFile = [NSString pathForBackupTempOfflineFilePath];
-  NSString *oldFile = [NSString pathForFullOfflineFilePath];
+  NSString *backupTempFile = [DHBSDKFilePaths pathForBackupTempOfflineFilePath];
+  NSString *oldFile = [DHBSDKFilePaths pathForFullOfflineFilePath];
 
   NSFileManager  *manager = [NSFileManager defaultManager];
 
@@ -28,13 +28,13 @@
 
 
 + (NSError *)errorWithFileUpdateOperation {
-  NSString *oldFile = [NSString pathForFullOfflineFilePath];
+  NSString *oldFile = [DHBSDKFilePaths pathForFullOfflineFilePath];
   
-  NSString *deltaFile = [NSString pathForDeltaOfflineFilePath];
+  NSString *deltaFile = [DHBSDKFilePaths pathForDeltaOfflineFilePath];
   
-  NSString *newFile = [NSString pathForPreOfflineFilePath];
+  NSString *newFile = [DHBSDKFilePaths pathForPreOfflineFilePath];
   
-  NSString *backupTempFile = [NSString pathForBackupTempOfflineFilePath];
+  NSString *backupTempFile = [DHBSDKFilePaths pathForBackupTempOfflineFilePath];
 
   NSFileManager  *manager = [NSFileManager defaultManager];
 

@@ -16,7 +16,7 @@
 #import "AFNetworkReachabilityManager.h"
 #import "DHBSDKOpenUDID.h"
 #import "YuloreApiManager.h"
-#import "NSString+DHBSDKYuloreFilePath.h"
+#import "DHBSDKFilePaths.h"
 #import "NSString+DHBSDKCrypto.h"
 #import "DHBSDKYuloreZipArchive.h"
 #endif

@@ -8,7 +8,7 @@
 
 #import "DHBSDKResolveDataFile.h"
 #import "DHBSDKYP_ASIDataDecompressor.h"
-#import "NSString+DHBSDKYuloreFilePath.h"
+#import "DHBSDKFilePaths.h"
 //#include <string>
 //#define PATH "/Users/zhangheyin/Desktop/OfflineResolveDemo/CPF"
 #define HEADER_LENGTH 12
@@ -252,7 +252,7 @@
 - (instancetype)init {
   self = [super init];
   if (self) {
-    NSString *filePath = [NSString pathForFullOfflineFilePath];
+    NSString *filePath = [DHBSDKFilePaths pathForFullOfflineFilePath];
       NSLog(@"init resolve: %@",filePath);
     fp = fopen(filePath.UTF8String,"r");
     
