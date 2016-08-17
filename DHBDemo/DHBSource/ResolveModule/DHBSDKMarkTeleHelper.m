@@ -8,7 +8,7 @@
 
 #import "DHBSDKMarkTeleHelper.h"
 #import "DHBSDKOpenUDID.h"
-#import "YuloreApiManager.h"
+#import "DHBSDKApiManager.h"
 #import "DHBSDKSignatureHelper.h"
 #import <ifaddrs.h>
 #import <arpa/inet.h>
@@ -66,7 +66,7 @@
                                                                  objectForKey:(NSString*)kCFBundleIdentifierKey]];
     NSString *sig = [DHBSDKSignatureHelper flagSignature:aNumber withFlag:flagInfomation withAppname:appName];
     
-    NSDictionary *params = @{@"uid":uid,@"tel":aNumber,@"apikey":[YuloreApiManager shareManager].apiKey,@"sig":sig,@"uip":ip,@"flag":flagInfomation,@"app":appName};
+    NSDictionary *params = @{@"uid":uid,@"tel":aNumber,@"apikey":[DHBSDKApiManager shareManager].apiKey,@"sig":sig,@"uip":ip,@"flag":flagInfomation,@"app":appName};
     
     [[DHBSDKYuloreAPIClient sharedClient] GET:@"flag/" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]

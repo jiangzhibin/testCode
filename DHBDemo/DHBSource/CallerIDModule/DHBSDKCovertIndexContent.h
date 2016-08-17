@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DHBSDKResolveDataFile.h"
 
-@interface DHBCovertIndexContent : NSObject
+@interface DHBSDKCovertIndexContent : NSObject
 @property (nonatomic, strong) NSDictionary *indexContent;
 @property (nonatomic, strong) NSData *mappedData;
 @property (nonatomic, copy) NSString *dataFileInfo;

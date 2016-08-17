@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DHBEnvironmentValidate : NSObject
+@interface DHBSDKEnvironmentValidate : NSObject
 
 + (BOOL)environmentValidate:(NSError **)error;
 

@@ -20,7 +20,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FileHash : NSObject
+@interface DHBSDKFileHash : NSObject
 
 + (NSString *)md5HashOfFileAtPath:(NSString *)filePath;
 + (NSString *)sha1HashOfFileAtPath:(NSString *)filePath;

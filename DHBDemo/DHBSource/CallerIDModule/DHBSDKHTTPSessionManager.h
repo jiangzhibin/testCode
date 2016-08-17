@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPSessionManager.h"
+#import "DHBSDKAFHTTPSessionManager.h"
 
-@interface DHBHTTPSessionManager : AFHTTPSessionManager
-+ (DHBHTTPSessionManager *)sharedManager;
+@interface DHBSDKHTTPSessionManager : DHBSDKAFHTTPSessionManager
++ (DHBSDKHTTPSessionManager *)sharedManager;
 - (NSURLSessionDataTask *)dataWithParameters:(NSDictionary *)parameters URLString:(NSString *)URLString completionHandler:(void (^)(id , NSError *))completionHandler;
 
 @end

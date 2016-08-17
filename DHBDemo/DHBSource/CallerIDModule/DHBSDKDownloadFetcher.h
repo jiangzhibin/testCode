@@ -10,7 +10,7 @@
 #import "DHBSDKUpdateItem.h"
 #import "DHBSDKCommonType.h"
 
-@interface DHBDownloadFetcher : NSObject
+@interface DHBSDKDownloadFetcher : NSObject
 + (instancetype)sharedInstance;
 
 /**

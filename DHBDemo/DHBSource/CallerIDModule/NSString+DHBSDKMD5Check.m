@@ -10,14 +10,14 @@
 #import "DHBSDKFilePaths.h"
 #import "DHBSDKbspatchOC.h"
 #import "DHBErrorHelper.h"
-#import "FileHash.h"
+#import "DHBSDKFileHash.h"
 #import "DHBSDKCommonType.h"
 
 @implementation NSString (DHBSDKMD5Check)
 
 - (BOOL)fileValidMD5WithMD5String:(NSString *)MD5String error:(NSError **)error {
   BOOL result = NO;
-  NSString *deltaFileMD5 = [FileHash md5HashOfFileAtPath:self];
+  NSString *deltaFileMD5 = [DHBSDKFileHash md5HashOfFileAtPath:self];
   
   if (deltaFileMD5 == nil) {
       NSString *info = [NSString stringWithFormat:@"File path %@ MD5 maybe not exist.", self];

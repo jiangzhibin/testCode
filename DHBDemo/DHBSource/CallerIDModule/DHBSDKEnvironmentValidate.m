@@ -6,17 +6,17 @@
 //  Copyright (c) 2015年 Yulore Inc. All rights reserved.
 //
 
-#import "DHBEnvironmentValidate.h"
+#import "DHBSDKEnvironmentValidate.h"
 #import "DHBErrorHelper.h"
-#import "AFNetworkReachabilityManager.h"
-#import "AFNetworking.h"
-@implementation DHBEnvironmentValidate
+#import "DHBSDKAFNetworkReachabilityManager.h"
+#import "DHBSDKAFNetworking.h"
+@implementation DHBSDKEnvironmentValidate
 
 + (NSError *)errorWithCurrentReachable {
   
   NSError *error = nil;
   
-  if ( [[AFNetworkReachabilityManager sharedManager] isReachable]) {
+  if ( [[DHBSDKAFNetworkReachabilityManager sharedManager] isReachable]) {
     
     //if (![[AFNetworkReachabilityManager sharedManager] isReachableViaWiFi]) {
       

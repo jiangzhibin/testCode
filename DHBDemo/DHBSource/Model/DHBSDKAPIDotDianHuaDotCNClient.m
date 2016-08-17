@@ -30,7 +30,7 @@
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
 
-    NSURL *baseURL = [NSURL URLWithString:[YuloreApiManager shareManager].host];
+    NSURL *baseURL = [NSURL URLWithString:[DHBSDKApiManager shareManager].host];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     

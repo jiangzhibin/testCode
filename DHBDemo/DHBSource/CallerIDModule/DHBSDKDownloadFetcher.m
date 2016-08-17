@@ -6,12 +6,12 @@
 //  Copyright © 2015年 Yulore. All rights reserved.
 //
 
-#import "DHBDownloadFetcher.h"
-#import "FileHash.h"
+#import "DHBSDKDownloadFetcher.h"
+#import "DHBSDKFileHash.h"
 #import "NSString+DHBSDKMD5Check.h"
 #import "DHBSDKbspatchOC.h"
 #import "DHBSDKFilePaths.h"
-#import "DHBEnvironmentValidate.h"
+#import "DHBSDKEnvironmentValidate.h"
 #import "CommonTmp.h"
 #import "DHBSDKNetworkManager.h"
 #import "Commondef.h"
@@ -19,7 +19,7 @@
 #import "DHBSDKDHBFileOperation.h"
 #import "DHBSDKURLSessionManager.h"
 
-@interface DHBDownloadFetcher()
+@interface DHBSDKDownloadFetcher()
 
 
 @property (nonatomic, strong) NSURL *requestURL;
@@ -27,11 +27,11 @@
 @property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 
 @end
-@implementation DHBDownloadFetcher
+@implementation DHBSDKDownloadFetcher
 
 + (instancetype)sharedInstance {
   
-  static DHBDownloadFetcher *_sharedDownloadFetcher = nil;
+  static DHBSDKDownloadFetcher *_sharedDownloadFetcher = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
       _sharedDownloadFetcher = [[self alloc] init];
@@ -43,12 +43,12 @@
 }
 
 - (void)reachabilityStatusChanged:(NSNotification *)notif {
-    AFNetworkReachabilityStatus status = [notif.object integerValue];
-    if (status == AFNetworkReachabilityStatusNotReachable) {
+    DHBSDKAFNetworkReachabilityStatus status = [notif.object integerValue];
+    if (status == DHBSDKAFNetworkReachabilityStatusNotReachable) {
         [self.downloadTask cancel];
     }
-    else if (status == AFNetworkReachabilityStatusReachableViaWWAN) {
-        if ([YuloreApiManager shareManager].downloadNetworkType == DHBSDKDownloadNetworkTypeWifiOnly) {
+    else if (status == DHBSDKAFNetworkReachabilityStatusReachableViaWWAN) {
+        if ([DHBSDKApiManager shareManager].downloadNetworkType == DHBSDKDownloadNetworkTypeWifiOnly) {
             [self.downloadTask cancel];
         }
     }

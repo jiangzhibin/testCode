@@ -7,8 +7,8 @@
 //
 
 #import "DHBSDKNetworkManager.h"
-#import "AFNetworking.h"
-#import "AFNetworkReachabilityManager.h"
+#import "DHBSDKAFNetworking.h"
+#import "DHBSDKAFNetworkReachabilityManager.h"
 
 NSString *const kDHBSDKNotifReachabilityStatusChanged = @"kDHBSDKNotifReachabilityStatusChanged";
 
@@ -17,19 +17,19 @@ NSString *const kDHBSDKNotifReachabilityStatusChanged = @"kDHBSDKNotifReachabili
 + (DHBSDKNetworkType)networkType {
     //huozhu0603
     DHBSDKNetworkType netWorkState;
-    AFNetworkReachabilityManager *reachability = [AFNetworkReachabilityManager sharedManager];
+    DHBSDKAFNetworkReachabilityManager *reachability = [DHBSDKAFNetworkReachabilityManager sharedManager];
     switch (reachability.networkReachabilityStatus) {
-        case AFNetworkReachabilityStatusNotReachable:
+        case DHBSDKAFNetworkReachabilityStatusNotReachable:
             //无网络连接
             NSLog(@"Network NotReachable!");
             netWorkState = DHBSDKNetworkTypeNotReachable;
             break;
-        case AFNetworkReachabilityStatusReachableViaWWAN:
+        case DHBSDKAFNetworkReachabilityStatusReachableViaWWAN:
             //使用3g网络
             NSLog(@"Network wwan!");
             netWorkState = DHBSDKNetworkTypeViaWWAN;
             break;
-        case AFNetworkReachabilityStatusReachableViaWiFi:
+        case DHBSDKAFNetworkReachabilityStatusReachableViaWiFi:
             //使用wifi
             NSLog(@"Network wifi!");
             netWorkState = DHBSDKNetworkTypeViaWiFi;

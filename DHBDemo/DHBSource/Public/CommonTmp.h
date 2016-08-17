@@ -12,10 +12,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "AFNetworking.h"
-#import "AFNetworkReachabilityManager.h"
+#import "DHBSDKAFNetworking.h"
+#import "DHBSDKAFNetworkReachabilityManager.h"
 #import "DHBSDKOpenUDID.h"
-#import "YuloreApiManager.h"
+#import "DHBSDKApiManager.h"
 #import "DHBSDKFilePaths.h"
 #import "NSString+DHBSDKCrypto.h"
 #import "DHBSDKYuloreZipArchive.h"

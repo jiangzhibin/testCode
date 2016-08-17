@@ -24,18 +24,18 @@
 #import <Availability.h>
 #import <TargetConditionals.h>
 
-#ifndef _AFNETWORKING_
-    #define _AFNETWORKING_
+#ifndef _DHBSDKAFNETWORKING_
+    #define _DHBSDKAFNETWORKING_
 
-    #import "AFURLRequestSerialization.h"
-    #import "AFURLResponseSerialization.h"
-    #import "AFSecurityPolicy.h"
+    #import "DHBSDKAFURLRequestSerialization.h"
+    #import "DHBSDKAFURLResponseSerialization.h"
+    #import "DHBSDKAFSecurityPolicy.h"
 
 #if !TARGET_OS_WATCH
-    #import "AFNetworkReachabilityManager.h"
+    #import "DHBSDKAFNetworkReachabilityManager.h"
 #endif
 
-    #import "AFURLSessionManager.h"
-    #import "AFHTTPSessionManager.h"
+    #import "DHBSDKAFURLSessionManager.h"
+    #import "DHBSDKAFHTTPSessionManager.h"
 
 #endif /* _AFNETWORKING_ */

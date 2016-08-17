@@ -6,16 +6,16 @@
 //  Copyright (c) 2015年 Yulore Inc. All rights reserved.
 //
 
-#import "DHBHTTPSessionManager.h"
-#import "YuloreApiManager.h"
+#import "DHBSDKHTTPSessionManager.h"
+#import "DHBSDKApiManager.h"
 
-@implementation DHBHTTPSessionManager
+@implementation DHBSDKHTTPSessionManager
 
-+ (DHBHTTPSessionManager *)sharedManager {
-  static DHBHTTPSessionManager *_sharedClient = nil;
++ (DHBSDKHTTPSessionManager *)sharedManager {
+  static DHBSDKHTTPSessionManager *_sharedClient = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    NSURL *baseURL = [NSURL URLWithString:[YuloreApiManager shareManager].host];
+    NSURL *baseURL = [NSURL URLWithString:[DHBSDKApiManager shareManager].host];
     
 //    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
 //    //  [config setHTTPAdditionalHeaders:@{ @"User-Agent" : @"TuneStore iOS 1.0"}];
@@ -26,7 +26,7 @@
 //    
 //    [config setURLCache:cache];
     
-    _sharedClient = [[DHBHTTPSessionManager alloc] initWithBaseURL:baseURL
+    _sharedClient = [[DHBSDKHTTPSessionManager alloc] initWithBaseURL:baseURL
                                               sessionConfiguration:nil];
     _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
   });

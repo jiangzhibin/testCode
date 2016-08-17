@@ -15,7 +15,7 @@
 @class DHBSDKUpdateItem;
 @class DHBSDKResolveItemNew;
 
-@interface YuloreApiManager : NSObject
+@interface DHBSDKApiManager : NSObject
 
 #pragma mark - 必须
 @property (nonatomic, copy) NSString *apiKey;

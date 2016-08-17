@@ -7,7 +7,7 @@
 //
 
 #import "DHBSDKFilePaths.h"
-#import "YuloreApiManager.h"
+#import "DHBSDKApiManager.h"
 
 @implementation DHBSDKFilePaths
 
@@ -80,11 +80,11 @@
 }
 
 + (NSString *)pathForShareGroupContainerDirectory {
-    NSURL *url = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:[YuloreApiManager shareManager].shareGroupIdentifier];
-    if ([YuloreApiManager shareManager].shareGroupIdentifier
-        && ![[YuloreApiManager shareManager].shareGroupIdentifier isKindOfClass:[NSNull class]]
-        && [YuloreApiManager shareManager].shareGroupIdentifier.length > 0) {
-        return [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:[YuloreApiManager shareManager].shareGroupIdentifier].path;
+    NSString *identifier = [DHBSDKApiManager shareManager].shareGroupIdentifier;
+    if (identifier
+        && ![identifier isKindOfClass:[NSNull class]]
+        && identifier.length > 0) {
+        return [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:identifier].path;
     }
     return [self pathForMajorDirectory];
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 蒋兵兵. All rights reserved.
 //
 
-#import "AFURLSessionManager.h"
+#import "DHBSDKAFURLSessionManager.h"
 
 @interface DHBSDKURLSessionManager : AFURLSessionManager
 

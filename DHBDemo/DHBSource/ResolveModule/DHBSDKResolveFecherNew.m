@@ -12,7 +12,7 @@
 #import <arpa/inet.h>
 #import "DHBSDKSignatureHelper.h"
 #import "DHBSDKYuloreAPIClient.h"
-#import "YuloreApiManager.h"
+#import "DHBSDKApiManager.h"
 @interface DHBSDKResolveFecherNew ()
 @property (nonatomic, strong) NSMutableDictionary *parameters;
 
@@ -67,7 +67,7 @@
     _parameters[@"uid"] = [DHBSDKOpenUDID value];//@"99000567710378";
     _parameters[@"uip"] = [self getIPAddress];
     _parameters[@"tel"] = @"";
-    _parameters[@"apikey"] = [YuloreApiManager shareManager].apiKey;//@"mgBkfHsubhpahKfZpxcPi7HMWr0nsahd";
+    _parameters[@"apikey"] = [DHBSDKApiManager shareManager].apiKey;//@"mgBkfHsubhpahKfZpxcPi7HMWr0nsahd";
     _parameters[@"sig"] = @"";
 
   }

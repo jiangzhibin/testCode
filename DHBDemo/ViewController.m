@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "DHBDownloadFetcher.h"
+#import "DHBSDKDownloadFetcher.h"
 #import "CommonTmp.h"
-#import "DHBDataFetcher.h"
-#import "DHBCovertIndexContent.h"
-#import "YuloreApiManager.h"
+#import "DHBSDKDataFetcher.h"
+#import "DHBSDKCovertIndexContent.h"
+#import "DHBSDKApiManager.h"
 @interface ViewController ()
 
 @end
@@ -35,7 +35,7 @@
 
 - (IBAction)downloadAction:(id)sender {
 
-    [YuloreApiManager registerApp:APIKEY_Download signature:APISIG2 host:kDHBHost cityId:@"2" completionBlock:^(NSError *error) {
+    [DHBSDKApiManager registerApp:APIKEY_Download signature:APISIG2 host:kDHBHost cityId:@"2" completionBlock:^(NSError *error) {
         // 在线标记 APIKEY2
 //        [YuloreApiManager markTeleNumberOnlineWithNumber:@"12315" flagInfomation:@"荷塘蛋花粥" completionHandler:^(BOOL successed, NSError *error) {
 //            NSLog(@"标记号码:%zd  error:%@",successed,error);
@@ -56,8 +56,8 @@
 //            
 //        }];
 //        return ;
-        [YuloreApiManager shareManager].shareGroupIdentifier = @"group.yulore";
-        [YuloreApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
+        [DHBSDKApiManager shareManager].shareGroupIdentifier = @"group.yulore";
+        [DHBSDKApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
             /*
              fullDownloadPath:http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip,
              fullMD5:a19a05255a33b5384641e9dd740524be,
@@ -71,7 +71,7 @@
 //            updateItem.fullSize = 2698755;
 //            updateItem.fullVersion = 61;
             
-            [YuloreApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
+            [DHBSDKApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
                 NSLog(@"进度:%f",progress);
             } completionHandler:^(NSError *error) {
                 NSLog(@"下载结果 error:%@",error);

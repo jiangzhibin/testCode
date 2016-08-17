@@ -6,26 +6,26 @@
 //  Copyright (c) 2015年 Yulore Inc. All rights reserved.
 //
 
-#import "DHBDataFetcher.h"
+#import "DHBSDKDataFetcher.h"
 
 #import "DHBSDKUpdateItem.h"
 #import "DHBSDKOpenUDID.h"
-#import "DHBHTTPSessionManager.h"
+#import "DHBSDKHTTPSessionManager.h"
 #import "NSDictionary+DHBSDKSignature.h"
-#import "DHBCovertIndexContent.h"
-#import "YuloreApiManager.h"
+#import "DHBSDKCovertIndexContent.h"
+#import "DHBSDKApiManager.h"
 
-@interface DHBDataFetcher()
+@interface DHBSDKDataFetcher()
 @property (nonatomic, strong) NSMutableDictionary *parameters;
 @property (nonatomic, strong) NSMutableDictionary *parametersFull;
 @end
-@implementation DHBDataFetcher
+@implementation DHBSDKDataFetcher
 
 + (instancetype)sharedInstance {
-  static DHBDataFetcher *_sharedListFetcher = nil;
+  static DHBSDKDataFetcher *_sharedListFetcher = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    _sharedListFetcher = [[DHBDataFetcher alloc] init];
+    _sharedListFetcher = [[DHBSDKDataFetcher alloc] init];
   });
   
   return _sharedListFetcher;
@@ -44,7 +44,7 @@
   self = [super init];
   if (self) {
     _parameters = [NSMutableDictionary dictionary];
-    _parameters[@"apikey"] = [YuloreApiManager shareManager].apiKey;
+    _parameters[@"apikey"] = [DHBSDKApiManager shareManager].apiKey;
     _parameters[@"ver"] = [self versionString];
     _parameters[@"uid"] = [self uid];
     _parameters[@"app"] = [self appName];
@@ -54,7 +54,7 @@
     
     
     _parametersFull = [NSMutableDictionary dictionary];
-    _parametersFull[@"apikey"] = [YuloreApiManager shareManager].apiKey;
+    _parametersFull[@"apikey"] = [DHBSDKApiManager shareManager].apiKey;
     _parametersFull[@"ver"] = [self versionString];
     _parametersFull[@"uid"] = [self uid];
     _parametersFull[@"app"] = [self appName];
@@ -94,7 +94,7 @@
  *  @return app的版本
  */
 - (NSString *)dataVersion {
-  return [[NSString alloc] initWithFormat:@"%ld",[[DHBCovertIndexContent sharedInstance] resolveDataFile].currentVersion];
+  return [[NSString alloc] initWithFormat:@"%ld",[[DHBSDKCovertIndexContent sharedInstance] resolveDataFile].currentVersion];
 //  return [DHBInitBusiness dateStringSetuped];
 }
 
@@ -148,7 +148,7 @@
   dispatch_async(q, ^{
     _parameters[@"flag_ver"] = [self dataVersion];
     _parameters[@"sig"] = [_parameters signature];
-    [[DHBHTTPSessionManager sharedManager] dataWithParameters:_parameters URLString:@"chkdata/" completionHandler:^(NSDictionary *result, NSError *error) {
+    [[DHBSDKHTTPSessionManager sharedManager] dataWithParameters:_parameters URLString:@"chkdata/" completionHandler:^(NSDictionary *result, NSError *error) {
       
       if (result) {
         dispatch_async(dispatch_get_main_queue(), ^{

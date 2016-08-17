@@ -21,9 +21,9 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "AFHTTPSessionManager.h"
+#import "DHBSDKAFHTTPSessionManager.h"
 
-@interface DHBSDKAPIDotDianHuaDotCNClient : AFHTTPSessionManager
+@interface DHBSDKAPIDotDianHuaDotCNClient : DHBSDKAFHTTPSessionManager
 + (instancetype)sharedClient;
 
 @end

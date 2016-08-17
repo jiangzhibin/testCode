@@ -76,7 +76,7 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
   NSString *offlineDirectory = [DHBSDKFilePaths pathForOfflineDataDirectory];
   
   NSString *filename = nil;
-  NSString *apiKey = [YuloreApiManager shareManager].apiKey;
+  NSString *apiKey = [DHBSDKApiManager shareManager].apiKey;
   if (apiKey.length > 0) {
     filename = [NSString stringWithFormat:@"0_%@_full.zip", [apiKey substringToIndex:4]];
   } else {

@@ -19,7 +19,7 @@
  */
 
 // Header file
-#import "FileHash.h"
+#import "DHBSDKFileHash.h"
 
 // System framework and libraries
 #include <CommonCrypto/CommonDigest.h>
@@ -54,7 +54,7 @@ typedef struct _FileHashComputationContext {
     context.hashObjectPointer = (uint8_t **)&hashObjectFor##hashAlgorithmName
 
 
-@implementation FileHash
+@implementation DHBSDKFileHash
 
 + (NSString *)hashOfFileAtPath:(NSString *)filePath withComputationContext:(FileHashComputationContext *)context {
     NSString *result = nil;

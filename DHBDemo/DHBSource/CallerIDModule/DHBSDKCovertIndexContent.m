@@ -5,20 +5,20 @@
 //  Created by Zhang Heyin on 15/8/12.
 //  Copyright (c) 2015年 Yulore Inc. All rights reserved.
 //
-#import "DHBCovertIndexContent.h"
+#import "DHBSDKCovertIndexContent.h"
 #import "DHBSDKListFetcer.h"
 #import "DHBSDKTeleNumber.h"
 #import "DHBSDKShopItem.h"
 #import "CommonTmp.h"
 #import "DHBSDKCategoryFetcer.h"
 
-@interface DHBCovertIndexContent()
+@interface DHBSDKCovertIndexContent()
 @property (nonatomic, strong) NSDate *dataVersionDate;
 
 @property (nonatomic, assign) NSInteger currentVersion;
 @end
 
-@implementation DHBCovertIndexContent
+@implementation DHBSDKCovertIndexContent
 
 //
 - (NSString *)dataFileInfo {
@@ -31,11 +31,11 @@
 }
 
 + (instancetype)sharedInstance {
-  static DHBCovertIndexContent *_sharedInstance = nil;
+  static DHBSDKCovertIndexContent *_sharedInstance = nil;
   static dispatch_once_t onceToken;
   
   dispatch_once(&onceToken, ^{
-    _sharedInstance = [[DHBCovertIndexContent alloc] init];
+    _sharedInstance = [[DHBSDKCovertIndexContent alloc] init];
   });
   
   return _sharedInstance;
@@ -55,7 +55,7 @@
 }
 
 - (void)loadHotCategoryNumbersComplete:(void(^)(NSDictionary *hotTeleNumberList))completeBlock {
-    [[DHBSDKCategoryFetcer sharedCategoryFetcer] categoriesWithCityID:[YuloreApiManager shareManager].cityId loadFromSandboxCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
+    [[DHBSDKCategoryFetcer sharedCategoryFetcer] categoriesWithCityID:[DHBSDKApiManager shareManager].cityId loadFromSandboxCompletionHandler:^(NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices, NSMutableArray *allNeabys, NSMutableArray *allPromotions, NSError *error) {
         NSMutableArray *categoryItems = [NSMutableArray new];
         [categoryItems addObjectsFromArray:allHotCategories];
         [categoryItems addObjectsFromArray:allLocalServices];

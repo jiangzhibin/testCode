@@ -6,16 +6,16 @@
 //  Copyright © 2016年 蒋兵兵. All rights reserved.
 //
 
-#import "YuloreApiManager.h"
+#import "DHBSDKApiManager.h"
 #import "DHBSDKFilePaths.h"
 #import "DHBSDKStartLoadingService.h"
 #import "Commondef.h"
 #import "DHBSDKMarkTeleHelper.h"
-#import "DHBDataFetcher.h"
-#import "DHBDownloadFetcher.h"
+#import "DHBSDKDataFetcher.h"
+#import "DHBSDKDownloadFetcher.h"
 #import "DHBSDKResolveFecherNew.h"
-#import "DHBCovertIndexContent.h"
-#import "AFNetworking.h"
+#import "DHBSDKCovertIndexContent.h"
+#import "DHBSDKAFNetworking.h"
 #import "DHBSDKNetworkManager.h"
 #import "DHBSDKUpdateItem.h"
 #import "DHBSDKResolveItemNew.h"
@@ -43,18 +43,18 @@ static float const kProgressPercentDownload             = 0.75f;
 //static float const kProgressPercentDownloadPercent      = 1.0f;
 
 
-@interface YuloreApiManager ()
+@interface DHBSDKApiManager ()
 
 @end
-@implementation YuloreApiManager
+@implementation DHBSDKApiManager
 + (instancetype)shareManager {
-  static YuloreApiManager *apiManager;
+  static DHBSDKApiManager *apiManager;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-      apiManager = [YuloreApiManager new];
+      apiManager = [DHBSDKApiManager new];
       [apiManager initializeValues];
-      [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-      [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+      [[DHBSDKAFNetworkReachabilityManager sharedManager] startMonitoring];
+      [[DHBSDKAFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(DHBSDKAFNetworkReachabilityStatus status) {
           [[NSNotificationCenter defaultCenter] postNotificationName:kDHBSDKNotifReachabilityStatusChanged object:@(status)];
       }];
   });
@@ -175,10 +175,10 @@ static float const kProgressPercentDownload             = 0.75f;
         registered = YES;
     }
     
-    [YuloreApiManager shareManager].apiKey = apikey;
-    [YuloreApiManager shareManager].signature = signature;
-    [YuloreApiManager shareManager].host = host;
-    [YuloreApiManager shareManager].cityId = cityId;
+    [DHBSDKApiManager shareManager].apiKey = apikey;
+    [DHBSDKApiManager shareManager].signature = signature;
+    [DHBSDKApiManager shareManager].host = host;
+    [DHBSDKApiManager shareManager].cityId = cityId;
     return registered;
     
 }
@@ -224,7 +224,7 @@ static float const kProgressPercentDownload             = 0.75f;
         return NO;
     }
     
-    if ([[YuloreApiManager shareManager].cityId isEqualToString:@"0"]) {
+    if ([[DHBSDKApiManager shareManager].cityId isEqualToString:@"0"]) {
         return NO;
     }
     
@@ -298,7 +298,7 @@ static float const kProgressPercentDownload             = 0.75f;
  @param completionHandler 回调
  */
 + (void)dataInfoFetcherCompletionHandler:(void(^)(DHBSDKUpdateItem *updateItem, NSError *error))completionHandler {
-    [[DHBDataFetcher sharedInstance] dataFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
+    [[DHBSDKDataFetcher sharedInstance] dataFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
         completionHandler(updateItem,error);
     }];
 }
@@ -323,7 +323,7 @@ static float const kProgressPercentDownload             = 0.75f;
     
     // 网络状态及下载设置处理
     DHBSDKNetworkType networkType = [DHBSDKNetworkManager networkType];
-    DHBSDKDownloadNetworkType downloadNetworkType = [YuloreApiManager shareManager].downloadNetworkType;
+    DHBSDKDownloadNetworkType downloadNetworkType = [DHBSDKApiManager shareManager].downloadNetworkType;
     NSError *error = nil;
     if (networkType == DHBSDKNetworkTypeNotReachable) {
         // 无网状态 提示连接网络
@@ -354,7 +354,7 @@ static float const kProgressPercentDownload             = 0.75f;
     
     
     // 下载
-    [[DHBDownloadFetcher sharedInstance] baseDownloadingWithType:packageType updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
+    [[DHBSDKDownloadFetcher sharedInstance] baseDownloadingWithType:packageType updateItem:updateItem progressBlock:^(double progress, long long totalBytes) {
         progressBlock(progress * kProgressPercentDownload);
     } completionHandler:^(BOOL retry, NSError *error) {
         if (error) {
@@ -362,10 +362,10 @@ static float const kProgressPercentDownload             = 0.75f;
             return ;
         }
         
-        [[DHBCovertIndexContent sharedInstance] needReload];
+        [[DHBSDKCovertIndexContent sharedInstance] needReload];
         dispatch_queue_t q = dispatch_queue_create("com.dhbsdk.callerid.dataloader", 0);
         dispatch_async(q, ^{
-            [[DHBCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
+            [[DHBSDKCovertIndexContent sharedInstance] readDataFromFile:^(float progress) {
                 progressBlock(kProgressPercentDownload + progress * (1 - kProgressPercentDownload)+0.005);
             } completionHandler:^(NSError *error) {
                 completionHandler(error);
