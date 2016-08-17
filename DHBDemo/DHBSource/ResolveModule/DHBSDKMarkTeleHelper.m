@@ -68,6 +68,7 @@
     
     NSDictionary *params = @{@"uid":uid,@"tel":aNumber,@"apikey":[DHBSDKApiManager shareManager].apiKey,@"sig":sig,@"uip":ip,@"flag":flagInfomation,@"app":appName};
     
+    
     [[DHBSDKYuloreAPIClient sharedClient] GET:@"flag/" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]
             && [responseObject[@"msg"] isEqualToString:@"Accepted"]) {

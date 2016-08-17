@@ -68,12 +68,15 @@
  *  @param apikey    所需apikey
  *  @param signature 所需signature
  *  @param host      电话邦host https://apis-ios.dianhua.cn/
- *
+ *  @param cityId    用户所在城市id,    默认为@"0" 代表全部城市，用户修改城市后，需重新赋值
+ *  @param shareGroupIdentifier 宿主App和Extension数据共享的标记，形如group.xxx
  *  @return 是否设置成功
  */
 + (BOOL) registerApp:(NSString *)apikey
            signature:(NSString *)signature
                 host:(NSString *)host
+              cityId:(NSString *)cityId
+shareGroupIdentifier:(NSString *)shareGroupIdentifier
      completionBlock:(void (^)(NSError *error) )completionBlock;
 
 /**

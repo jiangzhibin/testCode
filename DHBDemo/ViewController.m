@@ -12,17 +12,13 @@
 #import "DHBSDKDataFetcher.h"
 #import "DHBSDKCovertIndexContent.h"
 #import "DHBSDKApiManager.h"
+
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-}
 
 #define APIKEY_Download @"mtyFwikuZ8ARgmwhljlidzxbevhrWrjL"
 
@@ -33,29 +29,20 @@
 #define APISIG2 @"E5UaGxNMkUxTVRrd01EbGtNemN5WlRoaFpUUmpZVFV3TnprM01UVT1ZV1l6TXpjell6QXlNVFV6TUdNMU4ySmtNMlExWXpWaU1XRm1OMlptTkdRPVpUSXlNR0UzWWpKalkyUXhNbUptWTJFNVl6QTRObUprTVRjNE1UUm1"
 #define kDHBHost @"https://apis-ios.dianhua.cn/"
 
-- (IBAction)downloadAction:(id)sender {
 
-    [DHBSDKApiManager registerApp:APIKEY_Download signature:APISIG2 host:kDHBHost completionBlock:^(NSError *error) {
-        // 在线标记 APIKEY2
-//        [YuloreApiManager markTeleNumberOnlineWithNumber:@"12315" flagInfomation:@"荷塘蛋花粥" completionHandler:^(BOOL successed, NSError *error) {
-//            NSLog(@"标记号码:%zd  error:%@",successed,error);
-//        }];
-        
-        // 在线查询
-//        [YuloreApiManager searchTeleNumber:@"12315" completionHandler:^(ResolveItemNew *resolveItem, NSError *error) {
-//            NSLog(@"%@",resolveItem);
-//            NSLog(@"error:%@",error);
-//        }];
-//
-//        
-//                return ;
-        
-        
-        
-//        [[DHBDataFetcher sharedInstance] fullDataFetcherCompletionHandler:^(NSArray *fullPackageList, NSArray *deltaPackageList, NSError *error) {
-//            
-//        }];
-//        return ;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+#pragma mark - 下载
+- (IBAction)downloadAction:(id)sender {
+    [DHBSDKApiManager registerApp:APIKEY_Download
+                        signature:APISIG2
+                             host:kDHBHost
+                           cityId:@"0"
+             shareGroupIdentifier:nil
+                  completionBlock:^(NSError *error) {
         [DHBSDKApiManager shareManager].shareGroupIdentifier = @"group.yulore";
         [DHBSDKApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
             /*
@@ -66,49 +53,67 @@
              DHBDownloadPackageTypeDelta,
              DHBDownloadPackageTypeFull
              */
-//            updateItem.fullMD5 = @"a19a05255a33b5384641e9dd740524be";
-//            updateItem.fullDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip";
-//            updateItem.fullSize = 2698755;
-//            updateItem.fullVersion = 61;
+            //            updateItem.fullMD5 = @"a19a05255a33b5384641e9dd740524be";
+            //            updateItem.fullDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip";
+            //            updateItem.fullSize = 2698755;
+            //            updateItem.fullVersion = 61;
             
             [DHBSDKApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
                 NSLog(@"进度:%f",progress);
             } completionHandler:^(NSError *error) {
-                NSLog(@"下载结果 error:%@",error);
+                NSLog(@"下载完成 error:%@",error);
             }];
         }];
     }];
 }
-
-- (IBAction)btnReadDataToMemory:(id)sender {
-    NSString *filePath = [DHBSDKFilePaths pathForBridgeOfflineFilePath];
+- (IBAction)accessDataAction:(id)sender {
+    NSString *filePath = [DHBSDKApiManager shareManager].pathForBridgeOfflineFilePath;
     NSUInteger count = 0;
     for (int i=0;i<1000;i++) {
         @autoreleasepool {
             NSString * filePathI=[[NSString alloc] initWithFormat:@"%@%d",filePath,i];
             if (![[NSFileManager defaultManager] fileExistsAtPath:filePathI])
             {
-                NSLog(@"<<< %d >文件不存在:%@",i,filePathI);
+                //                NSLog(@"<<< %d >文件不存在:%@",i,filePathI);
                 break;
             }
-            //            unsigned long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:filePathI error:nil] fileSize];
             NSMutableDictionary *contentDict = [NSMutableDictionary dictionaryWithContentsOfFile:filePathI];
             count += [[contentDict allKeys] count];
-            //            phoneNumbers = [phoneNumbers sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
-            //            NSLog(@"phoneNumbers:%@",contentDict);
-            //            for (NSString * phoneNumber in phoneNumbers) {
-            //                NSString *label = [contentDict objectForKey:phoneNumber];
-            //
-            //                NSLog(@"PN: %@",phoneNumber);
-            //            }
-            //            usleep(300000);
-            //            [[NSFileManager defaultManager] removeItemAtPath:filePathI error:nil];
             filePathI=nil;
         }
     }
     NSLog(@"记录总数:%zd",count);
 }
 
+#pragma mark - 在线标记
+- (IBAction)onlineMarkAction:(id)sender {
+    [DHBSDKApiManager registerApp:APIKEY2
+                         signature:APISIG2
+                              host:kDHBHost
+                            cityId:@"0"
+              shareGroupIdentifier:nil
+                   completionBlock:^(NSError *error) {
+        [DHBSDKApiManager markTeleNumberOnlineWithNumber:@"13146022990" flagInfomation:@"推销" completionHandler:^(BOOL successed, NSError *error) {
+            NSLog(@"标记号码:%zd  error:%@",successed,error);
+        }];
+    }];
+}
+
+#pragma mark - 在线识别
+- (IBAction)onlineRecognizeAction:(id)sender {
+    [DHBSDKApiManager registerApp:APIKEY2
+                         signature:APISIG2
+                              host:kDHBHost
+                            cityId:@"0"
+              shareGroupIdentifier:nil
+                  completionBlock:^(NSError *error) {
+        [DHBSDKApiManager searchTeleNumber:@"12315" completionHandler:^(DHBSDKResolveItemNew *resolveItem, NSError *error) {
+            NSLog(@"%@",resolveItem);
+            NSLog(@"error:%@",error);
+        }];
+        
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
