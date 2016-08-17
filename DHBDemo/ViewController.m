@@ -111,7 +111,6 @@
             NSLog(@"%@",resolveItem);
             NSLog(@"error:%@",error);
         }];
-        
     }];
 }
 
