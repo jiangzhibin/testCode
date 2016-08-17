@@ -393,7 +393,7 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/BSPatch/DHBSDKbspatchOC.m"
-                  timestampString = "493113340.614386"
+                  timestampString = "493116861.581531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -408,7 +408,7 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/BSPatch/DHBSDKbspatchOC.m"
-                  timestampString = "493113340.616823"
+                  timestampString = "493116861.582887"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -553,45 +553,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DHBDemo/DHBSource/CallerIDModule/DHBSDKDataFetcher.m"
-            timestampString = "493110356.529538"
+            timestampString = "493110692.877233"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "-dataFetcherCompletionHandler:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__50-[DHBSDKDataFetcher dataFetcherCompletionHandler:]_block_invoke_2"
-                  moduleName = "DHBDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBSDKDataFetcher.m"
-                  timestampString = "493113340.633123"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "100">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__50-[DHBSDKDataFetcher dataFetcherCompletionHandler:]_block_invoke_3"
-                  moduleName = "DHBDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/DHBSDKDataFetcher.m"
-                  timestampString = "493113340.63499"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -600,13 +568,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBSDKDataFetcher.m"
-            timestampString = "493110692.877233"
+            filePath = "DHBDemo/DHBSource/CallerIDModule/DHBSDKDownloadFetcher.m"
+            timestampString = "493116732.075807"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-dataFetcherCompletionHandler:"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-downloadingWithType:progressBlock:completionHandler:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

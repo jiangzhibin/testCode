@@ -128,7 +128,11 @@
             completionHandler(errorTmp);
             return;
         }
-        
+        if (error) {
+            NSError *errorTmp = [NSError errorWithDomain:DHBSDKDownloadErrorDomain code:DHBSDKDownloadErrorCodeDownloadException userInfo:[NSDictionary dictionaryWithObjectsAndKeys:error,@"description", nil]];
+            completionHandler(errorTmp);
+            return;
+        }
         NSString *testMD5 = nil;
         if (packageType == DHBDownloadPackageTypeDelta) {
             testMD5 = self.updateItem.deltaMD5;
