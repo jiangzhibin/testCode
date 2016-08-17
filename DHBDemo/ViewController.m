@@ -37,6 +37,8 @@
 
 #pragma mark - 下载
 - (IBAction)downloadAction:(id)sender {
+//    [DHBSDKApiManager registerApp:nil signature:nil host:nil cityId:nil shareGroupIdentifier:nil completionBlock:nil];
+//    return;
     [DHBSDKApiManager shareManager].downloadNetworkType = DHBSDKDownloadNetworkTypeAllAllow;
     [DHBSDKApiManager registerApp:APIKEY_Download
                         signature:APISIG2

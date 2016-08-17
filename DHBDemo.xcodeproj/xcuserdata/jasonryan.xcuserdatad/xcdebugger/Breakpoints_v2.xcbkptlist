@@ -393,12 +393,12 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/BSPatch/DHBSDKbspatchOC.m"
-                  timestampString = "493116861.581531"
+                  timestampString = "493131593.399966"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
                   endingLineNumber = "22"
-                  offsetFromSymbolStart = "188">
+                  offsetFromSymbolStart = "207">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -408,12 +408,12 @@
                   moduleName = "DHBDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jasonryan/Desktop/CodeFactory/Developer/DHBMigrating/DHBDemo/DHBSource/CallerIDModule/BSPatch/DHBSDKbspatchOC.m"
-                  timestampString = "493116861.582887"
+                  timestampString = "493131593.403242"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "16">
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "51">
                </Location>
             </Locations>
          </BreakpointContent>
