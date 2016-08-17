@@ -35,7 +35,7 @@
 
 - (IBAction)downloadAction:(id)sender {
 
-    [DHBSDKApiManager registerApp:APIKEY_Download signature:APISIG2 host:kDHBHost cityId:@"2" completionBlock:^(NSError *error) {
+    [DHBSDKApiManager registerApp:APIKEY_Download signature:APISIG2 host:kDHBHost completionBlock:^(NSError *error) {
         // 在线标记 APIKEY2
 //        [YuloreApiManager markTeleNumberOnlineWithNumber:@"12315" flagInfomation:@"荷塘蛋花粥" completionHandler:^(BOOL successed, NSError *error) {
 //            NSLog(@"标记号码:%zd  error:%@",successed,error);

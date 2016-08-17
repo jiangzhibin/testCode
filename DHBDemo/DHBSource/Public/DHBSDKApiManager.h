@@ -68,14 +68,12 @@
  *  @param apikey    所需apikey
  *  @param signature 所需signature
  *  @param host      电话邦host https://apis-ios.dianhua.cn/
- *  @param cityId      用户所在城市id,默认传@"0",待用户设置城市后，需通过[YuloreApiManager shareManager].cityId 重新设置
  *
  *  @return 是否设置成功
  */
 + (BOOL) registerApp:(NSString *)apikey
            signature:(NSString *)signature
                 host:(NSString *)host
-              cityId:(NSString *)cityId
      completionBlock:(void (^)(NSError *error) )completionBlock;
 
 /**

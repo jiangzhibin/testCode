@@ -164,7 +164,7 @@ static float const kProgressPercentDownload             = 0.75f;
 + (BOOL) registerInfoApikey:(NSString *)apikey
                   signature:(NSString *)signature
                        host:(NSString *)host
-                     cityId:(NSString *)cityId{
+                     {
     
     BOOL registered = NO;
     
@@ -178,7 +178,6 @@ static float const kProgressPercentDownload             = 0.75f;
     [DHBSDKApiManager shareManager].apiKey = apikey;
     [DHBSDKApiManager shareManager].signature = signature;
     [DHBSDKApiManager shareManager].host = host;
-    [DHBSDKApiManager shareManager].cityId = cityId;
     return registered;
     
 }
@@ -235,7 +234,7 @@ static float const kProgressPercentDownload             = 0.75f;
 + (BOOL) registerApp:(NSString *)apikey
            signature:(NSString *)signature
                 host:(NSString *)host
-              cityId:(NSString *)cityId
+//              cityId:(NSString *)cityId
      completionBlock:(void (^)(NSError *error) )completionBlock {
     
     if (apikey == nil || [apikey isKindOfClass:[NSNull class]] || apikey.length < 4) {
@@ -244,7 +243,7 @@ static float const kProgressPercentDownload             = 0.75f;
         return NO;
     }
     BOOL needToUpdate = [DHBSDKStartLoadingService fetcherLastVersion];
-    BOOL registered = [self registerInfoApikey:apikey signature:signature host:host cityId:cityId];
+    BOOL registered = [self registerInfoApikey:apikey signature:signature host:host];
     if (!needToUpdate && registered) {
         if (![self existedFolder]) {
             [self copyInitDataCompletionBlock:^(NSError *error) {

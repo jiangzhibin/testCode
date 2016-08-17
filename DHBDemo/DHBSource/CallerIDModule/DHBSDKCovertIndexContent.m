@@ -77,11 +77,8 @@
         //NSLog(@"Category Item: %@",aCategoryItem);
         NSMutableArray *shopItems__ =[DHBSDKListFetcer executeFectcerFromCategoryJson:aCategoryItem];
         if (shopItems__) {
-            NSLog(@"Shop Item ****");
             for (id aShopItem in shopItems__) {
-                NSLog(@"Shop Item ====");
                 for (id shopItems in [aShopItem allValues]) {
-                    NSLog(@"Shop Item ----");
                     for (id item in shopItems) {
                         if ([item isKindOfClass:[DHBSDKShopItem class]]){
                             DHBSDKShopItem * shopItem = item;
