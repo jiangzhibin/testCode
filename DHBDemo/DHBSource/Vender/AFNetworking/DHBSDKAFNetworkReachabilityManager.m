@@ -28,12 +28,12 @@
 #import <ifaddrs.h>
 #import <netdb.h>
 
-NSString * const AFNetworkingReachabilityDidChangeNotification = @"com.alamofire.networking.reachability.change";
-NSString * const AFNetworkingReachabilityNotificationStatusItem = @"AFNetworkingReachabilityNotificationStatusItem";
+NSString * const DHBSDKAFNetworkingReachabilityDidChangeNotification = @"com.alamofire.networking.reachability.change";
+NSString * const DHBSDKAFNetworkingReachabilityNotificationStatusItem = @"AFNetworkingReachabilityNotificationStatusItem";
 
 typedef void (^DHBSDKAFNetworkReachabilityStatusBlock)(DHBSDKAFNetworkReachabilityStatus status);
 
-NSString * AFStringFromNetworkReachabilityStatus(DHBSDKAFNetworkReachabilityStatus status) {
+NSString * DHBSDKAFStringFromNetworkReachabilityStatus(DHBSDKAFNetworkReachabilityStatus status) {
     switch (status) {
         case DHBSDKAFNetworkReachabilityStatusNotReachable:
             return NSLocalizedStringFromTable(@"Not Reachable", @"AFNetworking", nil);
@@ -85,8 +85,8 @@ static void AFPostReachabilityStatusChange(SCNetworkReachabilityFlags flags, DHB
             block(status);
         }
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-        NSDictionary *userInfo = @{ AFNetworkingReachabilityNotificationStatusItem: @(status) };
-        [notificationCenter postNotificationName:AFNetworkingReachabilityDidChangeNotification object:nil userInfo:userInfo];
+        NSDictionary *userInfo = @{ DHBSDKAFNetworkingReachabilityNotificationStatusItem: @(status) };
+        [notificationCenter postNotificationName:DHBSDKAFNetworkingReachabilityDidChangeNotification object:nil userInfo:userInfo];
     });
 }
 
@@ -240,7 +240,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
 #pragma mark -
 
 - (NSString *)localizedNetworkReachabilityStatusString {
-    return AFStringFromNetworkReachabilityStatus(self.networkReachabilityStatus);
+    return DHBSDKAFStringFromNetworkReachabilityStatus(self.networkReachabilityStatus);
 }
 
 #pragma mark -

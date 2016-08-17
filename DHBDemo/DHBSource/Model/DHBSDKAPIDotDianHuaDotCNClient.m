@@ -42,7 +42,7 @@
     [_sharedClient.requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
     
     _sharedClient = [[DHBSDKAPIDotDianHuaDotCNClient alloc] initWithBaseURL:baseURL sessionConfiguration:config];
-    _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+    _sharedClient.responseSerializer = [DHBSDKAFJSONResponseSerializer serializer];
   });
 
   return _sharedClient;

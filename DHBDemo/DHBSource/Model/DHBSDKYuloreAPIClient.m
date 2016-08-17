@@ -28,7 +28,7 @@
     
     _sharedClient = [[DHBSDKYuloreAPIClient alloc] initWithBaseURL:baseURL
                                               sessionConfiguration:config];
-    _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+    _sharedClient.responseSerializer = [DHBSDKAFJSONResponseSerializer serializer];
   });
   
   return _sharedClient;

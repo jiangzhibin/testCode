@@ -30,7 +30,7 @@
     NSMutableDictionary *errorDetail = [NSMutableDictionary dictionary];
     [errorDetail setValue:info forKey:NSLocalizedDescriptionKey];
     
-    error = [[NSError alloc] initWithDomain:AFURLRequestSerializationErrorDomain
+    error = [[NSError alloc] initWithDomain:DHBSDKAFURLRequestSerializationErrorDomain
                                        code:NSURLErrorCannotConnectToHost
                                    userInfo:errorDetail];
   }

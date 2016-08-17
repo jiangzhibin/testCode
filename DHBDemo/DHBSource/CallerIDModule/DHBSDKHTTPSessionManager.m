@@ -28,7 +28,7 @@
     
     _sharedClient = [[DHBSDKHTTPSessionManager alloc] initWithBaseURL:baseURL
                                               sessionConfiguration:nil];
-    _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
+    _sharedClient.responseSerializer = [DHBSDKAFJSONResponseSerializer serializer];
   });
   
   return _sharedClient;

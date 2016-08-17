@@ -79,7 +79,7 @@
     self.baseURL = url;
 
     self.requestSerializer = [DHBSDKAFURLRequestSerialization serializer];
-    self.responseSerializer = [AFJSONResponseSerializer serializer];
+    self.responseSerializer = [DHBSDKAFJSONResponseSerializer serializer];
 
     return self;
 }
@@ -92,7 +92,7 @@
     _requestSerializer = requestSerializer;
 }
 
-- (void)setResponseSerializer:(AFHTTPResponseSerializer <AFURLResponseSerialization> *)responseSerializer {
+- (void)setResponseSerializer:(DHBSDKAFHTTPResponseSerializer <DHBSDKAFURLResponseSerialization> *)responseSerializer {
     NSParameterAssert(responseSerializer);
 
     [super setResponseSerializer:responseSerializer];
@@ -324,7 +324,7 @@
     }
 
     self.requestSerializer = [decoder decodeObjectOfClass:[DHBSDKAFURLRequestSerialization class] forKey:NSStringFromSelector(@selector(requestSerializer))];
-    self.responseSerializer = [decoder decodeObjectOfClass:[AFHTTPResponseSerializer class] forKey:NSStringFromSelector(@selector(responseSerializer))];
+    self.responseSerializer = [decoder decodeObjectOfClass:[DHBSDKAFHTTPResponseSerializer class] forKey:NSStringFromSelector(@selector(responseSerializer))];
     DHBSDKAFSecurityPolicy *decodedPolicy = [decoder decodeObjectOfClass:[DHBSDKAFSecurityPolicy class] forKey:NSStringFromSelector(@selector(securityPolicy))];
     if (decodedPolicy) {
         self.securityPolicy = decodedPolicy;

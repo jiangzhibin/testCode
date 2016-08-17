@@ -73,7 +73,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DHBSDKAFHTTPSessionManager : AFURLSessionManager <NSSecureCoding, NSCopying>
+@interface DHBSDKAFHTTPSessionManager : DHBSDKAFURLSessionManager <NSSecureCoding, NSCopying>
 
 /**
  The URL used to construct requests from relative paths in methods like `requestWithMethod:URLString:parameters:`, and the `GET` / `POST` / et al. convenience methods.
@@ -92,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @warning `responseSerializer` must not be `nil`.
  */
-@property (nonatomic, strong) AFHTTPResponseSerializer <AFURLResponseSerialization> * responseSerializer;
+@property (nonatomic, strong) DHBSDKAFHTTPResponseSerializer <DHBSDKAFURLResponseSerialization> * responseSerializer;
 
 ///---------------------
 /// @name Initialization

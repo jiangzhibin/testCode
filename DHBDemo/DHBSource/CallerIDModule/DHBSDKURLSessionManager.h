@@ -8,7 +8,7 @@
 
 #import "DHBSDKAFURLSessionManager.h"
 
-@interface DHBSDKURLSessionManager : AFURLSessionManager
+@interface DHBSDKURLSessionManager : DHBSDKAFURLSessionManager
 
 + (instancetype)shareManager;
 
