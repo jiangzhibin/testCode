@@ -121,7 +121,7 @@
 		BFA1464B1D5323DE008DE524 /* DHBSDKDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKDataFetcher.m; sourceTree = "<group>"; };
 		BFA1464C1D5323DE008DE524 /* DHBSDKDownloadFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKDownloadFetcher.h; sourceTree = "<group>"; };
 		BFA1464D1D5323DE008DE524 /* DHBSDKDownloadFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKDownloadFetcher.m; sourceTree = "<group>"; };
-		BFA1464E1D5323DE008DE524 /* DHBSDKUpdateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKUpdateItem.h; sourceTree = "<group>"; };
+		BFA1464E1D5323DE008DE524 /* DHBSDKUpdateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DHBSDKUpdateItem.h; path = ../CallerIDModule/DHBSDKUpdateItem.h; sourceTree = "<group>"; };
 		BFA1464F1D5323DE008DE524 /* DHBSDKUpdateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKUpdateItem.m; sourceTree = "<group>"; };
 		BFA146581D532488008DE524 /* DHBSDKOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHBSDKOpenUDID.h; sourceTree = "<group>"; };
 		BFA146591D532488008DE524 /* DHBSDKOpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHBSDKOpenUDID.m; sourceTree = "<group>"; };
@@ -396,7 +396,6 @@
 				BFA1464D1D5323DE008DE524 /* DHBSDKDownloadFetcher.m */,
 				BFA146EC1D532CCE008DE524 /* DHBSDKCategoryItem.h */,
 				BFA146ED1D532CCE008DE524 /* DHBSDKCategoryItem.m */,
-				BFA1464E1D5323DE008DE524 /* DHBSDKUpdateItem.h */,
 				BFA1464F1D5323DE008DE524 /* DHBSDKUpdateItem.m */,
 				BFF1028C1D635FD000EF1DBF /* DHBSDKURLSessionManager.h */,
 				BFF1028D1D635FD000EF1DBF /* DHBSDKURLSessionManager.m */,
@@ -453,6 +452,7 @@
 		BFA147121D532F23008DE524 /* PublicHeader */ = {
 			isa = PBXGroup;
 			children = (
+				BFA1464E1D5323DE008DE524 /* DHBSDKUpdateItem.h */,
 				BFDBFB901D5D74C900F4E527 /* DHBSDKResolveFecherNew.h */,
 				BFA146DA1D532B8F008DE524 /* DHBErrorHelper.h */,
 				BF526BA21D53820600E11FD1 /* DHBSDKResolveItemNew.h */,
