@@ -56,10 +56,10 @@
              DHBDownloadPackageTypeDelta,
              DHBDownloadPackageTypeFull
              */
-            //            updateItem.fullMD5 = @"a19a05255a33b5384641e9dd740524be";
-            //            updateItem.fullDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip";
-            //            updateItem.fullSize = 2698755;
-            //            updateItem.fullVersion = 61;
+//                        updateItem.fullMD5 = @"a19a05255a33b5384641e9dd740524be";
+//                        updateItem.fullDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip";
+//                        updateItem.fullSize = 2698755;
+//                        updateItem.fullVersion = 61;
             
             [DHBSDKApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
                 NSLog(@"进度:%f",progress);
