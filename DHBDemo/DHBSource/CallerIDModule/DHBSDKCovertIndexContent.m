@@ -161,14 +161,15 @@
         NSArray * keys = [list allKeys];
         
         keys = [keys sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
-        
+        NSCharacterSet *characterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
         for (NSString * key in keys)
         {
-            [subList setObject:[self tagLabelFromTagID:[list objectForKey:key]] forKey:key];
+            NSString *newKey = [key stringByTrimmingCharactersInSet:characterSet];
+            [subList setObject:[self tagLabelFromTagID:[list objectForKey:key]] forKey:newKey];
             
             if (i%SPLIT_SIZE==SPLIT_SIZE-1){
                 [subList writeToFile:filePathI atomically:YES];
-                //NSLog(@"store resolve %d: %@",i,filePathI);
+//                NSLog(@"store resolve %d: %@",i,filePathI);
                 [subList removeAllObjects];
                 filePathI=[[NSString alloc] initWithFormat:@"%@%ld",filePath,(long)((i+1)/SPLIT_SIZE)];
                 dispatch_async(dispatch_get_main_queue(), ^(void) {

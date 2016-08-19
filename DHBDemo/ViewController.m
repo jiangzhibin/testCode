@@ -46,7 +46,7 @@
                            cityId:@"0"
              shareGroupIdentifier:nil
                   completionBlock:^(NSError *error) {
-        [DHBSDKApiManager shareManager].shareGroupIdentifier = @"group.yulore";
+        
         [DHBSDKApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
             /*
              fullDownloadPath:http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip,
@@ -62,7 +62,7 @@
 //                        updateItem.fullVersion = 61;
             
             [DHBSDKApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
-                NSLog(@"进度:%f",progress);
+//                NSLog(@"进度:%f",progress);
             } completionHandler:^(NSError *error) {
                 NSLog(@"下载完成 error:%@",error);
             }];
