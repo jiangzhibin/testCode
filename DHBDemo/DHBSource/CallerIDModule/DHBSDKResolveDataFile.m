@@ -477,9 +477,9 @@
         }
         if ([[key substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"0"])
         {
-            return [[NSString alloc] initWithFormat:@"+86%@%@%@",[key substringFromIndex:1],leadingZero,phoneNumberOffset];
+            return [[NSString alloc] initWithFormat:@"86%@%@%@",[key substringFromIndex:1],leadingZero,phoneNumberOffset];
         } else {
-            return [[NSString alloc] initWithFormat:@"+86%@%@%@",key,leadingZero,phoneNumberOffset];
+            return [[NSString alloc] initWithFormat:@"86%@%@%@",key,leadingZero,phoneNumberOffset];
         }
     }
 }
