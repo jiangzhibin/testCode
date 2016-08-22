@@ -178,7 +178,6 @@
         for (NSString * key in keys)
         {
             [subList setObject:[self tagLabelFromTagID:[list objectForKey:key]] forKey:key];
-            printf("\n%s",[key UTF8String]);
             if (i%SPLIT_SIZE==SPLIT_SIZE-1){
                 [subList writeToFile:filePathI atomically:YES];
 //                NSLog(@"store resolve %d: %@",i,filePathI);
