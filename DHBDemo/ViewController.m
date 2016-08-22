@@ -62,7 +62,7 @@
 //                        updateItem.fullVersion = 61;
             
             [DHBSDKApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
-//                NSLog(@"进度:%f",progress);
+                NSLog(@"进度:%f",progress);
             } completionHandler:^(NSError *error) {
                 NSLog(@"下载完成 error:%@",error);
             }];
