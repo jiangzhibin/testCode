@@ -87,7 +87,7 @@ static NSString * const kLastVersion = @"DHBSDKLastVersion";
     return;
   }
   
-  [self copyAndUpzipZipFileWithNameArray:@[@"service_icon.zip", filename]
+  [self copyAndUpzipZipFileWithNameArray:@[filename]
                             targetFolder:offlineDirectory
                          completionBlock:^(NSError *error)
    {

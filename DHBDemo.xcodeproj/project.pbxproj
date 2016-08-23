@@ -23,7 +23,6 @@
 		BF526C081D54762D00E11FD1 /* DHBSDKYuloreZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = BF526C021D54762D00E11FD1 /* DHBSDKYuloreZipArchive.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF526C091D54762D00E11FD1 /* dhbsdkzip.c in Sources */ = {isa = PBXBuildFile; fileRef = BF526C031D54762D00E11FD1 /* dhbsdkzip.c */; };
 		BF5307E51D5AC7AA000901F9 /* 0_mtyF_full.zip in Resources */ = {isa = PBXBuildFile; fileRef = BF5307E31D5AC7AA000901F9 /* 0_mtyF_full.zip */; };
-		BF5307E61D5AC7AA000901F9 /* service_icon.zip in Resources */ = {isa = PBXBuildFile; fileRef = BF5307E41D5AC7AA000901F9 /* service_icon.zip */; };
 		BFA1461F1D53222D008DE524 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1461E1D53222D008DE524 /* main.m */; };
 		BFA146221D53222D008DE524 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146211D53222D008DE524 /* AppDelegate.m */; };
 		BFA146251D53222D008DE524 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA146241D53222D008DE524 /* ViewController.m */; };
@@ -103,7 +102,6 @@
 		BF526C031D54762D00E11FD1 /* dhbsdkzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dhbsdkzip.c; sourceTree = "<group>"; };
 		BF526C041D54762D00E11FD1 /* dhbsdkzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dhbsdkzip.h; sourceTree = "<group>"; };
 		BF5307E31D5AC7AA000901F9 /* 0_mtyF_full.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = 0_mtyF_full.zip; sourceTree = "<group>"; };
-		BF5307E41D5AC7AA000901F9 /* service_icon.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = service_icon.zip; sourceTree = "<group>"; };
 		BF7E81011D61CC1100732469 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BFA1461A1D53222D008DE524 /* DHBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DHBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA1461E1D53222D008DE524 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				BF5307E31D5AC7AA000901F9 /* 0_mtyF_full.zip */,
-				BF5307E41D5AC7AA000901F9 /* service_icon.zip */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -548,7 +545,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF5307E61D5AC7AA000901F9 /* service_icon.zip in Resources */,
 				BFA1462D1D53222D008DE524 /* LaunchScreen.storyboard in Resources */,
 				BFA1462A1D53222D008DE524 /* Assets.xcassets in Resources */,
 				BF5307E51D5AC7AA000901F9 /* 0_mtyF_full.zip in Resources */,
