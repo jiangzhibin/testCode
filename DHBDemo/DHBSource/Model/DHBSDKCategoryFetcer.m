@@ -177,18 +177,18 @@ updateFromServerCompletionHandler:(DHBSDKCategoryCompletionHandler)updateFromSer
                          loadFromSandboxCompletionHandler(allHotCategories, allServices, allLocalServices,allNearbys, allPromotions, error);
                          
                        }];
-  
-  [self categoriesWithCityID:cityID completionHandler:^(NSMutableArray *allCategories, NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices,NSMutableArray *allNearbys,NSMutableArray *allPromotions, NSError *error) {
-    
-    _allHotCategories = allHotCategories;
-    _allServices = allServices;
-    _allLocalServices = allLocalServices;
-    _allCategories = allCategories;
-    _allNearby = allNearbys;
-    _allPromotions = allPromotions;
-    updateFromServerCompletionHandler(allHotCategories, allServices, allLocalServices, allNearbys,allPromotions, error);
-    
-  }];
+//  
+//  [self categoriesWithCityID:cityID completionHandler:^(NSMutableArray *allCategories, NSMutableArray *allHotCategories, NSMutableArray *allServices, NSMutableArray *allLocalServices,NSMutableArray *allNearbys,NSMutableArray *allPromotions, NSError *error) {
+//    
+//    _allHotCategories = allHotCategories;
+//    _allServices = allServices;
+//    _allLocalServices = allLocalServices;
+//    _allCategories = allCategories;
+//    _allNearby = allNearbys;
+//    _allPromotions = allPromotions;
+//    updateFromServerCompletionHandler(allHotCategories, allServices, allLocalServices, allNearbys,allPromotions, error);
+//    
+//  }];
 }
 
 //
