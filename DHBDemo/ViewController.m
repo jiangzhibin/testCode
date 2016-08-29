@@ -20,13 +20,9 @@
 @implementation ViewController
 
 
-#define APIKEY_Download @"mtyFwikuZ8ARgmwhljlidzxbevhrWrjL"
+#define APIKEY @"mtyFwikuZ8ARgmwhljlidzxbevhrWrjL"
+#define APISIG @"31e3fbf60ec0b4ab0974cc4c86403548"
 
-#define APIKEY @"6WWpOS2NreERRbkJpYVVJd1lVZFZaMkw"
-#define APISIG @"yv3%D_d&-hq3F8JmDr!?cf#dk3pvs2#D_d&-vaSc7szVs!jcCs5$NvY2ul__o)3s!__Ns$__g4*d__cne@__c#bst9sk-c$xA__5#jclsOc9^bv2__7cJ&h__ld4=U3Kij*sD5&_ds2{hX13e2@s9C#s3#zF!v%ba^2Dc"
-
-#define APIKEY2 @"abFRSWVlxTYkhZYbCcZSdapLVlllteGX"
-#define APISIG2 @"E5UaGxNMkUxTVRrd01EbGtNemN5WlRoaFpUUmpZVFV3TnprM01UVT1ZV1l6TXpjell6QXlNVFV6TUdNMU4ySmtNMlExWXpWaU1XRm1OMlptTkdRPVpUSXlNR0UzWWpKalkyUXhNbUptWTJFNVl6QTRObUprTVRjNE1UUm1"
 #define kDHBHost @"https://apis-ios.dianhua.cn/"
 
 
@@ -40,10 +36,10 @@
 //    [DHBSDKApiManager registerApp:nil signature:nil host:nil cityId:nil shareGroupIdentifier:nil completionBlock:nil];
 //    return;
     [DHBSDKApiManager shareManager].downloadNetworkType = DHBSDKDownloadNetworkTypeAllAllow;
-    [DHBSDKApiManager registerApp:APIKEY_Download
-                        signature:APISIG2
+    [DHBSDKApiManager registerApp:APIKEY
+                        signature:APISIG
                              host:kDHBHost
-                           cityId:@"0"
+                           cityId:nil
              shareGroupIdentifier:nil
                   completionBlock:^(NSError *error) {
         
@@ -90,8 +86,8 @@
 
 #pragma mark - 在线标记
 - (IBAction)onlineMarkAction:(id)sender {
-    [DHBSDKApiManager registerApp:APIKEY2
-                         signature:APISIG2
+    [DHBSDKApiManager registerApp:APIKEY
+                         signature:APISIG
                               host:kDHBHost
                             cityId:@"0"
               shareGroupIdentifier:nil
@@ -104,8 +100,8 @@
 
 #pragma mark - 在线识别
 - (IBAction)onlineRecognizeAction:(id)sender {
-    [DHBSDKApiManager registerApp:APIKEY2
-                         signature:APISIG2
+    [DHBSDKApiManager registerApp:APIKEY
+                         signature:APISIG
                               host:kDHBHost
                             cityId:@"0"
               shareGroupIdentifier:nil
