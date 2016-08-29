@@ -7,8 +7,8 @@
 //
 
 #import "NSDictionary+DHBSDKSignature.h"
+#import "DHBSDKApiManager.h"
 
-#define kPassword @"nsFwF52FnwvbdjynaqmfKlyb7Tq8eqAlqKhyXoWBvkvag0H1zKFFETY6Ez4saafzTxsqpuRnm4SQaqdKj4khxFAkbaxppCJidgQw2ojFpm4WpUutqcpNuPoFad0xcpZwrgxizszkthcmxq1brXtozwCpDm5xcoTCygLdu"
 #import <CommonCrypto/CommonCrypto.h>
 @implementation NSDictionary (DHBSDKSignature)
 - (NSString *)signature {
@@ -60,14 +60,11 @@
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for (int i = 0; i < 11; i++) {
-        NSString *sub = [kPassword substringWithRange:range[i]];
+        NSString *sub = [[DHBSDKApiManager shareManager].signature substringWithRange:range[i]];
         [array addObject:sub];
     }
-    
-    
     return array;
 }
-
 
 
 NSString * sha1(const char *string) {

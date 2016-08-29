@@ -21,7 +21,7 @@
 
 
 #define APIKEY @"mtyFwikuZ8ARgmwhljlidzxbevhrWrjL"
-#define APISIG @"31e3fbf60ec0b4ab0974cc4c86403548"
+#define APISIG @"nsFwF52FnwvbdjynaqmfKlyb7Tq8eqAlqKhyXoWBvkvag0H1zKFFETY6Ez4saafzTxsqpuRnm4SQaqdKj4khxFAkbaxppCJidgQw2ojFpm4WpUutqcpNuPoFad0xcpZwrgxizszkthcmxq1brXtozwCpDm5xcoTCygLdu"
 
 #define kDHBHost @"https://apis-ios.dianhua.cn/"
 
