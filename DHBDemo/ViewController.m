@@ -29,13 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-}
-
-#pragma mark - 下载
-- (IBAction)downloadAction:(id)sender {
-//    [DHBSDKApiManager registerApp:nil signature:nil host:nil cityId:nil shareGroupIdentifier:nil completionBlock:nil];
-//    return;
-    [DHBSDKApiManager shareManager].downloadNetworkType = DHBSDKDownloadNetworkTypeAllAllow;
     [DHBSDKApiManager registerApp:APIKEY
                         signature:APISIG
                              host:kDHBHost
@@ -43,25 +36,29 @@
              shareGroupIdentifier:nil
                   completionBlock:^(NSError *error) {
         
-        [DHBSDKApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
-            /*
-             fullDownloadPath:http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip,
-             fullMD5:a19a05255a33b5384641e9dd740524be,
-             fullSize:2698755,
-             fullVersion:61,
-             DHBDownloadPackageTypeDelta,
-             DHBDownloadPackageTypeFull
-             */
+                  }];
+}
+
+#pragma mark - 下载
+- (IBAction)downloadAction:(id)sender {
+    [DHBSDKApiManager dataInfoFetcherCompletionHandler:^(DHBSDKUpdateItem *updateItem, NSError *error) {
+        /*
+         fullDownloadPath:http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip,
+         fullMD5:a19a05255a33b5384641e9dd740524be,
+         fullSize:2698755,
+         fullVersion:61,
+         DHBDownloadPackageTypeDelta,
+         DHBDownloadPackageTypeFull
+         */
 //                        updateItem.fullMD5 = @"a19a05255a33b5384641e9dd740524be";
 //                        updateItem.fullDownloadPath = @"http://s3.dianhua.cn/chk/flag/1_mtyF_flag_86_61.zip";
 //                        updateItem.fullSize = 2698755;
 //                        updateItem.fullVersion = 61;
-            
-            [DHBSDKApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
-                NSLog(@"进度:%f",progress);
-            } completionHandler:^(NSError *error) {
-                NSLog(@"下载完成 error:%@",error);
-            }];
+        
+        [DHBSDKApiManager downloadDataWithUpdateItem:updateItem dataType:DHBDownloadPackageTypeFull progressBlock:^(double progress) {
+            NSLog(@"进度:%f",progress);
+        } completionHandler:^(NSError *error) {
+            NSLog(@"下载完成 error:%@",error);
         }];
     }];
 }
