@@ -81,7 +81,7 @@ NSString * DHBSDKAFPercentEscapedStringFromString(NSString *string) {
 
 #pragma mark -
 
-@interface AFQueryStringPair : NSObject
+@interface DHBSDKAFQueryStringPair : NSObject
 @property (readwrite, nonatomic, strong) id field;
 @property (readwrite, nonatomic, strong) id value;
 
@@ -90,7 +90,7 @@ NSString * DHBSDKAFPercentEscapedStringFromString(NSString *string) {
 - (NSString *)URLEncodedStringValue;
 @end
 
-@implementation AFQueryStringPair
+@implementation DHBSDKAFQueryStringPair
 
 - (instancetype)initWithField:(id)field value:(id)value {
     self = [super init];
@@ -121,7 +121,7 @@ FOUNDATION_EXPORT NSArray * DHBSDKAFQueryStringPairsFromKeyAndValue(NSString *ke
 
 NSString * DHBSDKAFQueryStringFromParameters(NSDictionary *parameters) {
     NSMutableArray *mutablePairs = [NSMutableArray array];
-    for (AFQueryStringPair *pair in DHBSDKAFQueryStringPairsFromDictionary(parameters)) {
+    for (DHBSDKAFQueryStringPair *pair in DHBSDKAFQueryStringPairsFromDictionary(parameters)) {
         [mutablePairs addObject:[pair URLEncodedStringValue]];
     }
 
@@ -157,7 +157,7 @@ NSArray * DHBSDKAFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
             [mutableQueryStringComponents addObjectsFromArray:DHBSDKAFQueryStringPairsFromKeyAndValue(key, obj)];
         }
     } else {
-        [mutableQueryStringComponents addObject:[[AFQueryStringPair alloc] initWithField:key value:value]];
+        [mutableQueryStringComponents addObject:[[DHBSDKAFQueryStringPair alloc] initWithField:key value:value]];
     }
 
     return mutableQueryStringComponents;
@@ -384,7 +384,7 @@ forHTTPHeaderField:(NSString *)field
     __block DHBSDKAFStreamingMultipartFormData *formData = [[DHBSDKAFStreamingMultipartFormData alloc] initWithURLRequest:mutableRequest stringEncoding:NSUTF8StringEncoding];
 
     if (parameters) {
-        for (AFQueryStringPair *pair in DHBSDKAFQueryStringPairsFromDictionary(parameters)) {
+        for (DHBSDKAFQueryStringPair *pair in DHBSDKAFQueryStringPairsFromDictionary(parameters)) {
             NSData *data = nil;
             if ([pair.value isKindOfClass:[NSData class]]) {
                 data = pair.value;
@@ -492,7 +492,7 @@ forHTTPHeaderField:(NSString *)field
             }
         } else {
             switch (self.queryStringSerializationStyle) {
-                case AFHTTPRequestQueryStringDefaultStyle:
+                case DHBSDKAFHTTPRequestQueryStringDefaultStyle:
                     query = DHBSDKAFQueryStringFromParameters(parameters);
                     break;
             }
@@ -628,7 +628,7 @@ NSTimeInterval const kDHBSDKAFUploadStream3GSuggestedDelay = 0.2;
         maxLength:(NSUInteger)length;
 @end
 
-@interface AFMultipartBodyStream : NSInputStream <NSStreamDelegate>
+@interface DHBSDKAFMultipartBodyStream : NSInputStream <NSStreamDelegate>
 @property (nonatomic, assign) NSUInteger numberOfBytesInPacket;
 @property (nonatomic, assign) NSTimeInterval delay;
 @property (nonatomic, strong) NSInputStream *inputStream;
@@ -646,7 +646,7 @@ NSTimeInterval const kDHBSDKAFUploadStream3GSuggestedDelay = 0.2;
 @property (readwrite, nonatomic, copy) NSMutableURLRequest *request;
 @property (readwrite, nonatomic, assign) NSStringEncoding stringEncoding;
 @property (readwrite, nonatomic, copy) NSString *boundary;
-@property (readwrite, nonatomic, strong) AFMultipartBodyStream *bodyStream;
+@property (readwrite, nonatomic, strong) DHBSDKAFMultipartBodyStream *bodyStream;
 @end
 
 @implementation DHBSDKAFStreamingMultipartFormData
@@ -662,7 +662,7 @@ NSTimeInterval const kDHBSDKAFUploadStream3GSuggestedDelay = 0.2;
     self.request = urlRequest;
     self.stringEncoding = encoding;
     self.boundary = AFCreateMultipartFormBoundary();
-    self.bodyStream = [[AFMultipartBodyStream alloc] initWithStringEncoding:encoding];
+    self.bodyStream = [[DHBSDKAFMultipartBodyStream alloc] initWithStringEncoding:encoding];
 
     return self;
 }
@@ -825,7 +825,7 @@ NSTimeInterval const kDHBSDKAFUploadStream3GSuggestedDelay = 0.2;
 @property (readwrite, copy) NSError *streamError;
 @end
 
-@interface AFMultipartBodyStream () <NSCopying>
+@interface DHBSDKAFMultipartBodyStream () <NSCopying>
 @property (readwrite, nonatomic, assign) NSStringEncoding stringEncoding;
 @property (readwrite, nonatomic, strong) NSMutableArray *HTTPBodyParts;
 @property (readwrite, nonatomic, strong) NSEnumerator *HTTPBodyPartEnumerator;
@@ -834,7 +834,7 @@ NSTimeInterval const kDHBSDKAFUploadStream3GSuggestedDelay = 0.2;
 @property (readwrite, nonatomic, strong) NSMutableData *buffer;
 @end
 
-@implementation AFMultipartBodyStream
+@implementation DHBSDKAFMultipartBodyStream
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wimplicit-atomic-properties"
 #if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000) || (defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && __MAC_OS_X_VERSION_MAX_ALLOWED >= 1100)
@@ -988,7 +988,7 @@ NSTimeInterval const kDHBSDKAFUploadStream3GSuggestedDelay = 0.2;
 #pragma mark - NSCopying
 
 - (instancetype)copyWithZone:(NSZone *)zone {
-    AFMultipartBodyStream *bodyStreamCopy = [[[self class] allocWithZone:zone] initWithStringEncoding:self.stringEncoding];
+    DHBSDKAFMultipartBodyStream *bodyStreamCopy = [[[self class] allocWithZone:zone] initWithStringEncoding:self.stringEncoding];
 
     for (DHBSDKAFHTTPBodyPart *bodyPart in self.HTTPBodyParts) {
         [bodyStreamCopy appendHTTPBodyPart:[bodyPart copy]];
@@ -1218,7 +1218,7 @@ typedef enum {
 
 #pragma mark -
 
-@implementation AFJSONRequestSerializer
+@implementation DHBSDKAFJSONRequestSerializer
 
 + (instancetype)serializer {
     return [self serializerWithWritingOptions:(NSJSONWritingOptions)0];
@@ -1226,7 +1226,7 @@ typedef enum {
 
 + (instancetype)serializerWithWritingOptions:(NSJSONWritingOptions)writingOptions
 {
-    AFJSONRequestSerializer *serializer = [[self alloc] init];
+    DHBSDKAFJSONRequestSerializer *serializer = [[self alloc] init];
     serializer.writingOptions = writingOptions;
 
     return serializer;
@@ -1285,7 +1285,7 @@ typedef enum {
 #pragma mark - NSCopying
 
 - (instancetype)copyWithZone:(NSZone *)zone {
-    AFJSONRequestSerializer *serializer = [super copyWithZone:zone];
+    DHBSDKAFJSONRequestSerializer *serializer = [super copyWithZone:zone];
     serializer.writingOptions = self.writingOptions;
 
     return serializer;
@@ -1295,7 +1295,7 @@ typedef enum {
 
 #pragma mark -
 
-@implementation AFPropertyListRequestSerializer
+@implementation DHBSDKAFPropertyListRequestSerializer
 
 + (instancetype)serializer {
     return [self serializerWithFormat:NSPropertyListXMLFormat_v1_0 writeOptions:0];
@@ -1304,7 +1304,7 @@ typedef enum {
 + (instancetype)serializerWithFormat:(NSPropertyListFormat)format
                         writeOptions:(NSPropertyListWriteOptions)writeOptions
 {
-    AFPropertyListRequestSerializer *serializer = [[self alloc] init];
+    DHBSDKAFPropertyListRequestSerializer *serializer = [[self alloc] init];
     serializer.format = format;
     serializer.writeOptions = writeOptions;
 
@@ -1366,7 +1366,7 @@ typedef enum {
 #pragma mark - NSCopying
 
 - (instancetype)copyWithZone:(NSZone *)zone {
-    AFPropertyListRequestSerializer *serializer = [super copyWithZone:zone];
+    DHBSDKAFPropertyListRequestSerializer *serializer = [super copyWithZone:zone];
     serializer.format = self.format;
     serializer.writeOptions = self.writeOptions;
 

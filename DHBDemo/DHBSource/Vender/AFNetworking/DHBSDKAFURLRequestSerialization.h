@@ -83,7 +83,7 @@ FOUNDATION_EXPORT NSString * DHBSDKAFQueryStringFromParameters(NSDictionary *par
 
  */
 typedef NS_ENUM(NSUInteger, DHBSDKAFHTTPRequestQueryStringSerializationStyle) {
-    AFHTTPRequestQueryStringDefaultStyle = 0,
+    DHBSDKAFHTTPRequestQueryStringDefaultStyle = 0,
 };
 
 @protocol AFMultipartFormData;
@@ -380,7 +380,7 @@ forHTTPHeaderField:(NSString *)field;
 /**
  `AFJSONRequestSerializer` is a subclass of `AFHTTPRequestSerializer` that encodes parameters as JSON using `NSJSONSerialization`, setting the `Content-Type` of the encoded request to `application/json`.
  */
-@interface AFJSONRequestSerializer : DHBSDKAFURLRequestSerialization
+@interface DHBSDKAFJSONRequestSerializer : DHBSDKAFURLRequestSerialization
 
 /**
  Options for writing the request JSON data from Foundation objects. For possible values, see the `NSJSONSerialization` documentation section "NSJSONWritingOptions". `0` by default.
@@ -401,7 +401,7 @@ forHTTPHeaderField:(NSString *)field;
 /**
  `AFPropertyListRequestSerializer` is a subclass of `AFHTTPRequestSerializer` that encodes parameters as JSON using `NSPropertyListSerializer`, setting the `Content-Type` of the encoded request to `application/x-plist`.
  */
-@interface AFPropertyListRequestSerializer : DHBSDKAFURLRequestSerialization
+@interface DHBSDKAFPropertyListRequestSerializer : DHBSDKAFURLRequestSerialization
 
 /**
  The property list format. Possible values are described in "NSPropertyListFormat".
